@@ -1,18 +1,18 @@
-# Contributing to the MCP Server Registry
+# Contributing to getmcp.io Server Registry
 
-Thank you for considering contributing to the MCP Server Registry! This document outlines the process for adding or updating MCP servers in the registry.
+Thank you for considering contributing to the getmcp.io Server Registry! This document outlines the process for adding or updating MCP servers in the registry.
 
 ## Adding a New Server
 
 1. Fork this repository
-2. Create a new directory under `servers/` with your server's name (use kebab-case, e.g., `github` or `time-converter`)
+2. Create a new directory under `mcp-registry/servers/` with your server's name (use kebab-case, e.g., `github` or `time-converter`)
 3. Add the following files to your server directory:
    - `manifest.json`: Server metadata and configuration (see schema below)
    - `README.md`: Detailed documentation for your server
 
 ### manifest.json Requirements
 
-Your `manifest.json` file must adhere to the [manifest schema](../schema/manifest-schema.json) and include the following information:
+Your `manifest.json` file must adhere to the [manifest schema](/mcp-registry/schema/manifest-schema.json) and include the following information:
 
 ```json
 {
@@ -79,7 +79,7 @@ Before submitting your pull request, please validate your manifest.json file:
 
 ```bash
 # From the repository root
-npm run validate-manifest servers/your-server-name/manifest.json
+npm run validate-manifest mcp-registry/servers/your-server-name/manifest.json
 ```
 
 ## Code of Conduct
