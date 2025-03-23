@@ -6,20 +6,22 @@
     <title>getmcp.io</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #333333;
-            --secondary: #555555;
+            --primary: #171717;
+            --secondary: #454545;
             --background: #ffffff;
-            --text: #333333;
+            --text: #171717;
             --light-text: #666666;
             --border: #EBEBEB;
             --accent: #F7F7F7;
-            --button-bg: #EFEFEF;
-            --button-hover: #E0E0E0;
-            --accent-color: #5C7AEA;
-            --accent-light: #EFF3FF;
+            --button-bg: #171717;
+            --button-hover: #333333;
+            --highlight: #FF825C;
+            --highlight-light: #FFF1ED;
+            --code-bg: #1F1F1F;
+            --code-text: #F5F5F5;
         }
         
         * {
@@ -37,8 +39,10 @@
             flex-direction: column;
             min-height: 100vh;
             padding: 2rem;
-            text-align: center;
+            text-align: left;
             position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .github-corner {
@@ -48,7 +52,7 @@
             width: 80px;
             height: 80px;
             opacity: 0.8;
-            color: var(--accent-color);
+            color: var(--primary);
         }
         
         .github-corner:hover {
@@ -64,30 +68,39 @@
         }
         
         h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
             color: var(--primary);
             letter-spacing: -0.02em;
-            position: relative;
-            display: inline-block;
+            line-height: 1.1;
         }
         
-        h1::after {
+        .highlight {
+            display: inline-block;
+            position: relative;
+            color: var(--primary);
+            padding: 0 0.25rem;
+        }
+        
+        .highlight::before {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 25%;
-            width: 50%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            left: 0;
+            right: 0;
+            bottom: 0.1em;
+            height: 0.3em;
+            background-color: var(--highlight);
+            opacity: 0.3;
+            z-index: -1;
         }
         
         p {
             font-size: 1.25rem;
             margin-bottom: 2.5rem;
             max-width: 600px;
-            color: var(--light-text);
+            color: var(--secondary);
+            line-height: 1.6;
         }
         
         .buttons {
@@ -108,13 +121,15 @@
         }
         
         .primary {
-            background-color: var(--accent-light);
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
+            background-color: var(--button-bg);
+            color: white;
+            border: 1px solid var(--button-bg);
+            font-weight: 600;
         }
         
         .primary:hover {
             background-color: var(--button-hover);
+            transform: translateY(-1px);
         }
         
         .secondary {
@@ -131,6 +146,7 @@
             margin-top: 4rem;
             font-size: 0.875rem;
             color: var(--light-text);
+            text-align: center;
         }
         
         footer a {
@@ -144,13 +160,38 @@
         
         .tagline {
             font-size: 1rem;
-            color: var(--light-text);
+            color: var(--secondary);
             margin-bottom: 2rem;
-            margin-top: -1.5rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--accent-light);
-            border-radius: 4px;
-            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+        
+        .code-block {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: monospace;
+            line-height: 1.6;
+            font-size: 0.9rem;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .code-line {
+            display: flex;
+        }
+        
+        .line-number {
+            opacity: 0.5;
+            width: 1.5rem;
+            text-align: right;
+            margin-right: 1rem;
+        }
+        
+        .comment {
+            color: #A0A0A0;
         }
     </style>
 </head>
@@ -164,9 +205,18 @@
     </a>
     
     <div class="content">
-        <h1>getmcp.io</h1>
+        <h1>Open Source<br><span class="highlight">MCP Registry</span> Platform</h1>
         <p>The single open MCP registry we all need.</p>
         <p class="tagline"><strong>Community-driven, open source, forever free.</strong></p>
+        
+        <div class="code-block">
+            <div class="code-line"><span class="line-number">1</span><span class="comment"># Install MCP server</span></div>
+            <div class="code-line"><span class="line-number">2</span>npm install @modelcontextprotocol/server</div>
+            <div class="code-line"><span class="line-number">3</span></div>
+            <div class="code-line"><span class="line-number">4</span><span class="comment"># Register your server</span></div>
+            <div class="code-line"><span class="line-number">5</span>getmcp contribute --server my-mcp-server</div>
+        </div>
+        
         <div class="buttons">
             <a href="/registry" class="button primary">Explore Registry</a>
             <a href="https://github.com/getmcp-xyz/getmcp.io/blob/main/mcp-registry/CONTRIBUTING.md" class="button secondary">Contribute</a>

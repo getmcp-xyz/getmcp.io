@@ -41,13 +41,13 @@
         },
         "url": {
           "type": "string",
-          "format": "uri"
+          "pattern": "^https?://[\\w.-]+(:\\d+)?(/[\\w.-]*)*$"
         }
       }
     },
     "homepage": {
       "type": "string",
-      "format": "uri"
+      "pattern": "^https?://[\\w.-]+(:\\d+)?(/[\\w.-]*)*$"
     },
     "author": {
       "type": "object",
@@ -58,11 +58,11 @@
         },
         "email": {
           "type": "string",
-          "format": "email"
+          "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
         },
         "url": {
           "type": "string",
-          "format": "uri"
+          "pattern": "^https?://[\\w.-]+(:\\d+)?(/[\\w.-]*)*$"
         }
       }
     },
