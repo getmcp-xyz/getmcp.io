@@ -19,6 +19,8 @@
             --button-bg: #EFEFEF;
             --button-hover: #E0E0E0;
             --view-manifest: #FAFAFA;
+            --accent-color: #5C7AEA;
+            --accent-light: #EFF3FF;
         }
         
         * {
@@ -235,6 +237,24 @@
             border: 1px solid var(--border);
         }
         
+        .server-card .meta .author {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--accent-light);
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-left: 0.5rem;
+        }
+        
+        .server-card .meta .author:before {
+            content: '✓';
+            margin-right: 0.25rem;
+            font-size: 0.75rem;
+        }
+        
         .server-links {
             display: flex;
             gap: 0.5rem;
@@ -432,7 +452,7 @@
     
     <main>
         <div class="container">
-            <h1>getmcp.io Server Registry</h1>
+            <h1>Server Registry</h1>
             <p class="subtitle">Browse and discover MCP servers to extend your AI assistant capabilities</p>
             <p class="community-note"><strong>Open source, forever free, and built by the community, for the community.</strong></p>
             
@@ -523,12 +543,23 @@
         
         // Fetch manifest content
         async function fetchManifest(apiEndpoint) {
+            // Use a cache to avoid redundant fetches
+            if (!window.manifestCache) {
+                window.manifestCache = {};
+            }
+            
+            if (window.manifestCache[apiEndpoint]) {
+                return window.manifestCache[apiEndpoint];
+            }
+            
             try {
                 const response = await fetch(apiEndpoint);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return await response.json();
+                const manifest = await response.json();
+                window.manifestCache[apiEndpoint] = manifest;
+                return manifest;
             } catch (error) {
                 console.error('Error fetching manifest:', error);
                 return null;
@@ -629,6 +660,18 @@
                 version.className = 'version';
                 version.textContent = `v${server.version}`;
                 meta.appendChild(version);
+                
+                // Add author information from manifest
+                fetchManifest(server.apiEndpoint)
+                    .then(manifest => {
+                        if (manifest && manifest.author && manifest.author.name) {
+                            const author = document.createElement('span');
+                            author.className = 'author';
+                            author.textContent = manifest.author.name;
+                            meta.appendChild(author);
+                        }
+                    })
+                    .catch(err => console.error(`Error fetching author for ${server.name}:`, err));
                 
                 serverContent.appendChild(meta);
                 
