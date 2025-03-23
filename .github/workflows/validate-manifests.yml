@@ -13,65 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Validate Manifest JSON Files
+        uses: walbo/validate-json@v1.1.0
         with:
-          node-version: '18'
-
-      - name: Install validation tools
-        run: |
-          npm install -g ajv-cli ajv-formats
-
-      - name: Create validation script
-        run: |
-          cat > validate.js << 'EOF'
-          const Ajv = require('ajv');
-          const addFormats = require('ajv-formats');
-          const fs = require('fs');
-          
-          const schema = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
-          const data = JSON.parse(fs.readFileSync(process.argv[3], 'utf8'));
-          
-          const ajv = new Ajv({allErrors: true});
-          addFormats(ajv);
-          
-          const validate = ajv.compile(schema);
-          const valid = validate(data);
-          
-          if (!valid) {
-            console.error("Validation errors:", JSON.stringify(validate.errors, null, 2));
-            process.exit(1);
-          } else {
-            console.log("Validation successful");
-            process.exit(0);
-          }
-          EOF
-
-      - name: Validate Manifest Files
-        run: |
-          echo "Validating manifest files against schema..."
-          
-          # Schema location
-          SCHEMA_PATH="mcp-registry/schema/manifest-schema.json"
-          
-          # Find all manifest.json files
-          MANIFESTS=$(find mcp-registry/servers -name "manifest.json" -type f)
-          
-          # Exit code to track validation status
-          VALIDATION_EXIT_CODE=0
-          
-          for MANIFEST in $MANIFESTS; do
-            SERVER_NAME=$(basename $(dirname "$MANIFEST"))
-            echo "Validating $SERVER_NAME manifest..."
-            
-            # Validate manifest against schema using our custom script
-            if ! node validate.js "$SCHEMA_PATH" "$MANIFEST"; then
-              echo "::error::Validation failed for $MANIFEST"
-              VALIDATION_EXIT_CODE=1
-            else
-              echo "✅ $SERVER_NAME manifest is valid"
-            fi
-          done
-          
-          # Exit with error if any validation failed
-          exit $VALIDATION_EXIT_CODE
+          # Validate all manifest.json files in the servers directory
+          files: mcp-registry/servers/*/manifest.json
+          # Use our schema file
+          schema: mcp-registry/schema/manifest-schema.json
+          # Use draft-07 as specified in our schema
+          schema-version: draft-07
+          # Print information about valid files too
+          print-valid-files: true
