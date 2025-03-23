@@ -1,0 +1,51 @@
+name: Validate Server Manifests
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install ajv-cli
+        run: npm install -g ajv-cli@5.0.0
+
+      - name: Validate Manifest Files
+        run: |
+          echo "Validating manifest files against schema..."
+          
+          # Schema location
+          SCHEMA_PATH="mcp-registry/schema/manifest-schema.json"
+          
+          # Find all manifest.json files
+          MANIFESTS=$(find mcp-registry/servers -name "manifest.json" -type f)
+          
+          # Exit code to track validation status
+          VALIDATION_EXIT_CODE=0
+          
+          for MANIFEST in $MANIFESTS; do
+            SERVER_NAME=$(basename $(dirname "$MANIFEST"))
+            echo "Validating $SERVER_NAME manifest..."
+            
+            # Validate manifest against schema
+            if ! ajv validate -s "$SCHEMA_PATH" -d "$MANIFEST"; then
+              echo "::error::Validation failed for $MANIFEST"
+              VALIDATION_EXIT_CODE=1
+            else
+              echo "✅ $SERVER_NAME manifest is valid"
+            fi
+          done
+          
+          # Exit with error if any validation failed
+          exit $VALIDATION_EXIT_CODE
