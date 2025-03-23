@@ -40,14 +40,12 @@
           "enum": ["git"]
         },
         "url": {
-          "type": "string",
-          "pattern": "^https?://[\\w.-]+(:\\d+)?(/[\\w.-]*)*$"
+          "type": "string"
         }
       }
     },
     "homepage": {
-      "type": "string",
-      "pattern": "^https?://[\\w.-]+(:\\d+)?(/[\\w.-]*)*$"
+      "type": "string"
     },
     "author": {
       "type": "object",
@@ -57,12 +55,10 @@
           "type": "string"
         },
         "email": {
-          "type": "string",
-          "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          "type": "string"
         },
         "url": {
-          "type": "string",
-          "pattern": "^https?://[\\w.-]+(:\\d+)?(/[\\w.-]*)*$"
+          "type": "string"
         }
       }
     },
