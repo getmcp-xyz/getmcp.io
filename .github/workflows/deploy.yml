@@ -28,7 +28,14 @@ jobs:
       - name: Copy registry to pages directory
         run: |
           mkdir -p pages/registry
+          mkdir -p pages/api/servers
           cp -r mcp-registry/* pages/registry/
+          
+          # Copy all manifest files to API directory for direct access
+          find mcp-registry/servers -name "manifest.json" -type f | while read manifest; do
+            server_name=$(basename $(dirname "$manifest"))
+            cp "$manifest" "pages/api/servers/$server_name.json"
+          done
       
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1.0.12
