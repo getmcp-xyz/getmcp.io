@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Registry - Servers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E40AF;
+            --secondary: #3B82F6;
+            --background: #F8FAFC;
+            --text: #1E293B;
+            --light-text: #64748B;
+            --accent: #EFF6FF;
+            --border: #E2E8F0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: var(--text);
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            color: var(--primary);
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+        
+        .search-container {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tag-filter {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .tag-filter:hover, .tag-filter.active {
+            background-color: white;
+            border-color: var(--secondary);
+        }
+        
+        .servers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .server-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .server-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .server-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .server-card .description {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        
+        .server-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .server-card .tag {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .server-card .meta {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+        
+        .server-card .meta .version {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.15rem 0.5rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .server-links {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .server-link {
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .primary-link {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .secondary-link {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .nav {
+                margin-top: 1rem;
+            }
+            
+            .nav a {
+                margin-left: 0;
+                margin-right: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">MCP<span>Registry</span></a>
+                <nav class="nav">
+                    <a href="/">Home</a>
+                    <a href="/registry">Registry</a>
+                    <a href="https://github.com/getmcp-xyz/getmcp.io" target="_blank">GitHub</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>MCP Server Registry</h1>
+            <p class="subtitle">Browse and discover MCP servers to extend your AI assistant capabilities</p>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search servers..." id="searchInput">
+            </div>
+            
+            <div class="tag-filters">
+                <span class="tag-filter active" data-tag="all">All</span>
+                <span class="tag-filter" data-tag="api">API</span>
+                <span class="tag-filter" data-tag="utility">Utility</span>
+                <span class="tag-filter" data-tag="development">Development</span>
+                <span class="tag-filter" data-tag="time">Time</span>
+                <span class="tag-filter" data-tag="testing">Testing</span>
+            </div>
+            
+            <div class="servers-grid" id="serversGrid">
+                <!-- Server cards are populated dynamically -->
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 MCP Registry Contributors. Licensed under <a href="https://github.com/getmcp-xyz/getmcp.io/blob/main/LICENSE">MIT License</a>.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Server data (in a real implementation, this would be fetched from the registry)
+        const servers = [
+            {
+                name: "github",
+                displayName: "GitHub MCP Server",
+                description: "MCP Server for the GitHub API, enabling file operations, repository management, search functionality, and more.",
+                version: "1.0.0",
+                tags: ["api", "development", "utility", "github", "code"],
+                repository: "https://github.com/modelcontextprotocol/servers",
+                documentation: "/registry/servers/github/"
+            },
+            {
+                name: "time",
+                displayName: "Time MCP Server",
+                description: "A Model Context Protocol server that provides time and timezone conversion capabilities.",
+                version: "1.0.0",
+                tags: ["utility", "time", "timezone", "date"],
+                repository: "https://github.com/modelcontextprotocol/servers",
+                documentation: "/registry/servers/time/"
+            },
+            {
+                name: "everything",
+                displayName: "Everything MCP Server",
+                description: "This MCP server exercises all the features of the MCP protocol. It is a test server for builders of MCP clients.",
+                version: "1.0.0",
+                tags: ["testing", "development", "reference", "demo"],
+                repository: "https://github.com/modelcontextprotocol/servers",
+                documentation: "/registry/servers/everything/"
+            }
+        ];
+        
+        // Render server cards
+        function renderServerCards(serversToRender) {
+            const serversGrid = document.getElementById('serversGrid');
+            serversGrid.innerHTML = '';
+            
+            if (serversToRender.length === 0) {
+                serversGrid.innerHTML = '<p>No servers found matching your search criteria.</p>';
+                return;
+            }
+            
+            serversToRender.forEach(server => {
+                const serverCard = document.createElement('div');
+                serverCard.className = 'server-card';
+                
+                const serverContent = document.createElement('div');
+                serverContent.className = 'server-content';
+                
+                const heading = document.createElement('h3');
+                heading.textContent = server.displayName;
+                serverContent.appendChild(heading);
+                
+                const description = document.createElement('p');
+                description.className = 'description';
+                description.textContent = server.description;
+                serverContent.appendChild(description);
+                
+                if (server.tags && server.tags.length > 0) {
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.className = 'tags';
+                    
+                    server.tags.slice(0, 4).forEach(tag => {
+                        const tagSpan = document.createElement('span');
+                        tagSpan.className = 'tag';
+                        tagSpan.textContent = tag;
+                        tagsContainer.appendChild(tagSpan);
+                    });
+                    
+                    serverContent.appendChild(tagsContainer);
+                }
+                
+                const meta = document.createElement('div');
+                meta.className = 'meta';
+                
+                const version = document.createElement('span');
+                version.className = 'version';
+                version.textContent = `v${server.version}`;
+                meta.appendChild(version);
+                
+                serverContent.appendChild(meta);
+                
+                const linksContainer = document.createElement('div');
+                linksContainer.className = 'server-links';
+                
+                const docsLink = document.createElement('a');
+                docsLink.className = 'server-link primary-link';
+                docsLink.href = server.documentation;
+                docsLink.textContent = 'View Documentation';
+                linksContainer.appendChild(docsLink);
+                
+                const repoLink = document.createElement('a');
+                repoLink.className = 'server-link secondary-link';
+                repoLink.href = server.repository;
+                repoLink.textContent = 'Repository';
+                repoLink.target = '_blank';
+                linksContainer.appendChild(repoLink);
+                
+                serverContent.appendChild(linksContainer);
+                
+                serverCard.appendChild(serverContent);
+                serversGrid.appendChild(serverCard);
+            });
+        }
+        
+        // Initial render
+        renderServerCards(servers);
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', handleSearch);
+        
+        function handleSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const activeTag = document.querySelector('.tag-filter.active').dataset.tag;
+            
+            let filteredServers = servers;
+            
+            // Filter by search term
+            if (searchTerm) {
+                filteredServers = filteredServers.filter(server => 
+                    server.displayName.toLowerCase().includes(searchTerm) || 
+                    server.description.toLowerCase().includes(searchTerm) ||
+                    server.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                );
+            }
+            
+            // Filter by tag
+            if (activeTag && activeTag !== 'all') {
+                filteredServers = filteredServers.filter(server => 
+                    server.tags.includes(activeTag)
+                );
+            }
+            
+            renderServerCards(filteredServers);
+        }
+        
+        // Tag filtering
+        const tagFilters = document.querySelectorAll('.tag-filter');
+        tagFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                // Update active state
+                document.querySelector('.tag-filter.active').classList.remove('active');
+                filter.classList.add('active');
+                
+                // Filter servers
+                handleSearch();
+            });
+        });
+    </script>
+</body>
+</html>

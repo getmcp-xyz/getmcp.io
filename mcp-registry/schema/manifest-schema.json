@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCP Server Manifest",
+  "description": "Schema for MCP server manifest files",
+  "type": "object",
+  "required": [
+    "name",
+    "display_name",
+    "version",
+    "description",
+    "repository",
+    "license",
+    "installation"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Server name in kebab-case format",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Human-readable server name"
+    },
+    "version": {
+      "type": "string",
+      "description": "Server version in semver format",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the server's functionality"
+    },
+    "repository": {
+      "type": "object",
+      "required": ["type", "url"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["git"]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "author": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "license": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "api_key": {
+          "type": "boolean"
+        },
+        "authentication": {
+          "type": ["string", "null"],
+          "enum": ["bearer_token", "basic", "oauth", null]
+        }
+      }
+    },
+    "installation": {
+      "type": "object",
+      "required": ["command", "args"],
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "package": {
+          "type": "string"
+        },
+        "env": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "description", "prompt"],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "github",
+  "display_name": "GitHub MCP Server",
+  "version": "1.0.0",
+  "description": "MCP Server for the GitHub API, enabling file operations, repository management, search functionality, and more.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/modelcontextprotocol/servers"
+  },
+  "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/github#readme",
+  "author": {
+    "name": "Model Context Protocol Team"
+  },
+  "license": "MIT",
+  "categories": ["api", "development", "utility"],
+  "tags": ["github", "code", "repository", "git"],
+  "requirements": {
+    "api_key": true,
+    "authentication": "bearer_token"
+  },
+  "installation": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-github"],
+    "package": "@modelcontextprotocol/server-github",
+    "env": {
+      "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+    }
+  },
+  "examples": [
+    {
+      "title": "Search GitHub repositories",
+      "description": "Find repositories related to machine learning",
+      "prompt": "Find GitHub repositories about machine learning with more than 1000 stars."
+    },
+    {
+      "title": "View repository contents",
+      "description": "Browse files in a GitHub repository",
+      "prompt": "Show me the main Python files in the Hugging Face transformers repository."
+    }
+  ]
+}

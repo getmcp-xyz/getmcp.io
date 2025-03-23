@@ -1,0 +1,21 @@
+title: MCP Registry
+description: >-
+  A central registry of Model Context Protocol (MCP) servers.
+baseurl: ""
+url: "https://getmcp.io"
+
+# Build settings
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# GitHub Pages settings
+github:
+  is_project_page: true
+  repository_url: https://github.com/getmcp-xyz/getmcp.io

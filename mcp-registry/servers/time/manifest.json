@@ -1,0 +1,39 @@
+{
+  "name": "time",
+  "display_name": "Time MCP Server",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol server that provides time and timezone conversion capabilities.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/modelcontextprotocol/servers"
+  },
+  "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/time#readme",
+  "author": {
+    "name": "Model Context Protocol Team"
+  },
+  "license": "MIT",
+  "categories": ["utility", "time"],
+  "tags": ["time", "timezone", "date", "converter"],
+  "requirements": {
+    "api_key": false,
+    "authentication": null
+  },
+  "installation": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-time"],
+    "package": "@modelcontextprotocol/server-time",
+    "env": {}
+  },
+  "examples": [
+    {
+      "title": "Current time",
+      "description": "Get the current time in a specific timezone",
+      "prompt": "What time is it in Tokyo right now?"
+    },
+    {
+      "title": "Time conversion",
+      "description": "Convert time between timezones",
+      "prompt": "Convert 3:30 PM EST to Paris time."
+    }
+  ]
+}

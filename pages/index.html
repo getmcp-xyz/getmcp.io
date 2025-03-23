@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP - Model Context Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E40AF;
+            --secondary: #3B82F6;
+            --background: #F8FAFC;
+            --text: #1E293B;
+            --light-text: #64748B;
+            --accent: #EFF6FF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        header {
+            padding: 2rem 0;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        main {
+            padding: 2rem 0;
+        }
+        
+        section {
+            margin: 4rem 0;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--light-text);
+            margin-bottom: 2rem;
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            margin-left: 1rem;
+            border: 1px solid var(--secondary);
+            transition: background-color 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background-color: white;
+        }
+        
+        .servers-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .server-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .server-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .server-card p {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .server-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .server-card .tag {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MCP<span>Registry</span></div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Model Context Protocol Registry</h1>
+                    <p class="subtitle">Discover, share, and use MCP servers to extend your AI assistant capabilities</p>
+                    <p>The Model Context Protocol (MCP) Registry is a centralized collection of servers that enable AI assistants to access external tools, resources, and capabilities in a standardized way.</p>
+                    <a href="/registry" class="cta-button">Browse Registry</a>
+                    <a href="https://github.com/getmcp-xyz/getmcp.io" class="secondary-button">View on GitHub</a>
+                </div>
+            </section>
+            
+            <section>
+                <h2>What is MCP?</h2>
+                <p>Model Context Protocol (MCP) is a standard for building LLM-powered tools. It enables language models to use external tools, resources, and capabilities in a standardized way.</p>
+                <p>With MCP servers, AI assistants like Claude can access external APIs, retrieve real-time data, and interact with various services while maintaining a consistent interface.</p>
+            </section>
+            
+            <section>
+                <h2>Featured Servers</h2>
+                <div class="servers-list">
+                    <div class="server-card">
+                        <h3>GitHub MCP Server</h3>
+                        <p>MCP Server for the GitHub API, enabling file operations, repository management, search functionality, and more.</p>
+                        <div class="tags">
+                            <span class="tag">github</span>
+                            <span class="tag">code</span>
+                            <span class="tag">api</span>
+                        </div>
+                    </div>
+                    <div class="server-card">
+                        <h3>Time MCP Server</h3>
+                        <p>A Model Context Protocol server that provides time and timezone conversion capabilities.</p>
+                        <div class="tags">
+                            <span class="tag">time</span>
+                            <span class="tag">utility</span>
+                        </div>
+                    </div>
+                    <div class="server-card">
+                        <h3>Everything MCP Server</h3>
+                        <p>This MCP server exercises all the features of the MCP protocol. It is a test server for builders of MCP clients.</p>
+                        <div class="tags">
+                            <span class="tag">testing</span>
+                            <span class="tag">reference</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Getting Started</h2>
+                <p>MCP servers can be used with various clients such as Claude Desktop, Cursor, and Windsurf. You can manage MCP servers using the <a href="https://getmcp.io">getmcp.sh</a> package manager.</p>
+                <p>To learn more about MCP and how to contribute your own servers to this registry, visit our <a href="https://github.com/getmcp-xyz/getmcp.io">GitHub repository</a>.</p>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 MCP Registry Contributors. Licensed under <a href="https://github.com/getmcp-xyz/getmcp.io/blob/main/LICENSE">MIT License</a>.</p>
+        </div>
+    </footer>
+</body>
+</html>
