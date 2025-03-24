@@ -273,7 +273,8 @@
             letter-spacing: 0.01em;
         }
         
-        .server-card .meta .stars {
+        .server-card .meta .stars,
+        .server-card .meta .author {
             display: inline-flex;
             align-items: center;
             padding: 0.3rem 0.7rem;
@@ -290,12 +291,19 @@
             border: 1px solid var(--border);
         }
         
-        .server-card .meta .stars:hover {
+        .server-card .meta .author {
+            background-color: var(--highlight-light);
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+        
+        .server-card .meta .stars:hover,
+        .server-card .meta .author:hover {
             transform: translateY(-1px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
-        .server-card .tag.author-tag {
+        .server-card .meta .author:before {
             content: '';
             margin-right: 0;
         }
@@ -725,12 +733,7 @@
                     });
                 }
                 
-                // Add author tag placeholder that will be populated later
-                const authorTag = document.createElement('span');
-                authorTag.className = 'tag author-tag author-placeholder';
-                authorTag.style.opacity = '0';
-                authorTag.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Loading...';
-                tagsContainer.appendChild(authorTag);
+                // We've moved the author to the meta section
                 
                 // Append tags container to server content
                 serverContent.appendChild(tagsContainer);
@@ -743,7 +746,12 @@
                 version.textContent = `v${server.version}`;
                 meta.appendChild(version);
                 
-                        // We've moved the author to the tags section
+                // Add placeholder for author that will be populated later
+                const authorMeta = document.createElement('span');
+                authorMeta.className = 'author author-placeholder';
+                authorMeta.textContent = 'Loading author...';
+                authorMeta.style.opacity = '0';
+                meta.appendChild(authorMeta);
                 
                 // Add placeholder for GitHub stars
                 const starCount = document.createElement('span');
@@ -757,17 +765,17 @@
                     .then(manifest => {
                         if (manifest && manifest.author && manifest.author.name) {
                             // Add user icon before author name
-                            authorTag.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' + manifest.author.name;
-                            authorTag.classList.remove('author-placeholder');
-                            authorTag.style.opacity = '1';
+                            authorMeta.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' + manifest.author.name;
+                            authorMeta.classList.remove('author-placeholder');
+                            authorMeta.style.opacity = '1';
                         } else {
                             // Remove placeholder if no author found
-                            authorTag.remove();
+                            authorMeta.remove();
                         }
                     })
                     .catch(err => {
                         console.error(`Error fetching author for ${server.name}:`, err);
-                        authorTag.remove();
+                        authorMeta.remove();
                     });
                 
                 serverContent.appendChild(meta);
