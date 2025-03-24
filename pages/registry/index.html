@@ -16,48 +16,7 @@
     <!-- JSON formatter for collapsible view -->
     <script src="https://cdn.jsdelivr.net/npm/json-formatter-js@2.3.4/dist/json-formatter.umd.min.js"></script>
     
-    <!-- Override JSON formatter styles for better contrast -->
-    <style>
-        /* Reset all JSON formatter styles for better visibility */
-        .json-formatter-row,
-        .json-formatter-row *,
-        .json-formatter-row .json-formatter-string,
-        .json-formatter-row .json-formatter-number,
-        .json-formatter-row .json-formatter-boolean,
-        .json-formatter-row .json-formatter-null,
-        .json-formatter-row .json-formatter-key,
-        .json-formatter-row .json-formatter-bracket {
-            color: black !important;
-            font-weight: normal;
-        }
-        
-        /* Ensure the container has solid background */
-        #jsonFormatterContainer {
-            background-color: white !important;
-            color: black !important;
-        }
-        
-        /* Make preview text fully visible */
-        .json-formatter-row .json-formatter-preview-text {
-            color: black !important;
-            opacity: 1 !important;
-            background-color: #f0f0f0;
-            padding: 2px 4px;
-            margin-left: 4px;
-            border-radius: 2px;
-        }
-        
-        /* Make togglers clearly visible */
-        .json-formatter-row .json-formatter-toggler:after {
-            color: black !important;
-        }
-        
-        /* Add subtle row highlighting */
-        .json-formatter-row {
-            padding: 2px 0;
-            border-bottom: 1px solid #f8f8f8;
-        }
-    </style>
+
     <style>
         :root {
             --primary: #171717;
@@ -511,14 +470,7 @@
             line-height: 1.5;
         }
         
-        /* Custom styles for JSON formatter */
-        .json-formatter-row, .json-formatter-row span {
-            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
-            font-size: 0.875rem;
-            color: #000000 !important;
-        }
-        
-        /* Container background */
+        /* Container background - keep only this style for JSON container */
         #jsonFormatterContainer {
             background-color: #FFFFFF;
             border-radius: 0.5rem;
@@ -526,89 +478,7 @@
             border: 1px solid #DDDDDD;
         }
         
-        /* Force all JSON elements to have black text against white background */
-        .json-formatter-row *,
-        .json-formatter-row *.json-formatter-key,
-        .json-formatter-row *.json-formatter-string,
-        .json-formatter-row *.json-formatter-number,
-        .json-formatter-row *.json-formatter-boolean,
-        .json-formatter-row *.json-formatter-null,
-        .json-formatter-row *.json-formatter-comma,
-        .json-formatter-row *.json-formatter-bracket,
-        .json-formatter-row *.json-formatter-constructor-name {
-            color: #000000 !important;
-            background-color: transparent !important;
-        }
-        
-        /* Make sure all rows have a solid white background */
-        .json-formatter-row,
-        .json-formatter-row .json-formatter-children,
-        .json-formatter-children > div {
-            background-color: #FFFFFF !important;
-        }
-        
-        .json-formatter-row .json-formatter-key {
-            color: #000000;
-            margin-right: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .json-formatter-row .json-formatter-string {
-            color: #417141; /* Darker green */
-        }
-        
-        .json-formatter-row .json-formatter-number {
-            color: #333333; /* Dark gray */
-        }
-        
-        .json-formatter-row .json-formatter-boolean {
-            color: #222222; /* Nearly black */
-        }
-        
-        .json-formatter-row .json-formatter-null {
-            color: #555555; /* Medium gray */
-        }
-        
-        .json-formatter-row .json-formatter-bracket {
-            color: #000000; /* Black */
-        }
-        
-        .json-formatter-row .json-formatter-comma {
-            color: #000000; /* Black */
-        }
-        
-        .json-formatter-row .json-formatter-constructor-name {
-            color: #222222; /* Nearly black */
-        }
-        
-        .json-formatter-row a.json-formatter-toggler {
-            vertical-align: middle;
-            cursor: pointer;
-            color: #000000;
-        }
-        
-        .json-formatter-row .json-formatter-toggler:after {
-            content: '►';
-            font-size: 0.7em;
-            display: inline-block;
-            transition: transform 0.1s ease;
-            margin-right: 0.2rem;
-            color: #333333;
-        }
-        
-        .json-formatter-row.json-formatter-open > .json-formatter-toggler-link .json-formatter-toggler:after {
-            transform: rotate(90deg);
-        }
-        
-        .json-formatter-row .json-formatter-preview-text {
-            color: #000000;
-            font-style: italic;
-            opacity: 1;
-            background-color: #EEEEEE;
-            padding: 2px 5px;
-            border-radius: 2px;
-            margin-left: 5px;
-        }
+        /* Remove JSON formatter custom styling to use library defaults */
         
         /* Adjust the JSON container header to match the new lighter theme */
         .json-container {
@@ -645,46 +515,7 @@
             color: #000000;
         }
         
-        /* Improve visibility of all elements */
-        .json-formatter-row .json-formatter-toggler-link {
-            background-color: #FFFFFF;
-            display: inline-block;
-            padding: 2px 4px;
-            border-radius: 2px;
-            margin: 1px 0;
-            border: 1px solid #EEEEEE;
-        }
-        
-        .json-formatter-row:hover > .json-formatter-toggler-link {
-            background-color: #F8F8F8;
-        }
-        
-        /* Add alternate row colors for better readability */
-        .json-formatter-row {
-            background-color: #FFFFFF !important;
-            padding: 2px 0;
-        }
-        
-        .json-formatter-row:nth-child(even) {
-            background-color: #F8F8F8 !important;
-        }
-        
-        /* IMPORTANT: Aggressive styling to force high contrast */
-        .json-formatter-row .json-formatter-key,
-        .json-formatter-row .json-formatter-value,
-        .json-formatter-row .json-formatter-string,
-        .json-formatter-row .json-formatter-number,
-        .json-formatter-row .json-formatter-bracket,
-        .json-formatter-row .json-formatter-boolean,
-        .json-formatter-row .json-formatter-null,
-        .json-formatter-row .json-formatter-constructor-name,
-        .json-formatter-row .json-formatter-toggler,
-        .json-formatter-row .json-formatter-toggler-link,
-        .json-formatter-row .json-formatter-preview-text {
-            color: black !important;
-            text-shadow: 0 0 0 black !important;
-            -webkit-text-fill-color: black !important;
-        }
+        /* JSON formatter styles removed - using library defaults */
         
         /* Modal Styles */
         .modal {
@@ -1233,13 +1064,16 @@
                 .then(data => {
                     jsonContainer.innerHTML = ''; // Clear loading text
                     
-                    // Create a new JSON formatter with default collapsed depth of 1
+                    // Create a new JSON formatter with improved configuration for minimal aesthetic
                     jsonFormatter = new JSONFormatter(data, 1, {
                         hoverPreviewEnabled: true,
                         hoverPreviewArrayCount: 100,
                         hoverPreviewFieldCount: 5,
                         animateOpen: true,
-                        animateClose: true
+                        animateClose: true,
+                        theme: null, // Use light theme for better contrast
+                        useToJSON: true,
+                        maxArrayItems: 100
                     });
                     
                     // Add the formatted JSON to the container

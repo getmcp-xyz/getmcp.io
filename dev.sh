@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "📦 Setting up getmcp.io development environment..."
+echo -e "\n📦 Setting up getmcp.io development environment...\n"
 
 # Check if jq is installed
 if ! command -v jq &> /dev/null; then
@@ -15,21 +15,21 @@ if ! docker info &> /dev/null; then
 fi
 
 # Cleanup previous development files
-echo "🗑️ Cleaning up previously generated files..."
+echo -e "🗑️ Cleaning up previously generated files...\n"
 rm -rf pages/api/servers
 rm -f pages/api/servers.json
 rm -rf pages/registry/servers
 
 # Create and clean _dev directory
 DEV_DIR="_dev"
-echo "🔄 Setting up development directory in $DEV_DIR"
+echo -e "🔄 Setting up development directory in $DEV_DIR\n"
 mkdir -p "$DEV_DIR"
 
 # First clear the directory to ensure clean state
 rm -rf "$DEV_DIR"/*
 
 # Copy pages directory structure with all content
-echo "🔄 Copying site content to development directory..."
+echo -e "🔄 Copying site content to development directory...\n"
 cp -r pages/* "$DEV_DIR"/
 
 # Create API and registry directories if they don't exist
@@ -37,11 +37,11 @@ mkdir -p "$DEV_DIR/api/servers"
 mkdir -p "$DEV_DIR/registry"
 
 # Copy registry files to development directory
-echo "🔄 Copying registry files..."
+echo -e "🔄 Copying registry files...\n"
 cp -r mcp-registry/* "$DEV_DIR/registry/"
 
 # Create API endpoints for manifests
-echo "🔄 Creating API endpoints..."
+echo -e "🔄 Creating API endpoints...\n"
 find mcp-registry/servers -name "manifest.json" -type f | while read manifest; do
   server_name=$(basename $(dirname "$manifest"))
   echo "  - Processing $server_name..."
@@ -49,7 +49,7 @@ find mcp-registry/servers -name "manifest.json" -type f | while read manifest; d
 done
 
 # Create the combined servers.json file
-echo "🔄 Generating combined servers.json..."
+echo -e "🔄 Generating combined servers.json...\n"
 echo "[" > "$DEV_DIR/api/servers.json"
 first=true
 for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort); do
@@ -72,10 +72,10 @@ for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort
 done
 echo "]" >> "$DEV_DIR/api/servers.json"
 
-echo "✅ Setup complete!"
-# Check if port 4001 is already in use
-if lsof -i :4001 > /dev/null 2>&1; then
-    echo "⚠️ Port 4001 is already in use!"
+echo -e "✅ Setup complete!\n"
+# Check if port 4000 is already in use
+if lsof -i :4000 > /dev/null 2>&1; then
+    echo -e "⚠️ Port 4000 is already in use!\n"
     echo "Would you like to stop any running Jekyll containers and try again? (y/n)"
     read -r response
     if [ "$response" = "y" ] || [ "$response" = "Y" ]; then
@@ -84,19 +84,18 @@ if lsof -i :4001 > /dev/null 2>&1; then
         echo "Waiting for port to be released..."
         sleep 3
     else
-        echo "Exiting. Please stop the service using port 4001 and try again."
+        echo "Exiting. Please stop the service using port 4000 and try again."
         exit 1
     fi
 fi
 
-echo "🌐 Starting Jekyll development server..."
-echo "   Access the site at http://localhost:4001"
-echo "   Press Ctrl+C to stop the server"
-echo ""
+echo -e "\n🌐 Starting Jekyll development server..."
+echo "   Access the site at http://localhost:4000"
+echo -e "   Press Ctrl+C to stop the server\n"
 
 # Start Jekyll dev server using Docker from the _dev directory
 cd "$DEV_DIR" && docker run --rm -it \
   -v "$PWD:/srv/jekyll" \
-  -p 4001:4000 \
+  -p 4000:4000 \
   jekyll/jekyll:4.2.0 \
   jekyll serve --livereload
