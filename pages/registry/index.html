@@ -701,13 +701,9 @@
                     <input type="text" class="search-input" placeholder="Search servers..." id="searchInput">
                 </div>
                 
-                <div class="tag-filters">
+                <div class="tag-filters" id="tagFilters">
+                    <!-- Tag filters will be populated dynamically -->
                     <span class="tag-filter active" data-tag="all">All</span>
-                    <span class="tag-filter" data-tag="api">API</span>
-                    <span class="tag-filter" data-tag="utility">Utility</span>
-                    <span class="tag-filter" data-tag="development">Development</span>
-                    <span class="tag-filter" data-tag="time">Time</span>
-                    <span class="tag-filter" data-tag="testing">Testing</span>
                 </div>
                 
                 <div class="servers-grid" id="serversGrid">
@@ -793,18 +789,11 @@
                 // Convert map to array for rendering
                 serversArray = Object.values(serversMap);
                 
+                // Generate tag filters dynamically from server data
+                generateTagFilters(serversArray);
+                
                 // Initialize the UI after data is loaded
                 renderServerCards(serversArray);
-                
-                // Initialize tag filters after data is loaded
-                const tagFilters = document.querySelectorAll('.tag-filter');
-                tagFilters.forEach(filter => {
-                    filter.addEventListener('click', () => {
-                        tagFilters.forEach(f => f.classList.remove('active'));
-                        filter.classList.add('active');
-                        handleSearch();
-                    });
-                });
             })
             .catch(error => {
                 console.error('Error loading servers:', error);
@@ -1029,18 +1018,68 @@
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', handleSearch);
         
+        // Function to generate tag filters from server data
+        function generateTagFilters(servers) {
+            const tagFiltersContainer = document.getElementById('tagFilters');
+            const allTags = new Set();
+            
+            // Collect all unique tags from servers
+            servers.forEach(server => {
+                if (server.tags && Array.isArray(server.tags)) {
+                    server.tags.forEach(tag => allTags.add(tag.toLowerCase()));
+                }
+            });
+            
+            // Sort tags alphabetically
+            const sortedTags = Array.from(allTags).sort();
+            
+            // Create filter elements (skip 'all' as it's already in the HTML)
+            sortedTags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'tag-filter';
+                tagElement.setAttribute('data-tag', tag);
+                tagElement.textContent = tag.charAt(0).toUpperCase() + tag.slice(1); // Capitalize first letter
+                
+                // Add click event listener
+                tagElement.addEventListener('click', () => {
+                    document.querySelectorAll('.tag-filter').forEach(f => f.classList.remove('active'));
+                    tagElement.classList.add('active');
+                    handleSearch();
+                });
+                
+                tagFiltersContainer.appendChild(tagElement);
+            });
+            
+            // Add click event listener to the 'All' tag that was already there
+            const allTagFilter = document.querySelector('.tag-filter[data-tag="all"]');
+            allTagFilter.addEventListener('click', () => {
+                document.querySelectorAll('.tag-filter').forEach(f => f.classList.remove('active'));
+                allTagFilter.classList.add('active');
+                handleSearch();
+            });
+        }
+        
         function handleSearch() {
             const searchTerm = searchInput.value.toLowerCase();
             const activeTag = document.querySelector('.tag-filter.active').dataset.tag;
             
             let filteredServers = serversArray;
             
-            // Filter by search term
+            // Filter by tag first (if not 'all')
+            if (activeTag && activeTag !== 'all') {
+                filteredServers = filteredServers.filter(server => 
+                    server.tags && 
+                    Array.isArray(server.tags) && 
+                    server.tags.some(tag => tag.toLowerCase() === activeTag.toLowerCase())
+                );
+            }
+            
+            // Then filter by search term
             if (searchTerm) {
                 filteredServers = filteredServers.filter(server => 
                     server.displayName.toLowerCase().includes(searchTerm) || 
                     server.description.toLowerCase().includes(searchTerm) ||
-                    server.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    (server.tags && server.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
                 );
             }
             
