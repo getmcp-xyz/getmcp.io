@@ -594,6 +594,20 @@
             transform: translateY(-1px);
         }
         
+        .api-url-container {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            background-color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .api-url-container h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
         .json-content {
             margin-top: 1.5rem;
         }
@@ -699,6 +713,15 @@
                             <button id="copyJsonBtn" class="json-action-btn">Copy JSON</button>
                         </div>
                     </div>
+                    
+                    <div class="api-url-container">
+                        <h3>Servers Manifest API Endpoint:</h3>
+                        <div class="api-url">
+                            <code id="combinedApiUrl"></code>
+                            <button id="copyCombinedUrl" class="copy-button">Copy</button>
+                        </div>
+                    </div>
+                    
                     <div id="jsonFormatterContainer" class="json-content"></div>
                 </div>
             </div>
@@ -1038,6 +1061,11 @@
             const jsonContainer = document.getElementById('jsonFormatterContainer');
             jsonContainer.innerHTML = 'Loading...';
             
+            // Set the combined API URL
+            const combinedApiUrl = document.getElementById('combinedApiUrl');
+            const fullApiUrl = `${window.location.origin}/api/servers.json`;
+            combinedApiUrl.textContent = fullApiUrl;
+            
             fetch('/api/servers.json')
                 .then(response => response.json())
                 .then(data => {
@@ -1134,6 +1162,13 @@
             copyContentButton.addEventListener('click', () => {
                 const jsonContent = document.getElementById('jsonContent').textContent;
                 copyToClipboard(jsonContent, copyContentButton);
+            });
+            
+            // Copy combined API URL button
+            const copyCombinedUrlButton = document.getElementById('copyCombinedUrl');
+            copyCombinedUrlButton.addEventListener('click', () => {
+                const combinedApiUrl = document.getElementById('combinedApiUrl').textContent;
+                copyToClipboard(combinedApiUrl, copyCombinedUrlButton);
             });
         });
     </script>

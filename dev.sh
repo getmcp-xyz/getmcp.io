@@ -2,12 +2,6 @@
 
 echo -e "\n📦 Setting up getmcp.io development environment...\n"
 
-# Check if jq is installed
-if ! command -v jq &> /dev/null; then
-    echo "❌ jq is required but not installed. Please install it with 'brew install jq'"
-    exit 1
-fi
-
 # Check if Docker is installed and running
 if ! docker info &> /dev/null; then
     echo "❌ Docker is required but not running. Please start Docker and try again."
@@ -32,46 +26,9 @@ rm -rf "$DEV_DIR"/*
 echo -e "🔄 Copying site content to development directory...\n"
 cp -r pages/* "$DEV_DIR"/
 
-# Create API and registry directories if they don't exist
-mkdir -p "$DEV_DIR/api/servers"
+# Run the common preparation script
 mkdir -p "$DEV_DIR/registry"
-
-# Copy registry files to development directory
-echo -e "🔄 Copying registry files...\n"
-cp -r mcp-registry/* "$DEV_DIR/registry/"
-
-# Create API endpoints for manifests
-echo -e "🔄 Creating API endpoints...\n"
-find mcp-registry/servers -name "manifest.json" -type f | while read manifest; do
-  server_name=$(basename $(dirname "$manifest"))
-  echo "  - Processing $server_name..."
-  cp "$manifest" "$DEV_DIR/api/servers/$server_name.json"
-done
-
-# Create the combined servers.json file
-echo -e "🔄 Generating combined servers.json...\n"
-echo "{" > "$DEV_DIR/api/servers.json"
-first=true
-for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort); do
-  server_name=$(basename $(dirname "$manifest"))
-  if [ "$first" = true ]; then
-    first=false
-  else
-    echo "," >> "$DEV_DIR/api/servers.json"
-  fi
-  
-  # Process the manifest to create server entry with additional frontend fields
-  echo -n "\"$server_name\": " >> "$DEV_DIR/api/servers.json"
-  jq -c '. + {
-    "name": .name,
-    "displayName": .display_name,
-    "tags": .tags,
-    "repository": .repository.url,
-    "documentation": "/registry/servers/\(.name)/",
-    "apiEndpoint": "/api/servers/\(.name).json"
-  }' "$manifest" >> "$DEV_DIR/api/servers.json"
-done
-echo "}" >> "$DEV_DIR/api/servers.json"
+./scripts/prepare.sh "$DEV_DIR"
 
 echo -e "✅ Setup complete!\n"
 # Check if port 4000 is already in use
