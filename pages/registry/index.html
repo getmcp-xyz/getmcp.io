@@ -220,12 +220,19 @@
             flex-direction: column;
         }
         
+        .server-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
         .server-card h3 {
             font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
             color: var(--primary);
             line-height: 1.2;
+            margin: 0;
         }
         
         .server-card .description {
@@ -271,44 +278,49 @@
         }
         
         .server-card .meta .version {
-            background-color: var(--accent);
             color: var(--secondary);
-            padding: 0.3rem 0.7rem;
-            border-radius: 2rem;
+            padding: 0.3rem 0.5rem;
             font-size: 0.75rem;
             font-weight: 600;
-            border: 1px solid var(--border);
             letter-spacing: 0.01em;
+            border-left: 2px solid var(--border);
+            background: none;
         }
         
-        .server-card .meta .stars,
         .server-card .meta .author {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin-left: auto;
+            padding: 0.3rem 0;
+            transition: all 0.2s ease;
+        }
+        
+        .server-card .stars {
             display: inline-flex;
             align-items: center;
             padding: 0.3rem 0.7rem;
             border-radius: 2rem;
             font-weight: 600;
             font-size: 0.75rem;
-            margin-left: 0.5rem;
             transition: all 0.2s ease;
-        }
-        
-        .server-card .meta .stars {
             background-color: var(--accent);
             color: var(--secondary);
             border: 1px solid var(--border);
         }
         
-        .server-card .meta .author {
-            background-color: var(--highlight-light);
-            color: var(--primary);
-            border: 1px solid var(--border);
-        }
-        
-        .server-card .meta .stars:hover,
-        .server-card .meta .author:hover {
+        .server-card .stars:hover {
             transform: translateY(-1px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .server-card .meta .author {
+            color: var(--primary);
+        }
+        
+        .server-card .meta .author:hover {
+            opacity: 0.8;
         }
         
         .server-card .meta .author:before {
@@ -892,9 +904,22 @@
                 const serverContent = document.createElement('div');
                 serverContent.className = 'server-content';
                 
+                // Create header with title and stars
+                const serverHeader = document.createElement('div');
+                serverHeader.className = 'server-header';
+                
                 const heading = document.createElement('h3');
                 heading.textContent = server.displayName;
-                serverContent.appendChild(heading);
+                serverHeader.appendChild(heading);
+                
+                // Add placeholder for GitHub stars in the header
+                const starCount = document.createElement('span');
+                starCount.className = 'stars stars-placeholder';
+                starCount.textContent = 'Loading stars...';
+                starCount.style.opacity = '0';
+                serverHeader.appendChild(starCount);
+                
+                serverContent.appendChild(serverHeader);
                 
                 const description = document.createElement('p');
                 description.className = 'description';
@@ -935,13 +960,6 @@
                 authorMeta.style.opacity = '0';
                 meta.appendChild(authorMeta);
                 
-                // Add placeholder for GitHub stars
-                const starCount = document.createElement('span');
-                starCount.className = 'stars stars-placeholder';
-                starCount.textContent = 'Loading stars...';
-                starCount.style.opacity = '0';
-                meta.appendChild(starCount);
-                
                 // Update author information directly from server data (no need to fetch)
                 if (server.author && server.author.name) {
                     // Add user icon before author name
@@ -952,6 +970,8 @@
                     // Remove placeholder if no author found
                     authorMeta.remove();
                 }
+                
+                // Use the star count element created in the header
                 
                 serverContent.appendChild(meta);
                 
@@ -984,12 +1004,16 @@
                     if (repoUrlParts.length >= 2) {
                         const owner = repoUrlParts[0];
                         const repo = repoUrlParts[1].replace('.git', '');
-                        fetchGitHubStars(owner, repo, starCount);
+                        // Use the starCount element from the header
+                        const headerStarCount = serverHeader.querySelector('.stars');
+                        fetchGitHubStars(owner, repo, headerStarCount);
                     } else {
-                        starCount.remove();
+                        const headerStarCount = serverHeader.querySelector('.stars');
+                        if (headerStarCount) headerStarCount.remove();
                     }
                 } else {
-                    starCount.remove();
+                    const headerStarCount = serverHeader.querySelector('.stars');
+                    if (headerStarCount) headerStarCount.remove();
                 }
                 
                 serverContent.appendChild(linksContainer);
