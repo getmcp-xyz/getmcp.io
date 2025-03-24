@@ -1,4 +1,6 @@
 # getmcp.io
+[![Validate](https://github.com/getmcp-xyz/getmcp.io/actions/workflows/validate-manifests.yml/badge.svg)](https://github.com/getmcp-xyz/getmcp.io/actions/workflows/validate-manifests.yml)
+[![Deploy](https://github.com/getmcp-xyz/getmcp.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/getmcp-xyz/getmcp.io/actions/workflows/deploy.yml)
 
 Open Source Model Context Protocol (MCP) registry where you can discover, browse, and install MCP servers for AI assistants.
 
