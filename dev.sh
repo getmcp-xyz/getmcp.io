@@ -50,7 +50,7 @@ done
 
 # Create the combined servers.json file
 echo -e "🔄 Generating combined servers.json...\n"
-echo "[" > "$DEV_DIR/api/servers.json"
+echo "{" > "$DEV_DIR/api/servers.json"
 first=true
 for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort); do
   server_name=$(basename $(dirname "$manifest"))
@@ -61,6 +61,7 @@ for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort
   fi
   
   # Process the manifest to create server entry with additional frontend fields
+  echo -n "\"$server_name\": " >> "$DEV_DIR/api/servers.json"
   jq -c '. + {
     "name": .name,
     "displayName": .display_name,
@@ -70,7 +71,7 @@ for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort
     "apiEndpoint": "/api/servers/\(.name).json"
   }' "$manifest" >> "$DEV_DIR/api/servers.json"
 done
-echo "]" >> "$DEV_DIR/api/servers.json"
+echo "}" >> "$DEV_DIR/api/servers.json"
 
 echo -e "✅ Setup complete!\n"
 # Check if port 4000 is already in use

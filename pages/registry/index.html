@@ -733,8 +733,9 @@
     </div>
     
     <script>
-        // Server data - to be loaded from the combined JSON file
-        let servers = [];
+        // Server data - to be loaded from the combined JSON file (as a map with server names as keys)
+        let serversMap = {};
+        let serversArray = []; // Also keep an array version for rendering
         
         // Fetch all servers data
         const serverDataUrl = '/api/servers.json';
@@ -750,12 +751,15 @@
             })
             .then(data => {
                 console.log('Server data loaded successfully:', data);
-                if (!Array.isArray(data)) {
-                    throw new Error('Unexpected data format: data is not an array');
+                if (typeof data !== 'object' || data === null || Array.isArray(data)) {
+                    throw new Error('Unexpected data format: data is not an object map');
                 }
-                servers = data;
+                serversMap = data;
+                // Convert map to array for rendering
+                serversArray = Object.values(serversMap);
+                
                 // Initialize the UI after data is loaded
-                renderServerCards(servers);
+                renderServerCards(serversArray);
                 
                 // Initialize tag filters after data is loaded
                 const tagFilters = document.querySelectorAll('.tag-filter');
@@ -777,9 +781,9 @@
                 `;
             });
         
-        // Get server data from the already loaded servers array
+        // Get server data from the already loaded servers map
         function getServerByName(name) {
-            return servers.find(s => s.name === name);
+            return serversMap[name];
         }
         
         // Helper function to format numbers (1000 → 1k)
@@ -972,8 +976,7 @@
             });
         }
         
-        // Initial render
-        renderServerCards(servers);
+        // Initial render will happen after data is loaded
         
         // Search functionality
         const searchInput = document.getElementById('searchInput');
@@ -983,7 +986,7 @@
             const searchTerm = searchInput.value.toLowerCase();
             const activeTag = document.querySelector('.tag-filter.active').dataset.tag;
             
-            let filteredServers = servers;
+            let filteredServers = serversArray;
             
             // Filter by search term
             if (searchTerm) {
