@@ -737,9 +737,22 @@
         let servers = [];
         
         // Fetch all servers data
-        fetch('/api/servers.json')
-            .then(response => response.json())
+        const serverDataUrl = '/api/servers.json';
+        console.log('Fetching server data from:', serverDataUrl);
+        
+        fetch(serverDataUrl)
+            .then(response => {
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                console.log('Server data loaded successfully:', data);
+                if (!Array.isArray(data)) {
+                    throw new Error('Unexpected data format: data is not an array');
+                }
                 servers = data;
                 // Initialize the UI after data is loaded
                 renderServerCards(servers);
@@ -759,33 +772,14 @@
                 document.getElementById('serversGrid').innerHTML = `
                     <div class="error-message">
                         <p>Unable to load server data. Please try again later.</p>
+                        <p><small>Error details: ${error.message}</small></p>
                     </div>
                 `;
             });
         
-        // Fetch manifest content
-        async function fetchManifest(apiEndpoint) {
-            // Use a cache to avoid redundant fetches
-            if (!window.manifestCache) {
-                window.manifestCache = {};
-            }
-            
-            if (window.manifestCache[apiEndpoint]) {
-                return window.manifestCache[apiEndpoint];
-            }
-            
-            try {
-                const response = await fetch(apiEndpoint);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const manifest = await response.json();
-                window.manifestCache[apiEndpoint] = manifest;
-                return manifest;
-            } catch (error) {
-                console.error('Error fetching manifest:', error);
-                return null;
-            }
+        // Get server data from the already loaded servers array
+        function getServerByName(name) {
+            return servers.find(s => s.name === name);
         }
         
         // Helper function to format numbers (1000 → 1k)
@@ -819,7 +813,7 @@
         }
         
         // Open modal with server manifest details
-        async function openServerModal(server) {
+        function openServerModal(server) {
             const modal = document.getElementById('serverModal');
             const modalTitle = document.getElementById('modalTitle');
             const apiUrl = document.getElementById('apiUrl');
@@ -832,20 +826,9 @@
             const fullApiUrl = `${window.location.origin}${server.apiEndpoint}`;
             apiUrl.textContent = fullApiUrl;
             
-            // Show loading state
-            jsonContent.textContent = 'Loading manifest content...';
-            
-            // Fetch and display manifest content
-            try {
-                const manifest = await fetchManifest(server.apiEndpoint);
-                if (manifest) {
-                    jsonContent.textContent = JSON.stringify(manifest, null, 2);
-                } else {
-                    jsonContent.textContent = 'Unable to load manifest content';
-                }
-            } catch (error) {
-                jsonContent.textContent = `Error loading manifest: ${error.message}`;
-            }
+            // Display the server data directly from our already loaded servers array
+            // No need to fetch it separately since we already have all data
+            jsonContent.textContent = JSON.stringify(server, null, 2);
             
             // Display modal
             modal.style.display = 'flex';
@@ -932,23 +915,16 @@
                 starCount.style.opacity = '0';
                 meta.appendChild(starCount);
                 
-                // Fetch and update author information asynchronously
-                fetchManifest(server.apiEndpoint)
-                    .then(manifest => {
-                        if (manifest && manifest.author && manifest.author.name) {
-                            // Add user icon before author name
-                            authorMeta.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' + manifest.author.name;
-                            authorMeta.classList.remove('author-placeholder');
-                            authorMeta.style.opacity = '1';
-                        } else {
-                            // Remove placeholder if no author found
-                            authorMeta.remove();
-                        }
-                    })
-                    .catch(err => {
-                        console.error(`Error fetching author for ${server.name}:`, err);
-                        authorMeta.remove();
-                    });
+                // Update author information directly from server data (no need to fetch)
+                if (server.author && server.author.name) {
+                    // Add user icon before author name
+                    authorMeta.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' + server.author.name;
+                    authorMeta.classList.remove('author-placeholder');
+                    authorMeta.style.opacity = '1';
+                } else {
+                    // Remove placeholder if no author found
+                    authorMeta.remove();
+                }
                 
                 serverContent.appendChild(meta);
                 
