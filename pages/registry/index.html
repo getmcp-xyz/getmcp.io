@@ -273,30 +273,36 @@
             letter-spacing: 0.01em;
         }
         
-        .server-card .meta .author {
+        .server-card .meta .stars {
             display: inline-flex;
             align-items: center;
             padding: 0.3rem 0.7rem;
-            background-color: var(--highlight-light);
             border-radius: 2rem;
             font-weight: 600;
             font-size: 0.75rem;
-            color: var(--primary);
             margin-left: 0.5rem;
             transition: all 0.2s ease;
         }
         
-        .server-card .meta .author:hover {
+        .server-card .meta .stars {
+            background-color: var(--accent);
+            color: var(--secondary);
+            border: 1px solid var(--border);
+        }
+        
+        .server-card .meta .stars:hover {
             transform: translateY(-1px);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
-        .server-card .meta .author:before {
+        .server-card .tag.author-tag {
             content: '';
             margin-right: 0;
         }
         
-        .author-placeholder {
+        .author-placeholder,
+        .stars-placeholder,
+        .author-tag.author-placeholder {
             transition: opacity 0.3s ease;
         }
         
@@ -602,6 +608,36 @@
             }
         }
         
+        // Helper function to format numbers (1000 → 1k)
+        function formatNumber(num) {
+            if (num < 1000) return num.toString();
+            if (num < 10000) return (num / 1000).toFixed(1) + 'k';
+            return Math.floor(num / 1000) + 'k';
+        }
+        
+        // Function to fetch GitHub star count
+        async function fetchGitHubStars(owner, repo, starCountElement) {
+            try {
+                const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.stargazers_count !== undefined) {
+                        // Add star icon and count
+                        starCountElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>${formatNumber(data.stargazers_count)}`;
+                        starCountElement.classList.remove('stars-placeholder');
+                        starCountElement.style.opacity = '1';
+                    } else {
+                        starCountElement.remove();
+                    }
+                } else {
+                    starCountElement.remove();
+                }
+            } catch (error) {
+                console.error(`Error fetching star count for ${owner}/${repo}:`, error);
+                starCountElement.remove();
+            }
+        }
+        
         // Open modal with server manifest details
         async function openServerModal(server) {
             const modal = document.getElementById('serverModal');
@@ -675,19 +711,29 @@
                 description.textContent = server.description;
                 serverContent.appendChild(description);
                 
+                // Create tags container
+                const tagsContainer = document.createElement('div');
+                tagsContainer.className = 'tags';
+                
+                // Add regular tags (if any)
                 if (server.tags && server.tags.length > 0) {
-                    const tagsContainer = document.createElement('div');
-                    tagsContainer.className = 'tags';
-                    
                     server.tags.slice(0, 4).forEach(tag => {
                         const tagSpan = document.createElement('span');
                         tagSpan.className = 'tag';
                         tagSpan.textContent = tag;
                         tagsContainer.appendChild(tagSpan);
                     });
-                    
-                    serverContent.appendChild(tagsContainer);
                 }
+                
+                // Add author tag placeholder that will be populated later
+                const authorTag = document.createElement('span');
+                authorTag.className = 'tag author-tag author-placeholder';
+                authorTag.style.opacity = '0';
+                authorTag.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Loading...';
+                tagsContainer.appendChild(authorTag);
+                
+                // Append tags container to server content
+                serverContent.appendChild(tagsContainer);
                 
                 const meta = document.createElement('div');
                 meta.className = 'meta';
@@ -697,29 +743,31 @@
                 version.textContent = `v${server.version}`;
                 meta.appendChild(version);
                 
-                        // Add placeholder for author that will be populated later
-                const author = document.createElement('span');
-                author.className = 'author author-placeholder';
-                author.textContent = 'Loading author...';
-                author.style.opacity = '0';
-                meta.appendChild(author);
+                        // We've moved the author to the tags section
+                
+                // Add placeholder for GitHub stars
+                const starCount = document.createElement('span');
+                starCount.className = 'stars stars-placeholder';
+                starCount.textContent = 'Loading stars...';
+                starCount.style.opacity = '0';
+                meta.appendChild(starCount);
                 
                 // Fetch and update author information asynchronously
                 fetchManifest(server.apiEndpoint)
                     .then(manifest => {
                         if (manifest && manifest.author && manifest.author.name) {
-                            // Add check icon before author name
-                            author.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg>' + manifest.author.name;
-                            author.classList.remove('author-placeholder');
-                            author.style.opacity = '1';
+                            // Add user icon before author name
+                            authorTag.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>' + manifest.author.name;
+                            authorTag.classList.remove('author-placeholder');
+                            authorTag.style.opacity = '1';
                         } else {
                             // Remove placeholder if no author found
-                            author.remove();
+                            authorTag.remove();
                         }
                     })
                     .catch(err => {
                         console.error(`Error fetching author for ${server.name}:`, err);
-                        author.remove();
+                        authorTag.remove();
                     });
                 
                 serverContent.appendChild(meta);
@@ -746,6 +794,20 @@
                 repoLink.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> GitHub';
                 repoLink.target = '_blank';
                 linksContainer.appendChild(repoLink);
+                
+                // Extract GitHub repo info from repository URL for star count
+                if (server.repository && server.repository.includes('github.com')) {
+                    const repoUrlParts = server.repository.replace('https://github.com/', '').split('/');
+                    if (repoUrlParts.length >= 2) {
+                        const owner = repoUrlParts[0];
+                        const repo = repoUrlParts[1].replace('.git', '');
+                        fetchGitHubStars(owner, repo, starCount);
+                    } else {
+                        starCount.remove();
+                    }
+                } else {
+                    starCount.remove();
+                }
                 
                 serverContent.appendChild(linksContainer);
                 
