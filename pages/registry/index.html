@@ -9,6 +9,55 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Highlight.js for JSON syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
+    <!-- JSON formatter for collapsible view -->
+    <script src="https://cdn.jsdelivr.net/npm/json-formatter-js@2.3.4/dist/json-formatter.umd.min.js"></script>
+    
+    <!-- Override JSON formatter styles for better contrast -->
+    <style>
+        /* Reset all JSON formatter styles for better visibility */
+        .json-formatter-row,
+        .json-formatter-row *,
+        .json-formatter-row .json-formatter-string,
+        .json-formatter-row .json-formatter-number,
+        .json-formatter-row .json-formatter-boolean,
+        .json-formatter-row .json-formatter-null,
+        .json-formatter-row .json-formatter-key,
+        .json-formatter-row .json-formatter-bracket {
+            color: black !important;
+            font-weight: normal;
+        }
+        
+        /* Ensure the container has solid background */
+        #jsonFormatterContainer {
+            background-color: white !important;
+            color: black !important;
+        }
+        
+        /* Make preview text fully visible */
+        .json-formatter-row .json-formatter-preview-text {
+            color: black !important;
+            opacity: 1 !important;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            margin-left: 4px;
+            border-radius: 2px;
+        }
+        
+        /* Make togglers clearly visible */
+        .json-formatter-row .json-formatter-toggler:after {
+            color: black !important;
+        }
+        
+        /* Add subtle row highlighting */
+        .json-formatter-row {
+            padding: 2px 0;
+            border-bottom: 1px solid #f8f8f8;
+        }
+    </style>
     <style>
         :root {
             --primary: #171717;
@@ -362,6 +411,281 @@
             background-color: var(--border);
         }
         
+        /* Tab Styles */
+        .tabs {
+            display: flex;
+            margin: 2rem 0 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--light-text);
+            cursor: pointer;
+            position: relative;
+            margin-right: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .tab-button:hover {
+            color: var(--text);
+        }
+        
+        .tab-button.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* JSON view styles */
+        .json-container {
+            background-color: var(--code-bg);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+        
+        .json-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .json-title {
+            color: #fff;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .json-header-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .json-action-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            transition: all 0.2s ease;
+        }
+        
+        .json-action-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        
+        .json-content {
+            padding: 1rem;
+            overflow-x: auto;
+            color: var(--code-text);
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        /* Custom styles for JSON formatter */
+        .json-formatter-row, .json-formatter-row span {
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: #000000 !important;
+        }
+        
+        /* Container background */
+        #jsonFormatterContainer {
+            background-color: #FFFFFF;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 1px solid #DDDDDD;
+        }
+        
+        /* Force all JSON elements to have black text against white background */
+        .json-formatter-row *,
+        .json-formatter-row *.json-formatter-key,
+        .json-formatter-row *.json-formatter-string,
+        .json-formatter-row *.json-formatter-number,
+        .json-formatter-row *.json-formatter-boolean,
+        .json-formatter-row *.json-formatter-null,
+        .json-formatter-row *.json-formatter-comma,
+        .json-formatter-row *.json-formatter-bracket,
+        .json-formatter-row *.json-formatter-constructor-name {
+            color: #000000 !important;
+            background-color: transparent !important;
+        }
+        
+        /* Make sure all rows have a solid white background */
+        .json-formatter-row,
+        .json-formatter-row .json-formatter-children,
+        .json-formatter-children > div {
+            background-color: #FFFFFF !important;
+        }
+        
+        .json-formatter-row .json-formatter-key {
+            color: #000000;
+            margin-right: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .json-formatter-row .json-formatter-string {
+            color: #417141; /* Darker green */
+        }
+        
+        .json-formatter-row .json-formatter-number {
+            color: #333333; /* Dark gray */
+        }
+        
+        .json-formatter-row .json-formatter-boolean {
+            color: #222222; /* Nearly black */
+        }
+        
+        .json-formatter-row .json-formatter-null {
+            color: #555555; /* Medium gray */
+        }
+        
+        .json-formatter-row .json-formatter-bracket {
+            color: #000000; /* Black */
+        }
+        
+        .json-formatter-row .json-formatter-comma {
+            color: #000000; /* Black */
+        }
+        
+        .json-formatter-row .json-formatter-constructor-name {
+            color: #222222; /* Nearly black */
+        }
+        
+        .json-formatter-row a.json-formatter-toggler {
+            vertical-align: middle;
+            cursor: pointer;
+            color: #000000;
+        }
+        
+        .json-formatter-row .json-formatter-toggler:after {
+            content: '►';
+            font-size: 0.7em;
+            display: inline-block;
+            transition: transform 0.1s ease;
+            margin-right: 0.2rem;
+            color: #333333;
+        }
+        
+        .json-formatter-row.json-formatter-open > .json-formatter-toggler-link .json-formatter-toggler:after {
+            transform: rotate(90deg);
+        }
+        
+        .json-formatter-row .json-formatter-preview-text {
+            color: #000000;
+            font-style: italic;
+            opacity: 1;
+            background-color: #EEEEEE;
+            padding: 2px 5px;
+            border-radius: 2px;
+            margin-left: 5px;
+        }
+        
+        /* Adjust the JSON container header to match the new lighter theme */
+        .json-container {
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .json-header {
+            background-color: #F0F0F0;
+            border-bottom: 1px solid #DDDDDD;
+        }
+        
+        .json-title {
+            color: #000000;
+            font-weight: 600;
+        }
+        
+        .json-action-btn {
+            color: #000000;
+            background-color: #EEEEEE;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #DDDDDD;
+            font-weight: 500;
+        }
+        
+        .json-action-btn:hover {
+            background-color: #E0E0E0;
+            color: #000000;
+        }
+        
+        .json-content {
+            color: #000000;
+        }
+        
+        /* Improve visibility of all elements */
+        .json-formatter-row .json-formatter-toggler-link {
+            background-color: #FFFFFF;
+            display: inline-block;
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin: 1px 0;
+            border: 1px solid #EEEEEE;
+        }
+        
+        .json-formatter-row:hover > .json-formatter-toggler-link {
+            background-color: #F8F8F8;
+        }
+        
+        /* Add alternate row colors for better readability */
+        .json-formatter-row {
+            background-color: #FFFFFF !important;
+            padding: 2px 0;
+        }
+        
+        .json-formatter-row:nth-child(even) {
+            background-color: #F8F8F8 !important;
+        }
+        
+        /* IMPORTANT: Aggressive styling to force high contrast */
+        .json-formatter-row .json-formatter-key,
+        .json-formatter-row .json-formatter-value,
+        .json-formatter-row .json-formatter-string,
+        .json-formatter-row .json-formatter-number,
+        .json-formatter-row .json-formatter-bracket,
+        .json-formatter-row .json-formatter-boolean,
+        .json-formatter-row .json-formatter-null,
+        .json-formatter-row .json-formatter-constructor-name,
+        .json-formatter-row .json-formatter-toggler,
+        .json-formatter-row .json-formatter-toggler-link,
+        .json-formatter-row .json-formatter-preview-text {
+            color: black !important;
+            text-shadow: 0 0 0 black !important;
+            -webkit-text-fill-color: black !important;
+        }
+        
         /* Modal Styles */
         .modal {
             display: none;
@@ -508,23 +832,44 @@
     
     <main>
         <div class="container">
-            <h1>Open Source <span class="highlight">MCP Registry</span></h1>
+            <h1><span class="highlight">getmcp.io</span> Registry</h1>
             
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search servers..." id="searchInput">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="registry">Registry View</button>
+                <button class="tab-button" data-tab="json">JSON View</button>
             </div>
             
-            <div class="tag-filters">
-                <span class="tag-filter active" data-tag="all">All</span>
-                <span class="tag-filter" data-tag="api">API</span>
-                <span class="tag-filter" data-tag="utility">Utility</span>
-                <span class="tag-filter" data-tag="development">Development</span>
-                <span class="tag-filter" data-tag="time">Time</span>
-                <span class="tag-filter" data-tag="testing">Testing</span>
+            <div id="registryTab" class="tab-content active">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search servers..." id="searchInput">
+                </div>
+                
+                <div class="tag-filters">
+                    <span class="tag-filter active" data-tag="all">All</span>
+                    <span class="tag-filter" data-tag="api">API</span>
+                    <span class="tag-filter" data-tag="utility">Utility</span>
+                    <span class="tag-filter" data-tag="development">Development</span>
+                    <span class="tag-filter" data-tag="time">Time</span>
+                    <span class="tag-filter" data-tag="testing">Testing</span>
+                </div>
+                
+                <div class="servers-grid" id="serversGrid">
+                    <!-- Server cards are populated dynamically -->
+                </div>
             </div>
             
-            <div class="servers-grid" id="serversGrid">
-                <!-- Server cards are populated dynamically -->
+            <div id="jsonTab" class="tab-content">
+                <div class="json-container">
+                    <div class="json-header">
+                        <span class="json-title">All Server Manifests</span>
+                        <div class="json-header-actions">
+                            <button id="expandAllBtn" class="json-action-btn">Expand All</button>
+                            <button id="collapseAllBtn" class="json-action-btn">Collapse All</button>
+                            <button id="copyJsonBtn" class="json-action-btn">Copy JSON</button>
+                        </div>
+                    </div>
+                    <div id="jsonFormatterContainer" class="json-content"></div>
+                </div>
             </div>
         </div>
     </main>
@@ -851,6 +1196,99 @@
             
             renderServerCards(filteredServers);
         }
+        
+        // Tab switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+                
+                // Deactivate all tabs
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Activate selected tab
+                button.classList.add('active');
+                document.getElementById(tabId + 'Tab').classList.add('active');
+                
+                // Load JSON data when JSON tab is selected
+                if (tabId === 'json') {
+                    loadAndFormatJson();
+                }
+            });
+        });
+        
+        // Variable to store the JSON formatter instance
+        let jsonFormatter = null;
+        
+        // Function to load and format JSON data with collapsible view
+        function loadAndFormatJson() {
+            const jsonContainer = document.getElementById('jsonFormatterContainer');
+            jsonContainer.innerHTML = 'Loading...';
+            
+            fetch('/api/servers.json')
+                .then(response => response.json())
+                .then(data => {
+                    jsonContainer.innerHTML = ''; // Clear loading text
+                    
+                    // Create a new JSON formatter with default collapsed depth of 1
+                    jsonFormatter = new JSONFormatter(data, 1, {
+                        hoverPreviewEnabled: true,
+                        hoverPreviewArrayCount: 100,
+                        hoverPreviewFieldCount: 5,
+                        animateOpen: true,
+                        animateClose: true
+                    });
+                    
+                    // Add the formatted JSON to the container
+                    jsonContainer.appendChild(jsonFormatter.render());
+                    
+                    // Setup expand/collapse buttons
+                    setupJsonControls();
+                })
+                .catch(error => {
+                    console.error('Error loading JSON data:', error);
+                    jsonContainer.innerHTML = 'Error loading JSON data. Please try again later.';
+                });
+        }
+        
+        // Setup controls for JSON formatter
+        function setupJsonControls() {
+            // Expand all button
+            document.getElementById('expandAllBtn').addEventListener('click', () => {
+                if (jsonFormatter) {
+                    jsonFormatter.openAtDepth(Infinity);
+                }
+            });
+            
+            // Collapse all button
+            document.getElementById('collapseAllBtn').addEventListener('click', () => {
+                if (jsonFormatter) {
+                    jsonFormatter.openAtDepth(1); // Collapse to first level
+                }
+            });
+        }
+        
+        // Copy JSON to clipboard
+        document.getElementById('copyJsonBtn').addEventListener('click', () => {
+            if (jsonFormatter) {
+                // Format the JSON with indentation for copying
+                const jsonContent = JSON.stringify(jsonFormatter.json, null, 2);
+                navigator.clipboard.writeText(jsonContent)
+                    .then(() => {
+                        const copyBtn = document.getElementById('copyJsonBtn');
+                        copyBtn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Copy JSON';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
+            }
+        });
         
         // Tag filtering is now handled in the fetch promise
         

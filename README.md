@@ -17,6 +17,10 @@ getmcp.io/
     └── registry/           # Registry UI pages
 ```
 
+## Development
+
+See [DEVELOPMENT.md](DEVELOPMENT.md) for setup and local development instructions.
+
 ## Contributing
 
 Please see [Contributing Guidelines](/mcp-registry/CONTRIBUTING.md) for information on how to add or update MCP servers in the registry.

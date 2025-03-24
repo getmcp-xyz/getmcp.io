@@ -6,6 +6,9 @@ _site/
 .bundle/
 vendor/
 
+# Development directory
+_dev/
+
 # Ruby environment normalization
 .ruby-version
 .ruby-gemset
