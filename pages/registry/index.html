@@ -557,39 +557,35 @@
     </div>
     
     <script>
-        // Server data (in a real implementation, this would be fetched from the registry)
-        const servers = [
-            {
-                name: "github",
-                displayName: "GitHub MCP Server",
-                description: "MCP Server for the GitHub API, enabling file operations, repository management, search functionality, and more.",
-                version: "1.0.0",
-                tags: ["api", "development", "utility", "github", "code"],
-                repository: "https://github.com/modelcontextprotocol/servers",
-                documentation: "/registry/servers/github/",
-                apiEndpoint: "/api/servers/github.json"
-            },
-            {
-                name: "time",
-                displayName: "Time MCP Server",
-                description: "A Model Context Protocol server that provides time and timezone conversion capabilities.",
-                version: "1.0.0",
-                tags: ["utility", "time", "timezone", "date"],
-                repository: "https://github.com/modelcontextprotocol/servers",
-                documentation: "/registry/servers/time/",
-                apiEndpoint: "/api/servers/time.json"
-            },
-            {
-                name: "everything",
-                displayName: "Everything MCP Server",
-                description: "This MCP server exercises all the features of the MCP protocol. It is a test server for builders of MCP clients.",
-                version: "1.0.0",
-                tags: ["testing", "development", "reference", "demo"],
-                repository: "https://github.com/modelcontextprotocol/servers",
-                documentation: "/registry/servers/everything/",
-                apiEndpoint: "/api/servers/everything.json"
-            }
-        ];
+        // Server data - to be loaded from the combined JSON file
+        let servers = [];
+        
+        // Fetch all servers data
+        fetch('/api/servers.json')
+            .then(response => response.json())
+            .then(data => {
+                servers = data;
+                // Initialize the UI after data is loaded
+                renderServerCards(servers);
+                
+                // Initialize tag filters after data is loaded
+                const tagFilters = document.querySelectorAll('.tag-filter');
+                tagFilters.forEach(filter => {
+                    filter.addEventListener('click', () => {
+                        tagFilters.forEach(f => f.classList.remove('active'));
+                        filter.classList.add('active');
+                        handleSearch();
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error loading servers:', error);
+                document.getElementById('serversGrid').innerHTML = `
+                    <div class="error-message">
+                        <p>Unable to load server data. Please try again later.</p>
+                    </div>
+                `;
+            });
         
         // Fetch manifest content
         async function fetchManifest(apiEndpoint) {
@@ -856,18 +852,7 @@
             renderServerCards(filteredServers);
         }
         
-        // Tag filtering
-        const tagFilters = document.querySelectorAll('.tag-filter');
-        tagFilters.forEach(filter => {
-            filter.addEventListener('click', () => {
-                // Update active state
-                document.querySelector('.tag-filter.active').classList.remove('active');
-                filter.classList.add('active');
-                
-                // Filter servers
-                handleSearch();
-            });
-        });
+        // Tag filtering is now handled in the fetch promise
         
         // Modal functions
         document.addEventListener('DOMContentLoaded', () => {

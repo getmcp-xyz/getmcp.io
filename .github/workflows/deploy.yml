@@ -40,6 +40,29 @@ jobs:
             server_name=$(basename $(dirname "$manifest"))
             cp "$manifest" "pages/api/servers/$server_name.json"
           done
+          
+          # Create a single combined JSON file with all servers
+          echo "[" > pages/api/servers.json
+          first=true
+          for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort); do
+            server_name=$(basename $(dirname "$manifest"))
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo "," >> pages/api/servers.json
+            fi
+            
+            # Process the manifest to create server entry with additional frontend fields
+            jq -c '. + {
+              "name": .name,
+              "displayName": .display_name,
+              "tags": .tags,
+              "repository": .repository.url,
+              "documentation": "/registry/servers/\(.name)/",
+              "apiEndpoint": "/api/servers/\(.name).json"
+            }' "$manifest" >> pages/api/servers.json
+          done
+          echo "]" >> pages/api/servers.json
       
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1.0.12
