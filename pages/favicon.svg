@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect x="0" y="0" width="64" height="64" rx="8" ry="8" fill="#2E3440" />
+  
+  <!-- Top text: "get" -->
+  <text x="32" y="27" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#FF85B3">get</text>
+  
+  <!-- Bottom text: "mcp" -->
+  <text x="32" y="51" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#5CB8FF">mcp</text>
+</svg>
