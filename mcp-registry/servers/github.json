@@ -21,12 +21,26 @@
       "example": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     }
   },
-  "installation": {
-    "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-github"],
-    "package": "@modelcontextprotocol/server-github",
-    "env": {
-      "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+  "installations": {
+    "npm": {
+      "type": "npm",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "package": "@modelcontextprotocol/server-github",
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Install and run using NPX",
+      "recommended": true
+    },
+    "docker": {
+      "type": "docker",
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "mcp/github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Run with Docker"
     }
   },
   "examples": [

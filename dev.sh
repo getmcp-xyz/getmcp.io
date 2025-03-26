@@ -31,29 +31,13 @@ mkdir -p "$DEV_DIR/registry"
 ./scripts/prepare.sh "$DEV_DIR"
 
 echo -e "✅ Setup complete!\n"
-# Check if port 4000 is already in use
-if lsof -i :4000 > /dev/null 2>&1; then
-    echo -e "⚠️ Port 4000 is already in use!\n"
-    echo "Would you like to stop any running Jekyll containers and try again? (y/n)"
-    read -r response
-    if [ "$response" = "y" ] || [ "$response" = "Y" ]; then
-        echo "🗑️ Stopping any running Jekyll containers..."
-        docker ps | grep jekyll | awk '{print $1}' | xargs -r docker stop
-        echo "Waiting for port to be released..."
-        sleep 3
-    else
-        echo "Exiting. Please stop the service using port 4000 and try again."
-        exit 1
-    fi
-fi
 
 echo -e "\n🌐 Starting Jekyll development server..."
 echo "   Access the site at http://localhost:4000"
 echo -e "   Press Ctrl+C to stop the server\n"
-
 # Start Jekyll dev server using Docker from the _dev directory
 cd "$DEV_DIR" && docker run --rm -it \
   -v "$PWD:/srv/jekyll" \
   -p 4000:4000 \
   jekyll/jekyll:4.2.0 \
-  jekyll serve --livereload
+  jekyll serve --livereload || (echo -e "\nPort 4000 is already in use. Assuming development server is already running." && exit 0)

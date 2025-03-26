@@ -29,12 +29,12 @@ setup_directories() {
   status_message "Copying registry files..."
   cp -r mcp-registry/* "$TARGET_DIR/registry/"
   
-  # Create API endpoints for manifests
+  # Create API endpoints for server json files
   status_message "Creating API endpoints..."
-  find mcp-registry/servers -name "manifest.json" -type f | while read manifest; do
-    server_name=$(basename $(dirname "$manifest"))
+  find mcp-registry/servers -name "*.json" -type f | while read server_file; do
+    server_name=$(basename "$server_file" .json)
     echo "  - Processing $server_name..."
-    cp "$manifest" "$TARGET_DIR/api/servers/$server_name.json"
+    cp "$server_file" "$TARGET_DIR/api/servers/$server_name.json"
   done
 }
 
@@ -45,15 +45,15 @@ generate_servers_json() {
   status_message "Generating combined servers.json..."
   echo "{" > "$TARGET_DIR/api/servers.json"
   first=true
-  for manifest in $(find mcp-registry/servers -name "manifest.json" -type f | sort); do
-    server_name=$(basename $(dirname "$manifest"))
+  for server_file in $(find mcp-registry/servers -name "*.json" -type f | sort); do
+    server_name=$(basename "$server_file" .json)
     if [ "$first" = true ]; then
       first=false
     else
       echo "," >> "$TARGET_DIR/api/servers.json"
     fi
     
-    # Process the manifest to create server entry with additional frontend fields
+    # Process the server file to create server entry with additional frontend fields
     echo -n "\"$server_name\": " >> "$TARGET_DIR/api/servers.json"
     jq -c '. + {
       "name": .name,
@@ -62,7 +62,7 @@ generate_servers_json() {
       "repository": .repository.url,
       "documentation": "/registry/servers/\(.name)/",
       "apiEndpoint": "/api/servers/\(.name).json"
-    }' "$manifest" >> "$TARGET_DIR/api/servers.json"
+    }' "$server_file" >> "$TARGET_DIR/api/servers.json"
   done
   echo "}" >> "$TARGET_DIR/api/servers.json"
 }

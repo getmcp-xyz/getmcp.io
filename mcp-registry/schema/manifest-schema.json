@@ -10,7 +10,7 @@
     "description",
     "repository",
     "license",
-    "installation"
+    "installations"
   ],
   "properties": {
     "name": {
@@ -99,26 +99,47 @@
         }
       }
     },
-    "installation": {
+    "installations": {
       "type": "object",
-      "required": ["command", "args"],
-      "properties": {
-        "command": {
-          "type": "string"
-        },
-        "args": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "package": {
-          "type": "string"
-        },
-        "env": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
+      "description": "Different methods to install and run this server",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "command", "args"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of installation method",
+            "enum": ["npm", "python", "docker", "cli", "uvx", "custom"]
+          },
+          "command": {
+            "type": "string",
+            "description": "Command to run the server"
+          },
+          "args": {
+            "type": "array",
+            "description": "Arguments to pass to the command",
+            "items": {
+              "type": "string"
+            }
+          },
+          "package": {
+            "type": "string",
+            "description": "Package name (for npm, pip, etc.)"
+          },
+          "env": {
+            "type": "object",
+            "description": "Environment variables to set",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of this installation method"
+          },
+          "recommended": {
+            "type": "boolean",
+            "description": "Whether this is the recommended installation method"
           }
         }
       }

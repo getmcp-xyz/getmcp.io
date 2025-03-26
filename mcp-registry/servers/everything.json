@@ -15,11 +15,16 @@
   "categories": ["development", "testing"],
   "tags": ["testing", "reference", "example", "demo"],
   "arguments": {},
-  "installation": {
-    "command": "npx",
-    "args": ["-y", "@modelcontextprotocol/server-everything"],
-    "package": "@modelcontextprotocol/server-everything",
-    "env": {}
+  "installations": {
+    "npm": {
+      "type": "npm",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-everything"],
+      "package": "@modelcontextprotocol/server-everything",
+      "env": {},
+      "description": "Install and run using NPX",
+      "recommended": true
+    }
   },
   "examples": [
     {

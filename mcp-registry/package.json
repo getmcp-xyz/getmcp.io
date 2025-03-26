@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "validate": "node tools/validate-manifest.js",
-    "validate-all": "for file in servers/*/manifest.json; do node tools/validate-manifest.js $file; done"
+    "validate-all": "for file in servers/*.json; do node tools/validate-manifest.js $file; done"
   },
   "repository": {
     "type": "git",
