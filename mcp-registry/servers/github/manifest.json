@@ -14,9 +14,12 @@
   "license": "MIT",
   "categories": ["api", "development", "utility"],
   "tags": ["github", "code", "repository", "git"],
-  "requirements": {
-    "api_key": true,
-    "authentication": "bearer_token"
+  "arguments": {
+    "GITHUB_TOKEN": {
+      "description": "GitHub Personal Access Token with appropriate permissions for the repositories you want to access",
+      "required": true,
+      "example": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
   },
   "installation": {
     "command": "npx",

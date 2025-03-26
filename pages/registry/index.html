@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Highlight.js for JSON syntax highlighting -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/json.min.js"></script>
     <!-- JSON formatter for collapsible view -->
@@ -30,10 +30,10 @@
             --button-bg: #171717;
             --button-hover: #333333;
             --view-manifest: #FAFAFA;
-            --highlight: #FF825C;
-            --highlight-light: #FFF1ED;
-            --code-bg: #1F1F1F;
-            --code-text: #F5F5F5;
+            --highlight: #171717;
+            --highlight-light: #F8F8F8;
+            --code-bg: #FFFFFF;
+            --code-text: #333333;
         }
         
         * {
@@ -639,6 +639,25 @@
             color: var(--text);
         }
         
+        /* Basic JSON syntax highlighting */
+        .hljs-attr {
+            color: #0550ae;
+            font-weight: bold;
+        }
+        
+        .hljs-string {
+            color: #24292e;
+        }
+        
+        .hljs-number {
+            color: #005cc5;
+        }
+        
+        .hljs-boolean {
+            color: #005cc5;
+            font-weight: bold;
+        }
+        
         /* Footer styling moved to footer.html include */
         
         @media (max-width: 768px) {
@@ -687,8 +706,8 @@
             <h1><span class="highlight">Server Registry</span></h1>
             
             <div class="tabs">
-                <button class="tab-button active" data-tab="registry">Server Registry View</button>
-                <button class="tab-button" data-tab="json">JSON View</button>
+                <button class="tab-button active" data-tab="registry"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px; vertical-align: -3px;"><circle cx="12" cy="7" r="4"></circle><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path></svg> GUI</button>
+                <button class="tab-button" data-tab="json"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px; vertical-align: -3px;"><rect x="3" y="11" width="18" height="10" rx="2" ry="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line><line x1="12" y1="15" x2="12" y2="17"></line></svg> API</button>
             </div>
             
             <div id="registryTab" class="tab-content active">
@@ -709,7 +728,7 @@
             <div id="jsonTab" class="tab-content">
                 <div class="json-container">
                     <div class="json-header">
-                        <span class="json-title">All Server Manifests</span>
+                        <span class="json-title">getmcp.io API</span>
                         <div class="json-header-actions">
                             <button id="expandAllBtn" class="json-action-btn">Expand All</button>
                             <button id="collapseAllBtn" class="json-action-btn">Collapse All</button>
@@ -851,7 +870,12 @@
             
             // Display the server data directly from our already loaded servers array
             // No need to fetch it separately since we already have all data
-            jsonContent.textContent = JSON.stringify(server, null, 2);
+            const formattedJson = JSON.stringify(server, null, 2);
+            jsonContent.textContent = formattedJson;
+            
+            // Apply syntax highlighting to the JSON
+            jsonContent.classList.add('language-json');
+            hljs.highlightElement(jsonContent);
             
             // Display modal
             modal.style.display = 'flex';
@@ -1105,7 +1129,7 @@
                 document.getElementById(tabId + 'Tab').classList.add('active');
                 
                 // Load JSON data when JSON tab is selected
-                if (tabId === 'json') {
+                if (tabId === 'json') { // API tab
                     loadAndFormatJson();
                 }
             });
@@ -1118,6 +1142,12 @@
         function loadAndFormatJson() {
             const jsonContainer = document.getElementById('jsonFormatterContainer');
             jsonContainer.innerHTML = 'Loading...';
+            
+            // Configure hljs to highlight JSON according to the schema
+            hljs.configure({
+                languages: ['json'],
+                cssSelector: 'pre code.language-json'
+            });
             
             // Set the combined API URL
             const combinedApiUrl = document.getElementById('combinedApiUrl');

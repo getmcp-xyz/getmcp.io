@@ -77,15 +77,25 @@
         "type": "string"
       }
     },
-    "requirements": {
+    "arguments": {
       "type": "object",
-      "properties": {
-        "api_key": {
-          "type": "boolean"
-        },
-        "authentication": {
-          "type": ["string", "null"],
-          "enum": ["bearer_token", "basic", "oauth", null]
+      "description": "Configuration arguments required by the server",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["description", "required"],
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the argument"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether this argument is required for the server to function"
+          },
+          "example": {
+            "type": "string",
+            "description": "Example value for this argument"
+          }
         }
       }
     },

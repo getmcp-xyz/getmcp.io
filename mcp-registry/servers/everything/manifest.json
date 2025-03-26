@@ -14,10 +14,7 @@
   "license": "MIT",
   "categories": ["development", "testing"],
   "tags": ["testing", "reference", "example", "demo"],
-  "requirements": {
-    "api_key": false,
-    "authentication": null
-  },
+  "arguments": {},
   "installation": {
     "command": "npx",
     "args": ["-y", "@modelcontextprotocol/server-everything"],

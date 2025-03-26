@@ -38,24 +38,29 @@
             line-height: 1.5;
             color: var(--text);
             background-color: var(--background);
+            text-align: left;
+            position: relative;
+        }
+        
+        .container {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             padding: 2rem;
-            text-align: left;
-            position: relative;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
         
         .github-corner {
-            position: absolute;
+            position: fixed;
             top: 0;
             right: 0;
             width: 80px;
             height: 80px;
             opacity: 0.8;
             color: var(--primary);
+            z-index: 1000;
         }
         
         .github-corner:hover {
@@ -202,8 +207,9 @@
 <body>
     {% include github-corner.html %}
     
-    <div class="content">
-        <h1 style="text-align: center;"><span style="font-size: 0.7em;">Open Source</span><br><span class="highlight">MCP Registry</span></h1>
+    <div class="container">
+        <div class="content">
+        <h1 style="text-align: center;"><span style="font-size: 0.7em;">Open Source</span><br><span class="highlight">getmcp.io</span></h1>
         <p>The single open MCP registry we all need.</p>
         <p class="tagline"><strong>Community-driven, open source, forever free.</strong></p>
         
@@ -212,6 +218,7 @@
         <div class="buttons">
             <a href="/registry" class="button primary">Explore Server Registry</a>
             <a href="https://github.com/getmcp-xyz/getmcp.io/blob/main/mcp-registry/CONTRIBUTING.md" class="button secondary">Contribute</a>
+        </div>
         </div>
     </div>
     

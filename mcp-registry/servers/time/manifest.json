@@ -14,9 +14,12 @@
   "license": "MIT",
   "categories": ["utility", "time"],
   "tags": ["time", "timezone", "date", "converter"],
-  "requirements": {
-    "api_key": false,
-    "authentication": null
+  "arguments": {
+    "timezone": {
+      "description": "IANA timezone identifier to use as default timezone",
+      "required": false,
+      "example": "America/New_York"
+    }
   },
   "installation": {
     "command": "npx",
