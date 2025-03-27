@@ -166,11 +166,69 @@
             box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
         }
         
+        .tag-filters-container {
+            margin-bottom: 2rem;
+        }
+        
+        .tag-filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tag-filters-title {
+            font-weight: 500;
+            color: var(--secondary);
+        }
+        
+        .toggle-tags-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s;
+        }
+        
+        .toggle-tags-btn:hover {
+            background-color: var(--accent);
+        }
+        
         .tag-filters {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 2rem;
+            max-height: 2.5rem;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .tag-filters.expanded {
+            max-height: 200px; /* Limit height to show scrollbar */
+            overflow-y: auto; /* Add vertical scrollbar when needed */
+            padding-right: 5px; /* Add some padding for the scrollbar */
+        }
+        
+        /* Custom scrollbar styling for better appearance */
+        .tag-filters.expanded::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .tag-filters.expanded::-webkit-scrollbar-track {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        
+        .tag-filters.expanded::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
+        }
+        
+        .tag-filters.expanded::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
         }
         
         .tag-filter {
@@ -841,12 +899,17 @@
             
             <div id="registryTab" class="tab-content active">
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search servers..." id="searchInput">
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search servers...">
                 </div>
                 
-                <div class="tag-filters" id="tagFilters">
-                    <!-- Tag filters will be populated dynamically -->
-                    <span class="tag-filter active" data-tag="all">All</span>
+                <div class="tag-filters-container">
+                    <div class="tag-filters-header">
+                        <span class="tag-filters-title">Filter by tag:</span>
+                        <button id="toggleTagsBtn" class="toggle-tags-btn">Show more</button>
+                    </div>
+                    <div class="tag-filters" id="tagFilters">
+                        <span class="tag-filter active" data-tag="all">All</span>
+                    </div>
                 </div>
                 
                 <div class="servers-grid" id="serversGrid">
@@ -1189,6 +1252,7 @@
                 tagElement.addEventListener('click', () => {
                     document.querySelectorAll('.tag-filter').forEach(f => f.classList.remove('active'));
                     tagElement.classList.add('active');
+                    activeTag = tag;
                     handleSearch();
                 });
                 
@@ -1200,13 +1264,34 @@
             allTagFilter.addEventListener('click', () => {
                 document.querySelectorAll('.tag-filter').forEach(f => f.classList.remove('active'));
                 allTagFilter.classList.add('active');
+                activeTag = 'all';
                 handleSearch();
             });
+            
+            // Setup toggle button for expanding/collapsing tags
+            const toggleTagsBtn = document.getElementById('toggleTagsBtn');
+            const tagFilters = document.getElementById('tagFilters');
+            
+            toggleTagsBtn.addEventListener('click', () => {
+                tagFilters.classList.toggle('expanded');
+                if (tagFilters.classList.contains('expanded')) {
+                    toggleTagsBtn.textContent = 'Show less';
+                } else {
+                    toggleTagsBtn.textContent = 'Show more';
+                }
+            });
+            
+            // Check if we need the toggle button (if tags fit in one line)
+            if (sortedTags.length <= 10) {
+                toggleTagsBtn.style.display = 'none';
+                tagFilters.classList.add('expanded');
+            }
         }
+
+        let activeTag = 'all';
         
         function handleSearch() {
             const searchTerm = searchInput.value.toLowerCase();
-            const activeTag = document.querySelector('.tag-filter.active').dataset.tag;
             
             let filteredServers = serversArray;
             
@@ -1225,13 +1310,6 @@
                     server.displayName.toLowerCase().includes(searchTerm) || 
                     server.description.toLowerCase().includes(searchTerm) ||
                     (server.tags && server.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
-                );
-            }
-            
-            // Filter by tag
-            if (activeTag && activeTag !== 'all') {
-                filteredServers = filteredServers.filter(server => 
-                    server.tags.includes(activeTag)
                 );
             }
             
