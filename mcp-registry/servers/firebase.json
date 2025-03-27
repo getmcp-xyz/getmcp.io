@@ -1,0 +1,38 @@
+{
+  "name": "firebase",
+  "display_name": "Firebase MCP Server",
+  "version": "[NOT GIVEN]",
+  "description": "Server to interact with Firebase services including Firebase Authentication, Firestore, and Firebase Storage.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gannonh/firebase-mcp"
+  },
+  "homepage": "https://github.com/gannonh/firebase-mcp",
+  "author": {
+    "name": "gannonh"
+  },
+  "license": "MIT",
+  "categories": [
+    "Firebase",
+    "LLM"
+  ],
+  "tags": [
+    "Firebase",
+    "LLM",
+    "Server"
+  ],
+  "installations": {
+    "npm": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@gannonh/firebase-mcp"
+      ],
+      "env": {
+        "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
+        "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
+      }
+    }
+  }
+}
