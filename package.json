@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/getmcp-xyz/getmcp.io/issues"
   },
-  "homepage": "https://github.com/getmcp-xyz/getmcp.io#readme"
+  "homepage": "https://github.com/getmcp-xyz/getmcp.io#readme",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "lodash": "^4.17.21"
+  }
 }

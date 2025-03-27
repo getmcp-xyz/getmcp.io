@@ -1,0 +1,32 @@
+{
+  "name": "anki",
+  "display_name": "Anki MCP Server",
+  "version": "1.0.0",
+  "description": "An MCP server for interacting with your [Anki](https://apps.ankiweb.net/) decks and cards.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scorzeth/anki-mcp-server"
+  },
+  "homepage": "https://github.com/scorzeth/anki-mcp-server",
+  "author": {
+    "name": "scorzeth"
+  },
+  "license": "MIT",
+  "categories": [
+    "Productivity",
+    "Education"
+  ],
+  "tags": [
+    "Anki",
+    "Cards",
+    "Review"
+  ],
+  "installations": {
+    "custom": {
+      "type": "custom",
+      "command": "node",
+      "description": "Run with npm (requires npm install)",
+      "args": ["/path/to/anki-mcp-server/build/index.js"]
+    }
+  }
+}

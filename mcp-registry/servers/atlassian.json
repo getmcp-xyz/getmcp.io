@@ -1,0 +1,71 @@
+{
+  "name": "atlassian",
+  "display_name": "MCP Atlassian",
+  "version": "1.0.0",
+  "description": "Interact with Atlassian Cloud products (Confluence and Jira) including searching/reading Confluence spaces/pages, accessing Jira issues, and project metadata.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sooperset/mcp-atlassian"
+  },
+  "homepage": "https://github.com/sooperset/mcp-atlassian",
+  "author": {
+    "name": "sooperset"
+  },
+  "license": "MIT",
+  "categories": [
+    "Integration",
+    "Productivity"
+  ],
+  "tags": [
+    "Atlassian",
+    "Confluence",
+    "Jira"
+  ],
+  "installations": {
+    "uvx":{
+      "type": "uvx",
+      "command": "uvx",
+      "args": [
+        "mcp-atlassian",
+        "--confluence-url=https://your-company.atlassian.net/wiki",
+        "--confluence-username=your.email@company.com",
+        "--confluence-token=your_api_token",
+        "--jira-url=https://your-company.atlassian.net",
+        "--jira-username=your.email@company.com",
+        "--jira-token=your_api_token"
+      ],
+      "description": "Run with uvx (requires uv install)"
+    },
+    "python": {
+      "type": "python",
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp-atlassian",
+        "--confluence-url=https://your-company.atlassian.net/wiki",
+        "--confluence-username=your.email@company.com",
+        "--confluence-token=your_api_token",
+        "--jira-url=https://your-company.atlassian.net",
+        "--jira-username=your.email@company.com",
+        "--jira-token=your_api_token"
+      ],
+      "description": "Run with Python module (requires pip install)"
+    },
+    "docker": {
+      "type": "docker",
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/atlassian",
+        "--confluence-url=https://your-company.atlassian.net/wiki",
+        "--confluence-username=your.email@company.com",
+        "--confluence-token=your_api_token",
+        "--jira-url=https://your-company.atlassian.net",
+        "--jira-username=your.email@company.com",
+        "--jira-token=your_api_token"
+      ]
+    }
+  }
+}
