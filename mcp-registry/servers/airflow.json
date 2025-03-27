@@ -1,0 +1,43 @@
+{
+  "name": "airflow",
+  "display_name": "MCP Server Apache Airflow",
+  "version": "1.0.0",
+  "description": "A MCP Server that connects to [Apache Airflow](https://airflow.apache.org/) using official python client.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yangkyeongmo/mcp-server-apache-airflow"
+  },
+  "homepage": "https://github.com/yangkyeongmo/mcp-server-apache-airflow",
+  "author": {
+    "name": "yangkyeongmo"
+  },
+  "license": "MIT",
+  "categories": [
+    "Data Management",
+    "Apache Airflow"
+  ],
+  "tags": [
+    "apache-airflow",
+    "server",
+    "data-pipeline",
+    "workflow"
+  ],
+  "installations": {
+    "uvx":{
+      "type": "uvx",
+      "command": "uvx",
+      "args": [
+        "--directory",
+        "/path/to/mcp-server-apache-airflow",
+        "run",
+        "mcp-server-apache-airflow"
+      ],
+      "env":{
+        "AIRFLOW_HOST": "https://your-airflow-host",
+        "AIRFLOW_USERNAME": "your-username",
+        "AIRFLOW_PASSWORD": "your-password"
+      },
+      "description": "Run with uvx (requires uv install)"
+    }
+  }
+}

@@ -28,3 +28,6 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# Node.js
+node_modules/
