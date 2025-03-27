@@ -25,10 +25,10 @@
     "python": {
       "type": "python",
       "command": "python",
-      "args": ["-m", "coin_api_mcp"]
-    },
-    "env": {
-      "COINMARKETCAP_API_KEY": "your_api_key_here"
+      "args": ["-m", "coin_api_mcp"],
+      "env": {
+        "COINMARKETCAP_API_KEY": "your_api_key_here"
+      }
     }
   },
   "examples": [
