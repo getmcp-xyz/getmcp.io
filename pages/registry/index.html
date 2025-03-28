@@ -1184,8 +1184,8 @@
                 // Docs and GitHub buttons removed as requested
                 
                 // Extract GitHub repo info from repository URL for star count
-                if (server.repository && server.repository.includes('github.com')) {
-                    const repoUrlParts = server.repository.replace('https://github.com/', '').split('/');
+                if (server.repository && server.repository.url && server.repository.url.includes('github.com')) {
+                    const repoUrlParts = server.repository.url.replace('https://github.com/', '').split('/');
                     if (repoUrlParts.length >= 2) {
                         const owner = repoUrlParts[0];
                         const repo = repoUrlParts[1].replace('.git', '');
@@ -1199,7 +1199,7 @@
                             // Prevent the click from opening the modal
                             event.stopPropagation();
                             // Open the GitHub repository in a new tab
-                            window.open(server.repository, '_blank');
+                            window.open(server.repository.url, '_blank');
                         });
                     } else {
                         const headerStarCount = serverHeader.querySelector('.stars');
