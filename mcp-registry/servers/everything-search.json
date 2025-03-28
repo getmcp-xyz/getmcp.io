@@ -26,7 +26,7 @@
       "command": "uvx",
       "args": ["mcp-server-everything-search"],
       "env": {
-        "EVERYTHING_SDK_PATH": "path/to/Everything-SDK/dll/Everything64.dll"
+        "EVERYTHING_SDK_PATH": "${EVERYTHING_SDK_PATH}"
       }
     },
     "python": {
@@ -34,7 +34,7 @@
       "command": "python",
       "args": ["-m", "mcp_server_everything_search"],
       "env": {
-        "EVERYTHING_SDK_PATH": "path/to/Everything-SDK/dll/Everything64.dll"
+        "EVERYTHING_SDK_PATH": "${EVERYTHING_SDK_PATH}"
       }
     }
   },

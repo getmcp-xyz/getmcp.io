@@ -34,8 +34,8 @@
         "adx-mcp-server"
       ],
       "env": {
-        "ADX_CLUSTER_URL": "https://yourcluster.region.kusto.windows.net",
-        "ADX_DATABASE": "your_database"
+        "ADX_CLUSTER_URL": "${ADX_CLUSTER_URL}",
+        "ADX_DATABASE": "${ADX_DATABASE}"
       }
     }
   }

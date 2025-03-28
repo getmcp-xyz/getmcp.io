@@ -13,31 +13,42 @@
   },
   "license": "MIT",
   "categories": [
-    "Data Management",
-    "Apache Airflow"
+    "Data Pipeline",
+    "Workflow Automation"
   ],
   "tags": [
-    "apache-airflow",
-    "server",
-    "data-pipeline",
-    "workflow"
+    "Apache Airflow",
+    "DAG",
+    "Workflow",
+    "Data Pipeline"
   ],
+  "arguments": {
+    "AIRFLOW_HOST": {
+      "description": "URL of your Apache Airflow instance",
+      "required": true,
+      "example": "https://your-airflow-host:8080"
+    },
+    "AIRFLOW_USERNAME": {
+      "description": "Username for authenticating with Airflow",
+      "required": true,
+      "example": "admin"
+    },
+    "AIRFLOW_PASSWORD": {
+      "description": "Password for authenticating with Airflow",
+      "required": true,
+      "example": "your_secure_password"
+    }
+  },
   "installations": {
     "uvx":{
       "type": "uvx",
       "command": "uvx",
-      "args": [
-        "--directory",
-        "/path/to/mcp-server-apache-airflow",
-        "run",
-        "mcp-server-apache-airflow"
-      ],
-      "env":{
-        "AIRFLOW_HOST": "https://your-airflow-host",
-        "AIRFLOW_USERNAME": "your-username",
-        "AIRFLOW_PASSWORD": "your-password"
-      },
-      "description": "Run with uvx (requires uv install)"
+      "args": ["mcp-server-apache-airflow"],
+      "env": {
+        "AIRFLOW_HOST": "${AIRFLOW_HOST}",
+        "AIRFLOW_USERNAME": "${AIRFLOW_USERNAME}",
+        "AIRFLOW_PASSWORD": "${AIRFLOW_PASSWORD}"
+      }
     }
   }
 }

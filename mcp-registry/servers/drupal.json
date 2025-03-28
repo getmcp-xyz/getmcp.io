@@ -29,9 +29,9 @@
         "deno",
         "run",
         "-A",
-        "jsr:@omedia/mcp-server-drupal@<VERSION>",
+        "jsr:@omedia/mcp-server-drupal@${VERSION}",
         "--drupal-url",
-        "__DRUPAL_BASE_URL__"
+        "${DRUPAL_BASE_URL}"
       ],
       "env": {}
     }

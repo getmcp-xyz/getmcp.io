@@ -25,13 +25,12 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-          "--directory",
-          "<DIRECTORY-OF-CLONED-PROJECT>/alphavantage",
-          "run",
+          "--from",
+          "git+https://github.com/calvernaz/alphavantage.git",
           "alphavantage"
         ],
         "env": {
-          "ALPHAVANTAGE_API_KEY": "YOUR_API_KEY_HERE"
+          "ALPHAVANTAGE_API_KEY": "${ALPHAVANTAGE_API_KEY}"
         }
       }
     }

@@ -39,7 +39,7 @@
         "-v",
         "mcp-gmail:/gmail-server",
         "-e",
-        "GMAIL_CREDENTIALS_PATH=/gmail-server/credentials.json",
+        "${GMAIL_CREDENTIALS_PATH}=/gmail-server/credentials.json",
         "mcp/gmail"
       ]
     }

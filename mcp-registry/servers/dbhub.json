@@ -35,7 +35,7 @@
         "--transport",
         "stdio",
         "--dsn",
-        "postgres://user:password@host.docker.internal:5432/dbname?sslmode=disable"
+        "${DATABASE_URL}"
       ]
     },
     "npx": {
@@ -47,7 +47,7 @@
         "--transport",
         "stdio",
         "--dsn",
-        "postgres://user:password@localhost:5432/dbname?sslmode=disable"
+        "${DATABASE_URL}"
       ]
     }
   }

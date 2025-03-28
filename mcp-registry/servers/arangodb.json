@@ -13,20 +13,21 @@
   },
   "license": "MIT",
   "categories": [
-    "Database",
-    "MCP"
+    "Database"
   ],
   "tags": [
     "ArangoDB",
-    "MCP",
     "TypeScript"
   ],
   "installations": {
-    "custom":{
-      "type": "custom",
-      "command": "node",
-      "args": ["/path/to/arango-server/build/index.js"],
-      "description": "Run with node (requires npm install)"
+    "npm": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "https://github.com/ravenwits/mcp-server-arangodb"
+      ],
+      "description": "Run with npx (requires npm install)"
     }
   },
   "examples": [

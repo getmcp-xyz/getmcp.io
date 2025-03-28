@@ -29,7 +29,7 @@
         "--from","git+https://github.com/YanxingLiu/dify-mcp-server","dify_mcp_server"
       ],
       "env": {
-        "CONFIG_PATH": "/Users/lyx/Downloads/config.yaml"
+        "CONFIG_PATH": "${CONFIG_PATH}"
       }
     }
   }

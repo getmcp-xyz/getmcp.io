@@ -17,9 +17,16 @@
   ],
   "tags": [
     "Airtable",
-    "API",
-    "Server"
+    "Database",
+    "API"
   ],
+  "arguments": {
+    "AIRTABLE_API_KEY": {
+      "description": "Airtable API key for authenticating with the Airtable API",
+      "required": true,
+      "example": "pat.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  },
   "installations": {
     "npm":{
       "type": "npm",
@@ -29,7 +36,7 @@
         "@felores/airtable-mcp-server"
       ],
       "env": {
-        "AIRTABLE_API_KEY": "your_api_key_here"
+        "AIRTABLE_API_KEY": "${AIRTABLE_API_KEY}"
       },
       "description": "Run with npx (requires npm install)"
     }

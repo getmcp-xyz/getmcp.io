@@ -11,7 +11,7 @@
   "author": {
     "name": "lloydzhou"
   },
-  "license": "[NOT GIVEN]",
+  "license": "MIT",
   "categories": [
     "API",
     "Bitable"
@@ -26,8 +26,8 @@
       "command": "uvx",
       "args": ["bitable-mcp"],
       "env": {
-        "PERSONAL_BASE_TOKEN": "your-personal-base-token",
-        "APP_TOKEN": "your-app-token"
+        "PERSONAL_BASE_TOKEN": "${PERSONAL_BASE_TOKEN}",
+        "APP_TOKEN": "${APP_TOKEN}"
       }
     },
     "python": {
@@ -35,8 +35,8 @@
       "command": "python",
       "args": ["-m", "bitable_mcp"],
       "env": {
-        "PERSONAL_BASE_TOKEN": "your-personal-base-token",
-        "APP_TOKEN": "your-app-token"
+        "PERSONAL_BASE_TOKEN": "${PERSONAL_BASE_TOKEN}",
+        "APP_TOKEN": "${APP_TOKEN}"
       },
       "description": "Run with Python module (requires pip install)"
     }

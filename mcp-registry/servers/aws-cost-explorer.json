@@ -32,10 +32,10 @@
           "server.py"
       ],
       "env": {
-        "AWS_ACCESS_KEY_ID": "YOUR_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY": "YOUR_SECRET_ACCESS_KEY",
-        "AWS_REGION": "us-east-1",
-        "BEDROCK_LOG_GROUP_NAME": "YOUR_CLOUDWATCH_BEDROCK_MODEL_INVOCATION_LOG_GROUP_NAME",
+        "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",
+        "AWS_REGION": "${AWS_REGION}",
+        "BEDROCK_LOG_GROUP_NAME": "${BEDROCK_LOG_GROUP_NAME}",
         "MCP_TRANSPORT": "stdio"
       }
     },
@@ -44,10 +44,10 @@
       "command": "docker",
       "args": [ "run", "-i", "--rm", "-e", "AWS_ACCESS_KEY_ID", "-e", "AWS_SECRET_ACCESS_KEY", "-e", "AWS_REGION", "-e", "BEDROCK_LOG_GROUP_NAME", "-e", "MCP_TRANSPORT", "aws-cost-explorer-mcp:latest" ],
       "env": {
-        "AWS_ACCESS_KEY_ID": "YOUR_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY": "YOUR_SECRET_ACCESS_KEY",
-        "AWS_REGION": "us-east-1",
-        "BEDROCK_LOG_GROUP_NAME": "YOUR_CLOUDWATCH_BEDROCK_MODEL_INVOCATION_LOG_GROUP_NAME",
+        "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",
+        "AWS_REGION": "${AWS_REGION}",
+        "BEDROCK_LOG_GROUP_NAME": "${BEDROCK_LOG_GROUP_NAME}",
         "MCP_TRANSPORT": "stdio"
       }
     }

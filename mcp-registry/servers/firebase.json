@@ -30,8 +30,8 @@
         "@gannonh/firebase-mcp"
       ],
       "env": {
-        "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
-        "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
+        "SERVICE_ACCOUNT_KEY_PATH": "${SERVICE_ACCOUNT_KEY_PATH}",
+        "FIREBASE_STORAGE_BUCKET": "${FIREBASE_STORAGE_BUCKET}"
       }
     }
   }

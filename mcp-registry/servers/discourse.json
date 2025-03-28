@@ -25,9 +25,9 @@
         "@ashdev/discourse-mcp-server"
       ],
       "env": {
-        "DISCOURSE_API_URL": "https://try.discourse.org",
-        "DISCOURSE_API_KEY": "1234",
-        "DISCOURSE_API_USERNAME": "ash" 
+        "DISCOURSE_API_URL": "${DISCOURSE_API_URL}",
+        "DISCOURSE_API_KEY": "${DISCOURSE_API_KEY}",
+        "DISCOURSE_API_USERNAME": "${DISCOURSE_API_USERNAME}" 
       }
     },
     "docker": {
@@ -37,9 +37,9 @@
         "run",
         "-i",
         "--rm",
-        "-e", "DISCOURSE_API_URL=https://try.discourse.org",
-        "-e", "DISCOURSE_API_KEY=1234",
-        "-e", "DISCOURSE_API_USERNAME=ash",
+        "-e", "DISCOURSE_API_URL=${DISCOURSE_API_URL}",
+        "-e", "DISCOURSE_API_KEY=${DISCOURSE_API_KEY}",
+        "-e", "DISCOURSE_API_USERNAME=${DISCOURSE_API_USERNAME}",
         "ashdev/discourse-mcp-server"
       ]
     }
