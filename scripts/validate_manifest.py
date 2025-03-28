@@ -36,17 +36,8 @@ def validate_manifest(manifest_path: Path, schema: Dict) -> Tuple[bool, str]:
     except Exception as e:
         return False, f"Error reading file: {e}"
     
-    # Create a modified schema without version pattern validation
-    modified_schema = schema.copy()
-    if 'properties' in modified_schema and 'version' in modified_schema['properties']:
-        # Allow version to be any string or null
-        modified_schema['properties']['version'] = {
-            "type": ["string", "null"],
-            "description": "Server version - can be any string or null"
-        }
-    
     try:
-        jsonschema.validate(manifest, modified_schema)
+        jsonschema.validate(manifest, schema)
         return True, ""
     except jsonschema.exceptions.ValidationError as e:
         return False, f"{e.json_path}: {e.message}"
