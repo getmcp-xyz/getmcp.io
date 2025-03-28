@@ -1,7 +1,6 @@
 {
   "name": "xiyan-mcp-server",
   "display_name": "XiYan MCP Server",
-  "version": "[NOT GIVEN]",
   "description": "An MCP server that supports fetching data from a database using natural language queries, powered by XiyanSQL as the text-to-SQL LLM.",
   "repository": {
     "type": "git",

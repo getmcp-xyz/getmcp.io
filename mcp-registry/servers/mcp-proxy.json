@@ -1,7 +1,6 @@
 {
   "name": "mcp-proxy",
   "display_name": "MCP Proxy",
-  "version": "0.3.2",
   "description": "Connect to MCP servers that run on SSE transport, or expose stdio servers as an SSE server.",
   "repository": {
     "type": "git",

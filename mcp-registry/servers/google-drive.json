@@ -1,7 +1,6 @@
 {
   "name": "google-drive",
   "display_name": "Google Drive Server",
-  "version": "1.0.0",
   "description": "File access and search capabilities for Google Drive",
   "repository": {
     "type": "git",
@@ -33,7 +32,16 @@
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "-v", "mcp-gdrive:/gdrive-server", "-e", "GDRIVE_CREDENTIALS_PATH=/gdrive-server/credentials.json", "mcp/gdrive"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "mcp-gdrive:/gdrive-server",
+        "-e",
+        "GDRIVE_CREDENTIALS_PATH=/gdrive-server/credentials.json",
+        "mcp/gdrive"
+      ]
     }
   }
 }

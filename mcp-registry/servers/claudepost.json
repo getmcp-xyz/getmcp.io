@@ -1,7 +1,6 @@
 {
   "name": "claudepost",
   "display_name": "Claude Post Email Management",
-  "version": "1.0.0",
   "description": "ClaudePost enables seamless email management for Gmail, offering secure features like email search, reading, and sending.",
   "repository": {
     "type": "git",

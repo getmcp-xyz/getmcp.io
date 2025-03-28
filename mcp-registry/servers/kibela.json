@@ -1,7 +1,6 @@
 {
   "name": "kibela",
   "display_name": "Kibela MCP Server",
-  "version": "1.0.0",
   "description": "Interact with Kibela API.",
   "repository": {
     "type": "git",
@@ -23,7 +22,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@kiwamizamurai/mcp-kibela-server"],
+      "args": [
+        "-y",
+        "@kiwamizamurai/mcp-kibela-server"
+      ],
       "env": {
         "KIBELA_TEAM": "${KIBELA_TEAM}",
         "KIBELA_TOKEN": "${KIBELA_TOKEN}"

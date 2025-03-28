@@ -1,7 +1,6 @@
 {
   "name": "unity-catalog",
   "display_name": "An Unity Catalog MCP server",
-  "version": "NOT GIVEN",
   "description": "An MCP server that enables LLMs to interact with Unity Catalog AI, supporting CRUD operations on Unity Catalog Functions and executing them as MCP tools.",
   "repository": {
     "type": "git",

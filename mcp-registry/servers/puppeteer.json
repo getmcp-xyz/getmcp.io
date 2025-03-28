@@ -1,7 +1,6 @@
 {
   "name": "puppeteer",
   "display_name": "Puppeteer",
-  "version": "NOT GIVEN",
   "description": "Browser automation and web scraping",
   "repository": {
     "type": "git",
@@ -27,12 +26,23 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ]
     },
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "--init", "-e", "DOCKER_CONTAINER=true", "mcp/puppeteer"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e",
+        "DOCKER_CONTAINER=true",
+        "mcp/puppeteer"
+      ]
     }
   }
 }

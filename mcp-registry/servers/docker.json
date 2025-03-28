@@ -1,7 +1,6 @@
 {
   "name": "docker",
   "display_name": "MCP Server for Docker",
-  "version": "1.0.0",
   "description": "Integrate with Docker to manage containers, images, volumes, and networks.",
   "repository": {
     "type": "git",

@@ -1,7 +1,6 @@
 {
   "name": "x-twitter",
   "display_name": "X(Twitter) MCP Server",
-  "version": "1.0.0",
   "description": "Create, manage and publish X/Twitter posts directly through Claude chat.",
   "repository": {
     "type": "git",

@@ -1,7 +1,6 @@
 {
   "name": "unity-integration-advanced",
   "display_name": "Unity MCP Integration",
-  "version": "1.0.0",
   "description": "Advanced Unity3d Game Engine MCP which supports ,Execution of Any Editor Related Code Directly Inside of Unity, Fetch Logs, Get Editor State and Allow File Access of the Project making it much more useful in Script Editing or asset creation.",
   "repository": {
     "type": "git",

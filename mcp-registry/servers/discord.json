@@ -1,7 +1,6 @@
 {
   "name": "discord",
   "display_name": "Discord MCP Server",
-  "version": "1.0.0",
   "description": "A MCP server to connect to Discord guilds through a bot and read and write messages in channels",
   "repository": {
     "type": "git",

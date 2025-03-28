@@ -1,7 +1,6 @@
 {
   "name": "dataset-viewer",
   "display_name": "Dataset Viewer MCP Server",
-  "version": "1.0.0",
   "description": "Browse and analyze Hugging Face datasets with features like search, filtering, statistics, and data export",
   "repository": {
     "type": "git",

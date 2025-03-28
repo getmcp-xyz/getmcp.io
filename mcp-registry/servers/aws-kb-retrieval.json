@@ -1,7 +1,6 @@
 {
   "name": "aws-kb-retrieval",
   "display_name": "AWS Knowledge Base Retrieval MCP Server",
-  "version": "1.0.0",
   "description": "Retrieval from AWS Knowledge Base using Bedrock Agent Runtime",
   "repository": {
     "type": "git",
@@ -39,7 +38,18 @@
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": [ "run", "-i", "--rm", "-e", "AWS_ACCESS_KEY_ID", "-e", "AWS_SECRET_ACCESS_KEY", "-e", "AWS_REGION", "mcp/aws-kb-retrieval-server" ],
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "AWS_ACCESS_KEY_ID",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "-e",
+        "AWS_REGION",
+        "mcp/aws-kb-retrieval-server"
+      ],
       "env": {
         "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
         "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",

@@ -1,7 +1,6 @@
 {
   "name": "volcengine-tos",
   "display_name": "TOS MCP Server",
-  "version": "1.0.0",
   "description": "A sample MCP server for VolcEngine TOS that flexibly get objects from TOS.",
   "repository": {
     "type": "git",

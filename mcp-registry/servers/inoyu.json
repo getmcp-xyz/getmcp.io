@@ -1,7 +1,6 @@
 {
   "name": "inoyu",
   "display_name": "Inoyu Apache Unomi MCP Server",
-  "version": "0.1.0",
   "description": "Interact with an Apache Unomi CDP customer data platform to retrieve and update customer profiles",
   "repository": {
     "type": "git",
@@ -24,7 +23,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["@inoyu/mcp-unomi-server"],
+      "args": [
+        "@inoyu/mcp-unomi-server"
+      ],
       "env": {
         "UNOMI_BASE_URL": "http://your-unomi-server:8181",
         "UNOMI_USERNAME": "your-username",

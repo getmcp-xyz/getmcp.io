@@ -1,7 +1,6 @@
 {
   "name": "aws-resources-operations",
   "display_name": "AWS Resources MCP Server",
-  "version": "1.0.0",
   "description": "Run generated python code to securely query or modify any AWS resources supported by boto3.",
   "repository": {
     "type": "git",

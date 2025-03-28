@@ -1,7 +1,6 @@
 {
   "name": "everything-search",
   "display_name": "Everything Search MCP Server",
-  "version": "1.0.0",
   "description": "Fast file searching capabilities across Windows (using [Everything SDK](https://www.voidtools.com/support/everything/sdk/)), macOS (using mdfind command), and Linux (using locate/plocate command).",
   "repository": {
     "type": "git",
@@ -24,7 +23,9 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-server-everything-search"],
+      "args": [
+        "mcp-server-everything-search"
+      ],
       "env": {
         "EVERYTHING_SDK_PATH": "${EVERYTHING_SDK_PATH}"
       }
@@ -32,7 +33,10 @@
     "python": {
       "type": "python",
       "command": "python",
-      "args": ["-m", "mcp_server_everything_search"],
+      "args": [
+        "-m",
+        "mcp_server_everything_search"
+      ],
       "env": {
         "EVERYTHING_SDK_PATH": "${EVERYTHING_SDK_PATH}"
       }

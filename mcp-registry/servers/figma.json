@@ -1,7 +1,6 @@
 {
   "name": "figma",
   "display_name": "Figma MCP Server",
-  "version": "0.1.12",
   "description": "Give your coding agent direct access to Figma file data, helping it one-shot design implementation.",
   "repository": {
     "type": "git",
@@ -24,7 +23,12 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "figma-developer-mcp", "--figma-api-key=${FIGMA_API_KEY}", "--stdio"]
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=${FIGMA_API_KEY}",
+        "--stdio"
+      ]
     }
   }
 }

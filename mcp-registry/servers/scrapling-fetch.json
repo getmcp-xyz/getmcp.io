@@ -1,7 +1,6 @@
 {
   "name": "scrapling-fetch",
   "display_name": "Scrapling Fetch MCP",
-  "version": "0.1.0",
   "description": "Access text content from bot-protected websites. Fetches HTML/markdown from sites with anti-automation measures using Scrapling.",
   "repository": {
     "type": "git",
@@ -23,7 +22,9 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["scrapling-fetch-mcp"]
+      "args": [
+        "scrapling-fetch-mcp"
+      ]
     }
   }
 }

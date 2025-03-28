@@ -1,7 +1,6 @@
 {
   "name": "airbnb",
   "display_name": "Airbnb MCP Server",
-  "version": "1.0.0",
   "description": "Provides tools to search Airbnb and get listing details.",
   "repository": {
     "type": "git",
@@ -22,7 +21,7 @@
     "listings"
   ],
   "installations": {
-    "npm":{
+    "npm": {
       "type": "npm",
       "command": "npx",
       "args": [

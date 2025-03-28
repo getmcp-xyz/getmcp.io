@@ -1,7 +1,6 @@
 {
   "name": "chatsum",
   "display_name": "MCP Server Chat Summary",
-  "version": "1.0.0",
   "description": "Query and Summarize chat messages with LLM. by [mcpso](https://mcp.so/)",
   "repository": {
     "type": "git",
@@ -32,7 +31,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "https://github.com/mcpso/mcp-server-chatsum"],
+      "args": [
+        "-y",
+        "https://github.com/mcpso/mcp-server-chatsum"
+      ],
       "env": {
         "CHAT_DB_PATH": "path-to/mcp-server-chatsum/chatbot/data/chat.db"
       }

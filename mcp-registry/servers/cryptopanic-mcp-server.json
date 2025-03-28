@@ -1,7 +1,6 @@
 {
   "name": "cryptopanic-mcp-server",
   "display_name": "CryptoPanic MCP Server",
-  "version": "1.0.0",
   "description": "Providing latest cryptocurrency news to AI agents, powered by CryptoPanic.",
   "repository": {
     "type": "git",
@@ -38,9 +37,9 @@
         "git+https://github.com/kukapay/cryptopanic-mcp-server",
         "main.py"
       ],
-      "env": { 
-        "CRYPTOPANIC_API_KEY": "" 
-      } 
+      "env": {
+        "CRYPTOPANIC_API_KEY": ""
+      }
     }
   }
 }

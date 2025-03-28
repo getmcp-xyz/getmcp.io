@@ -1,7 +1,6 @@
 {
   "name": "fastn-ai-unified-api-mcp-server",
   "display_name": "Fastn Server",
-  "version": "1.0.0",
   "description": "A remote, dynamic MCP server with a unified API that connects to 1,000+ tools, actions, and workflows, featuring built-in authentication and monitoring.",
   "repository": {
     "type": "git",

@@ -1,7 +1,6 @@
 {
   "name": "webflow",
   "display_name": "Webflow MCP Server",
-  "version": "1.0.0",
   "description": "Interfact with the Webflow APIs",
   "repository": {
     "type": "git",
@@ -23,7 +22,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "https://github.com/kapilduraphe/webflow-mcp-server"],
+      "args": [
+        "-y",
+        "https://github.com/kapilduraphe/webflow-mcp-server"
+      ],
       "env": {
         "WEBFLOW_API_TOKEN": "your-api-token"
       }

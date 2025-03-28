@@ -1,7 +1,6 @@
 {
   "name": "nasa",
   "display_name": "NASA MCP Server",
-  "version": "1.0.0",
   "description": "Access to a unified gateway of NASA's data sources including but not limited to APOD, NEO, EPIC, GIBS.",
   "repository": {
     "type": "git",
@@ -29,7 +28,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@programcomputer/nasa-mcp-server"],
+      "args": [
+        "-y",
+        "@programcomputer/nasa-mcp-server"
+      ],
       "env": {
         "NASA_API_KEY": "${NASA_API_KEY}"
       }

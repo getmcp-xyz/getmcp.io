@@ -1,7 +1,6 @@
 {
   "name": "servicenow",
   "display_name": "ServiceNow MCP Server",
-  "version": "NOT GIVEN",
   "description": "A MCP server to interact with a ServiceNow instance",
   "repository": {
     "type": "git",

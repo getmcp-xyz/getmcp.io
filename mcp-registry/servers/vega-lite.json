@@ -1,7 +1,6 @@
 {
   "name": "vega-lite",
   "display_name": "Data Visualization MCP Server",
-  "version": "1.0.0",
   "description": "Generate visualizations from fetched data using the VegaLite format and renderer.",
   "repository": {
     "type": "git",
@@ -25,7 +24,12 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "https://github.com/isaacwasserman/mcp-vegalite-server", "--output_type", "png"]
+      "args": [
+        "-y",
+        "https://github.com/isaacwasserman/mcp-vegalite-server",
+        "--output_type",
+        "png"
+      ]
     }
   },
   "examples": [

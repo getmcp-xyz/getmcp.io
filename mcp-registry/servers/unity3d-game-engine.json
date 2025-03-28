@@ -1,7 +1,6 @@
 {
   "name": "unity3d-game-engine",
   "display_name": "MCP Unity",
-  "version": "1.0.0",
   "description": "An MCP server that enables LLMs to interact with Unity3d Game Engine, supporting access to a variety of the Unit's Editor engine tools (e.g. Console Logs, Test Runner logs, Editor functions, hierarchy state, etc) and executing them as MCP tools or gather them as resources.",
   "repository": {
     "type": "git",
@@ -28,11 +27,11 @@
       "type": "npm",
       "command": "npx",
       "args": [
-         "-y",
-         "https://github.com/CoderGamester/mcp-unity"
+        "-y",
+        "https://github.com/CoderGamester/mcp-unity"
       ],
       "env": {
-         "UNITY_PORT": "8090"
+        "UNITY_PORT": "8090"
       }
     }
   },

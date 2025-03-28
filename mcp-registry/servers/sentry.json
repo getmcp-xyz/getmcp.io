@@ -1,7 +1,6 @@
 {
   "name": "sentry",
   "display_name": "A Sentry MCP server",
-  "version": "NOT GIVEN",
   "description": "Retrieving and analyzing issues from Sentry.io",
   "repository": {
     "type": "git",
@@ -33,17 +32,33 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-server-sentry", "--auth-token", "YOUR_SENTRY_TOKEN"]
+      "args": [
+        "mcp-server-sentry",
+        "--auth-token",
+        "YOUR_SENTRY_TOKEN"
+      ]
     },
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "mcp/sentry", "--auth-token", "YOUR_SENTRY_TOKEN"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "mcp/sentry",
+        "--auth-token",
+        "YOUR_SENTRY_TOKEN"
+      ]
     },
     "python": {
       "type": "python",
       "command": "python",
-      "args": ["-m", "mcp_server_sentry", "--auth-token", "YOUR_SENTRY_TOKEN"]
+      "args": [
+        "-m",
+        "mcp_server_sentry",
+        "--auth-token",
+        "YOUR_SENTRY_TOKEN"
+      ]
     }
   }
 }

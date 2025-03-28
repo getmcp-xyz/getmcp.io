@@ -1,7 +1,6 @@
 {
   "name": "qgis",
   "display_name": "QGIS Model Context Protocol Integration",
-  "version": "3.22.0",
   "description": "connects QGIS to Claude AI through the MCP. This integration enables prompt-assisted project creation, layer loading, code execution, and more.",
   "repository": {
     "type": "git",
@@ -25,9 +24,9 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-          "--from",
-          "https://github.com/jjsantos01/qgis_mcp",
-          "src/qgis_mcp/qgis_mcp_server.py"
+        "--from",
+        "https://github.com/jjsantos01/qgis_mcp",
+        "src/qgis_mcp/qgis_mcp_server.py"
       ]
     }
   },

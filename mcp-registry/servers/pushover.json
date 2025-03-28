@@ -1,7 +1,6 @@
 {
   "name": "pushover",
   "display_name": "Pushover Notification",
-  "version": "latest",
   "description": "Send instant notifications to your devices using [Pushover.net](https://pushover.net/)",
   "repository": {
     "type": "git",
@@ -29,7 +28,7 @@
         "start",
         "--token",
         "YOUR_TOKEN",
-        "--user", 
+        "--user",
         "YOUR_USER"
       ]
     }

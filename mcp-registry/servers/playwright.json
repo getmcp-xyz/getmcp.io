@@ -1,7 +1,6 @@
 {
   "name": "playwright",
   "display_name": "Playwright MCP Server",
-  "version": "1.0.0",
   "description": "This MCP Server will help you run browser automation and webscraping using Playwright",
   "repository": {
     "type": "git",
@@ -24,7 +23,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@executeautomation/playwright-mcp-server"]
+      "args": [
+        "-y",
+        "@executeautomation/playwright-mcp-server"
+      ]
     }
   }
 }

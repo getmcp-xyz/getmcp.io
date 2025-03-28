@@ -1,7 +1,6 @@
 {
   "name": "whois-mcp",
   "display_name": "Whois MCP",
-  "version": "latest",
   "description": "MCP server that performs whois lookup against domain, IP, ASN and TLD.",
   "repository": {
     "type": "git",

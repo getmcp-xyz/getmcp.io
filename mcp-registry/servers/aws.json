@@ -1,7 +1,6 @@
 {
   "name": "aws",
   "display_name": "AWS MCP Server",
-  "version": "1.0.0",
   "description": "Perform operations on your AWS resources using an LLM.",
   "repository": {
     "type": "git",

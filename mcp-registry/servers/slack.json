@@ -1,7 +1,6 @@
 {
   "name": "slack",
   "display_name": "Slack MCP Server",
-  "version": "1.0.0",
   "description": "Channel management and messaging capabilities",
   "repository": {
     "type": "git",

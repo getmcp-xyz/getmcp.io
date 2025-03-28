@@ -1,7 +1,6 @@
 {
   "name": "glean",
   "display_name": "Glean",
-  "version": "1.0.0",
   "description": "A server that uses Glean API to search and chat.",
   "repository": {
     "type": "git",

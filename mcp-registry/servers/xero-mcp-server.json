@@ -1,7 +1,6 @@
 {
   "name": "xero-mcp-server",
   "display_name": "Xero MCP Server",
-  "version": "1.0.0",
   "description": "Enabling clients to interact with Xero system for streamlined accounting, invoicing, and business operations.",
   "repository": {
     "type": "git",
@@ -33,7 +32,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "xero-mcp@latest"],
+      "args": [
+        "-y",
+        "xero-mcp@latest"
+      ],
       "env": {
         "XERO_CLIENT_ID": "YOUR_CLIENT_ID",
         "XERO_CLIENT_SECRET": "YOUR_CLIENT_SECRET",

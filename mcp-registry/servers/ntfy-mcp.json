@@ -1,7 +1,6 @@
 {
   "name": "ntfy-mcp",
   "display_name": "Your Friendly Task Completion Notifier",
-  "version": "1.0.0",
   "description": "The MCP server that keeps you informed by sending the notification on phone using ntfy",
   "repository": {
     "type": "git",

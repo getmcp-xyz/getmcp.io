@@ -1,7 +1,6 @@
 {
   "name": "google-custom-search",
   "display_name": "A MCP Server for Google Custom Search and Webpage Reading",
-  "version": "1.0.0",
   "description": "Provides Google Search results via the Google Custom Search API",
   "repository": {
     "type": "git",

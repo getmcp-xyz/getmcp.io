@@ -1,7 +1,6 @@
 {
   "name": "placid-app",
   "display_name": "Placid.app MCP Server",
-  "version": "1.0.0",
   "description": "Generate image and video creatives using Placid.app templates",
   "repository": {
     "type": "git",
@@ -25,7 +24,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["@felores/placid-mcp-server"],
+      "args": [
+        "@felores/placid-mcp-server"
+      ],
       "env": {
         "PLACID_API_TOKEN": "your-api-token"
       }

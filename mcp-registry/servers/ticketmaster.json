@@ -1,7 +1,6 @@
 {
   "name": "ticketmaster",
   "display_name": "Ticketmaster MCP Server",
-  "version": "1.0.0",
   "description": "Search for events, venues, and attractions through the Ticketmaster Discovery API",
   "repository": {
     "type": "git",
@@ -26,7 +25,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@delorenj/mcp-server-ticketmaster"],
+      "args": [
+        "-y",
+        "@delorenj/mcp-server-ticketmaster"
+      ],
       "env": {
         "TICKETMASTER_API_KEY": "your-api-key-here"
       }

@@ -1,7 +1,6 @@
 {
   "name": "naver",
   "display_name": "Naver MCP Server",
-  "version": "1.0.0",
   "description": "This MCP server provides tools to interact with various Naver services, such as searching blogs, news, books, and more.",
   "repository": {
     "type": "git",

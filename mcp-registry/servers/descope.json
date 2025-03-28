@@ -1,7 +1,6 @@
 {
   "name": "descope",
   "display_name": "Descope MCP Server",
-  "version": "1.0.0",
   "description": "An MCP server to integrate with [Descope](https://descope.com/) to search audit logs, manage users, and more.",
   "repository": {
     "type": "git",

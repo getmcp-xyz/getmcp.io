@@ -1,7 +1,6 @@
 {
   "name": "chroma",
   "display_name": "Chroma MCP Server",
-  "version": "0.1.0",
   "description": "Vector database server for semantic document search and metadata filtering, built on Chroma",
   "repository": {
     "type": "git",

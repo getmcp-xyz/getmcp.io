@@ -1,7 +1,6 @@
 {
   "name": "mcp-create",
   "display_name": "MCP Create Server",
-  "version": "1.0.0",
   "description": "A dynamic MCP server management service that creates, runs, and manages Model Context Protocol servers on-the-fly.",
   "repository": {
     "type": "git",
@@ -23,7 +22,12 @@
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "-i", "--rm", "mcp-create"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "mcp-create"
+      ]
     }
   },
   "examples": [

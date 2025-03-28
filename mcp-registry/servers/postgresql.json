@@ -1,7 +1,6 @@
 {
   "name": "postgresql",
   "display_name": "PostgreSQL",
-  "version": "1.0.0",
   "description": "Read-only database access with schema inspection",
   "repository": {
     "type": "git",
@@ -34,10 +33,10 @@
       "type": "docker",
       "command": "docker",
       "args": [
-        "run", 
-        "-i", 
-        "--rm", 
-        "mcp/postgres", 
+        "run",
+        "-i",
+        "--rm",
+        "mcp/postgres",
         "postgresql://host.docker.internal:5432/mydb"
       ]
     }

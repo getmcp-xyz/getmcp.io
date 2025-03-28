@@ -1,7 +1,6 @@
 {
   "name": "xmind",
   "display_name": "MCP XMind Server",
-  "version": "1.0.0",
   "description": "Read and search through your XMind directory containing XMind files.",
   "repository": {
     "type": "git",

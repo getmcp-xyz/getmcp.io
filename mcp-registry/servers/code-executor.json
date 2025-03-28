@@ -1,7 +1,6 @@
 {
   "name": "code-executor",
   "display_name": "MCP Code Executor",
-  "version": "1.0.0",
   "description": "An MCP server that allows LLMs to execute Python code within a specified Conda environment.",
   "repository": {
     "type": "git",
@@ -34,7 +33,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "https://github.com/bazinga012/mcp_code_executor" 
+        "https://github.com/bazinga012/mcp_code_executor"
       ],
       "env": {
         "CODE_STORAGE_DIR": "/path/to/code/storage",

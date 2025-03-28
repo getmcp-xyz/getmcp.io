@@ -1,7 +1,6 @@
 {
   "name": "replicate",
   "display_name": "Replicate MCP Server",
-  "version": "1.0.0",
   "description": "Search, run and manage machine learning models on Replicate through a simple tool-based interface. Browse models, create predictions, track their status, and handle generated images.",
   "repository": {
     "type": "git",
@@ -30,7 +29,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["mcp-replicate"],
+      "args": [
+        "mcp-replicate"
+      ],
       "env": {
         "REPLICATE_API_TOKEN": "your_replicate_api_token"
       }

@@ -1,7 +1,6 @@
 {
   "name": "sqlite",
   "display_name": "SQLite MCP Server",
-  "version": "1.0.0",
   "description": "Database interaction and business intelligence capabilities",
   "repository": {
     "type": "git",

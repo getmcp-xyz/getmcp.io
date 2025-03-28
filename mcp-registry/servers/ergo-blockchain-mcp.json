@@ -1,7 +1,6 @@
 {
   "name": "ergo-blockchain-mcp",
   "display_name": "Ergo MCP",
-  "version": "1.0.0",
   "description": "-An MCP server to integrate Ergo Blockchain Node and Explorer APIs for checking address balances, analyzing transactions, viewing transaction history, performing forensic analysis of addresses, searching for tokens, and monitoring network status.",
   "repository": {
     "type": "git",

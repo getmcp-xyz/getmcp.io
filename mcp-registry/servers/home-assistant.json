@@ -1,7 +1,6 @@
 {
   "name": "home-assistant",
   "display_name": "Hass-MCP",
-  "version": "1.0.0",
   "description": "Docker-ready MCP server for Home Assistant with entity management, domain summaries, automation support, and guided conversations. Includes pre-built container images for easy installation.",
   "repository": {
     "type": "git",

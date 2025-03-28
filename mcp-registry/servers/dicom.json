@@ -1,7 +1,6 @@
 {
   "name": "dicom",
   "display_name": "DICOM Model Context Protocol Server",
-  "version": "1.0.0",
   "description": "An MCP server to query and retrieve medical images and for parsing and reading dicom-encapsulated documents (pdf etc.).",
   "repository": {
     "type": "git",
@@ -35,7 +34,12 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/ChristianHinge/dicom-mcp", "dicom-mcp", "/path/to/configuration.yaml"]
+      "args": [
+        "--from",
+        "git+https://github.com/ChristianHinge/dicom-mcp",
+        "dicom-mcp",
+        "/path/to/configuration.yaml"
+      ]
     }
   }
 }

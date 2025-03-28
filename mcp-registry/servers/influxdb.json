@@ -1,7 +1,6 @@
 {
   "name": "influxdb",
   "display_name": "InfluxDB MCP Server",
-  "version": "1.0.0",
   "description": "Run queries against InfluxDB OSS API v2.",
   "repository": {
     "type": "git",
@@ -25,7 +24,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["influxdb-mcp-server"],
+      "args": [
+        "influxdb-mcp-server"
+      ],
       "env": {
         "INFLUXDB_TOKEN": "your_token",
         "INFLUXDB_URL": "http://localhost:8086",
