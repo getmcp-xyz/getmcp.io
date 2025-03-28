@@ -61,7 +61,7 @@ def main() -> int:
     # Determine the paths relative to this script
     script_dir = Path(__file__).parent
     repo_root = script_dir.parent
-    schema_path = repo_root / "mcp-registry" / "schema" / "manifest-schema.json"
+    schema_path = repo_root / "mcp-registry" / "schema" / "server-schema.json"
     servers_dir = repo_root / "mcp-registry" / "servers"
     
     # Load the schema
