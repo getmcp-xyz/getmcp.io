@@ -1,7 +1,6 @@
 {
   "name": "rememberizer-ai",
   "display_name": "Rememberizer MCP Server",
-  "version": "0.1.2",
   "description": "An MCP server designed for interacting with the Rememberizer data source, facilitating enhanced knowledge retrieval.",
   "repository": {
     "type": "git",
@@ -25,7 +24,9 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-server-rememberizer"],
+      "args": [
+        "mcp-server-rememberizer"
+      ],
       "env": {
         "REMEMBERIZER_API_TOKEN": "your_rememberizer_api_token"
       }

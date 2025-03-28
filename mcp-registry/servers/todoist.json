@@ -1,7 +1,6 @@
 {
   "name": "todoist",
   "display_name": "Todoist MCP Server",
-  "version": "1.0.0",
   "description": "Interact with Todoist to manage your tasks.",
   "repository": {
     "type": "git",
@@ -20,7 +19,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@abhiz123/todoist-mcp-server"],
+      "args": [
+        "-y",
+        "@abhiz123/todoist-mcp-server"
+      ],
       "env": {
         "TODOIST_API_TOKEN": "your_api_token_here"
       }

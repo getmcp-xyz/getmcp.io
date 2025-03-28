@@ -1,7 +1,6 @@
 {
   "name": "aws-cost-explorer",
   "display_name": "AWS Cost Explorer and Amazon Bedrock",
-  "version": "1.0.0",
   "description": "Optimize your AWS spend (including Amazon Bedrock spend) with this MCP server by examining spend across regions, services, instance types and foundation models ([demo video](https://www.youtube.com/watch?v=WuVOmYLRFmI&feature=youtu.be)).",
   "repository": {
     "type": "git",
@@ -21,15 +20,15 @@
     "Amazon Bedrock",
     "AWS"
   ],
-  "installations":{
+  "installations": {
     "uvx": {
       "type": "uvx",
       "command": "uvx",
       "args": [
-          "--directory",
-          "/path/to/aws-cost-explorer-mcp-server",
-          "run",
-          "server.py"
+        "--directory",
+        "/path/to/aws-cost-explorer-mcp-server",
+        "run",
+        "server.py"
       ],
       "env": {
         "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
@@ -42,7 +41,22 @@
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": [ "run", "-i", "--rm", "-e", "AWS_ACCESS_KEY_ID", "-e", "AWS_SECRET_ACCESS_KEY", "-e", "AWS_REGION", "-e", "BEDROCK_LOG_GROUP_NAME", "-e", "MCP_TRANSPORT", "aws-cost-explorer-mcp:latest" ],
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "AWS_ACCESS_KEY_ID",
+        "-e",
+        "AWS_SECRET_ACCESS_KEY",
+        "-e",
+        "AWS_REGION",
+        "-e",
+        "BEDROCK_LOG_GROUP_NAME",
+        "-e",
+        "MCP_TRANSPORT",
+        "aws-cost-explorer-mcp:latest"
+      ],
       "env": {
         "AWS_ACCESS_KEY_ID": "${AWS_ACCESS_KEY_ID}",
         "AWS_SECRET_ACCESS_KEY": "${AWS_SECRET_ACCESS_KEY}",

@@ -1,7 +1,6 @@
 {
   "name": "data-exploration",
   "display_name": "MCP Server for Data Exploration",
-  "version": "1.0.0",
   "description": "MCP server for autonomous data exploration on .csv-based datasets, providing intelligent insights with minimal effort. NOTE: Will execute arbitrary Python code on your machine, please use with caution!",
   "repository": {
     "type": "git",
@@ -24,7 +23,9 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-server-ds"]
+      "args": [
+        "mcp-server-ds"
+      ]
     }
   },
   "examples": [

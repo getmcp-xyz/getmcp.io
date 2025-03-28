@@ -1,7 +1,6 @@
 {
   "name": "stripe",
   "display_name": "Stripe Model Context Protocol",
-  "version": "0.1.4",
   "description": "The Stripe Model Context Protocol server allows you to integrate with Stripe APIs through function calling. This protocol supports various tools to interact with different Stripe services.",
   "repository": {
     "type": "git",

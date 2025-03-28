@@ -1,7 +1,6 @@
 {
   "name": "pif",
   "display_name": "MCP-PIF Server",
-  "version": "1.0.0",
   "description": "A Personal Intelligence Framework (PIF), providing tools for file operations, structured reasoning, and journal-based documentation to support continuity and evolving human-AI collaboration across sessions.",
   "repository": {
     "type": "git",
@@ -26,7 +25,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "https://github.com/hungryrobot1/MCP-PIF"]
+      "args": [
+        "-y",
+        "https://github.com/hungryrobot1/MCP-PIF"
+      ]
     }
   },
   "examples": [

@@ -1,7 +1,6 @@
 {
   "name": "kubernetes",
   "display_name": "MCP Server Kubernetes",
-  "version": "[NOT GIVEN]",
   "description": "Connect to Kubernetes cluster and manage pods, deployments, and services.",
   "repository": {
     "type": "git",
@@ -25,7 +24,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "mcp-server-kubernetes"]
+      "args": [
+        "-y",
+        "mcp-server-kubernetes"
+      ]
     }
   }
 }

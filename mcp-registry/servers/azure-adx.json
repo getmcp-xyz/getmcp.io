@@ -1,7 +1,6 @@
 {
   "name": "azure-adx",
   "display_name": "Azure Data Explorer MCP Server",
-  "version": "1.0.0",
   "description": "Query and analyze Azure Data Explorer databases.",
   "repository": {
     "type": "git",
@@ -29,8 +28,10 @@
         "run",
         "--rm",
         "-i",
-        "-e", "ADX_CLUSTER_URL",
-        "-e", "ADX_DATABASE",
+        "-e",
+        "ADX_CLUSTER_URL",
+        "-e",
+        "ADX_DATABASE",
         "adx-mcp-server"
       ],
       "env": {

@@ -1,7 +1,6 @@
 {
   "name": "aws-s3",
   "display_name": "Sample S3 Model Context Protocol Server",
-  "version": "1.0.0",
   "description": "A sample MCP server for AWS S3 that flexibly fetches objects from S3 such as PDF documents.",
   "repository": {
     "type": "git",

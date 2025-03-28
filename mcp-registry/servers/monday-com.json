@@ -1,7 +1,6 @@
 {
   "name": "monday-com",
   "display_name": "Monday.com MCP Server",
-  "version": "1.0.0",
   "description": "MCP Server to interact with Monday.com boards and items.",
   "repository": {
     "type": "git",
@@ -35,9 +34,9 @@
       "type": "docker",
       "command": "docker",
       "args": [
-        "run", 
-        "--rm", 
-        "-i", 
+        "run",
+        "--rm",
+        "-i",
         "-e",
         "MONDAY_API_KEY=${MONDAY_API_KEY}",
         "-e",

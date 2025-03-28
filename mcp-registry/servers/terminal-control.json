@@ -1,7 +1,6 @@
 {
   "name": "terminal-control",
   "display_name": "Terminal Controller for MCP",
-  "version": "1.0.0",
   "description": "A MCP server that enables secure terminal command execution, directory navigation, and file system operations through a standardized interface.",
   "repository": {
     "type": "git",
@@ -26,12 +25,17 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["terminal-controller"]
+      "args": [
+        "terminal-controller"
+      ]
     },
     "python": {
       "type": "python",
       "command": "python",
-      "args": ["-m", "terminal_controller"]
+      "args": [
+        "-m",
+        "terminal_controller"
+      ]
     }
   },
   "examples": [

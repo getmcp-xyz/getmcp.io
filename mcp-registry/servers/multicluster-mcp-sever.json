@@ -1,7 +1,6 @@
 {
   "name": "multicluster-mcp-sever",
   "display_name": "Multi-Cluster MCP Server",
-  "version": "1.0.0",
   "description": "The gateway for GenAI systems to interact with multiple Kubernetes clusters.",
   "repository": {
     "type": "git",

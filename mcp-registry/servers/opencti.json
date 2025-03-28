@@ -1,7 +1,6 @@
 {
   "name": "opencti",
   "display_name": "OpenCTI MCP Server",
-  "version": "1.0.0",
   "description": "Interact with OpenCTI platform to retrieve threat intelligence data including reports, indicators, malware and threat actors.",
   "repository": {
     "type": "git",
@@ -21,10 +20,13 @@
     "Threat Intelligence"
   ],
   "installations": {
-    "npm": {  
+    "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "https://github.com/Spathodea-Network/opencti-mcp"],
+      "args": [
+        "-y",
+        "https://github.com/Spathodea-Network/opencti-mcp"
+      ],
       "env": {
         "OPENCTI_URL": "${OPENCTI_URL}",
         "OPENCTI_TOKEN": "${OPENCTI_TOKEN}"

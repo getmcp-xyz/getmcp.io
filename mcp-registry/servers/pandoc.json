@@ -1,7 +1,6 @@
 {
   "name": "pandoc",
   "display_name": "mcp-pandoc: A Document Conversion MCP Server",
-  "version": "1.0.0",
   "description": "MCP server for seamless document format conversion using Pandoc, supporting Markdown, HTML, PDF, DOCX (.docx), csv and more.",
   "repository": {
     "type": "git",
@@ -24,7 +23,9 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-pandoc"]
+      "args": [
+        "mcp-pandoc"
+      ]
     }
   },
   "examples": [

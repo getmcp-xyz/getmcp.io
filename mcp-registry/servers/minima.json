@@ -1,7 +1,6 @@
 {
   "name": "minima",
   "display_name": "Minima",
-  "version": "[NOT GIVEN]",
   "description": "MCP server for RAG on local files",
   "repository": {
     "type": "git",
@@ -27,7 +26,11 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/dmayboroda/minima.git", "minima"]
+      "args": [
+        "--from",
+        "git+https://github.com/dmayboroda/minima.git",
+        "minima"
+      ]
     }
   }
 }

@@ -1,7 +1,6 @@
 {
   "name": "huggingface-spaces",
   "display_name": "mcp-hfspace MCP Server \ud83e\udd17",
-  "version": "0.78",
   "description": "Server for using HuggingFace Spaces, supporting Open Source Image, Audio, Text Models and more. Claude Desktop mode for easy integration.",
   "repository": {
     "type": "git",

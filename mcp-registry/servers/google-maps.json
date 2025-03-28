@@ -1,7 +1,6 @@
 {
   "name": "google-maps",
   "display_name": "Google Maps MCP Server",
-  "version": "1.0.0",
   "description": "Location services, directions, and place details",
   "repository": {
     "type": "git",

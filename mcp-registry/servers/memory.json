@@ -1,7 +1,6 @@
 {
   "name": "memory",
   "display_name": "Knowledge Graph Memory Server",
-  "version": "1.0.0",
   "description": "Knowledge graph-based persistent memory system",
   "repository": {
     "type": "git",
@@ -34,7 +33,14 @@
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "-i", "-v", "claude-memory:/app/dist", "--rm", "mcp/memory"]
+      "args": [
+        "run",
+        "-i",
+        "-v",
+        "claude-memory:/app/dist",
+        "--rm",
+        "mcp/memory"
+      ]
     }
   },
   "examples": [

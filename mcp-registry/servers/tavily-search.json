@@ -1,7 +1,6 @@
 {
   "name": "tavily-search",
   "display_name": "Tavily MCP Server",
-  "version": "0.1.4",
   "description": "An MCP server for Tavily's search & news API, with explicit site inclusions/exclusions",
   "repository": {
     "type": "git",

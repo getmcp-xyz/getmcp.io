@@ -1,7 +1,6 @@
 {
   "name": "ableton-live",
   "display_name": "Ableton Live MCP Server",
-  "version": "1.0.0",
   "description": "an MCP server to control Ableton Live.",
   "repository": {
     "type": "git",
@@ -22,10 +21,12 @@
     "Music"
   ],
   "installations": {
-    "custom":{
+    "custom": {
       "type": "python",
       "command": "python",
-      "args": ["mcp_ableton_server.py"],
+      "args": [
+        "mcp_ableton_server.py"
+      ],
       "description": "Run with Python module (requires git clone)"
     }
   },

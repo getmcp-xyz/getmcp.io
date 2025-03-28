@@ -1,7 +1,6 @@
 {
   "name": "obsidian-mcp",
   "display_name": "Obsidian MCP Server",
-  "version": "1.0.0",
   "description": "(by Steven Stavrakis) An MCP server for Obsidian.md with tools for searching, reading, writing, and organizing notes.",
   "repository": {
     "type": "git",
@@ -26,7 +25,12 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "obsidian-mcp", "/path/to/your/vault", "/path/to/your/vault2"]
+      "args": [
+        "-y",
+        "obsidian-mcp",
+        "/path/to/your/vault",
+        "/path/to/your/vault2"
+      ]
     }
   },
   "examples": [

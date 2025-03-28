@@ -1,7 +1,6 @@
 {
   "name": "discourse",
   "display_name": "Discourse MCP Server",
-  "version": "1.0.0",
   "description": "A MCP server to search Discourse posts on a Discourse forum.",
   "repository": {
     "type": "git",
@@ -27,7 +26,7 @@
       "env": {
         "DISCOURSE_API_URL": "${DISCOURSE_API_URL}",
         "DISCOURSE_API_KEY": "${DISCOURSE_API_KEY}",
-        "DISCOURSE_API_USERNAME": "${DISCOURSE_API_USERNAME}" 
+        "DISCOURSE_API_USERNAME": "${DISCOURSE_API_USERNAME}"
       }
     },
     "docker": {
@@ -37,9 +36,12 @@
         "run",
         "-i",
         "--rm",
-        "-e", "DISCOURSE_API_URL=${DISCOURSE_API_URL}",
-        "-e", "DISCOURSE_API_KEY=${DISCOURSE_API_KEY}",
-        "-e", "DISCOURSE_API_USERNAME=${DISCOURSE_API_USERNAME}",
+        "-e",
+        "DISCOURSE_API_URL=${DISCOURSE_API_URL}",
+        "-e",
+        "DISCOURSE_API_KEY=${DISCOURSE_API_KEY}",
+        "-e",
+        "DISCOURSE_API_USERNAME=${DISCOURSE_API_USERNAME}",
         "ashdev/discourse-mcp-server"
       ]
     }

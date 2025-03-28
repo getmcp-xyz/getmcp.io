@@ -1,7 +1,6 @@
 {
   "name": "okta",
   "display_name": "Okta MCP Server",
-  "version": "1.0.0",
   "description": "Interact with Okta API.",
   "repository": {
     "type": "git",
@@ -25,7 +24,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "https://github.com/kapilduraphe/okta-mcp-server"],
+      "args": [
+        "-y",
+        "https://github.com/kapilduraphe/okta-mcp-server"
+      ],
       "env": {
         "OKTA_ORG_URL": "${OKTA_ORG_URL}",
         "OKTA_API_TOKEN": "${OKTA_API_TOKEN}"

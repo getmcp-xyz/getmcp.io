@@ -1,7 +1,6 @@
 {
   "name": "mindmap",
   "display_name": "Mindmap MCP Server",
-  "version": "0.1.0",
   "description": "A server that generates mindmaps from input containing markdown code.",
   "repository": {
     "type": "git",
@@ -25,12 +24,23 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mindmap-mcp-server", "--return-type", "html"]
+      "args": [
+        "mindmap-mcp-server",
+        "--return-type",
+        "html"
+      ]
     },
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "--rm", "-i", "-v", "/path/to/output/folder:/output", "ychen94/mindmap-converter-mcp:latest"]
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-v",
+        "/path/to/output/folder:/output",
+        "ychen94/mindmap-converter-mcp:latest"
+      ]
     }
   },
   "examples": [

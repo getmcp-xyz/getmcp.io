@@ -337,16 +337,6 @@
             margin-top: auto;
         }
         
-        .server-card .meta .version {
-            color: var(--secondary);
-            padding: 0.3rem 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            border-left: 2px solid var(--border);
-            background: none;
-        }
-        
         .server-card .meta .author {
             display: inline-flex;
             align-items: center;
@@ -1150,11 +1140,6 @@
                 
                 const meta = document.createElement('div');
                 meta.className = 'meta';
-                
-                const version = document.createElement('span');
-                version.className = 'version';
-                version.textContent = `v${server.version}`;
-                meta.appendChild(version);
                 
                 // Add placeholder for author that will be populated later
                 const authorMeta = document.createElement('span');

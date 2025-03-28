@@ -1,7 +1,6 @@
 {
   "name": "salesforce-mcp",
   "display_name": "MCP Salesforce Connector",
-  "version": "1.0.0",
   "description": "Interact with Salesforce Data and Metadata",
   "repository": {
     "type": "git",
@@ -26,7 +25,7 @@
         "--from",
         "mcp-salesforce-connector",
         "salesforce"
-        ],
+      ],
       "env": {
         "SALESFORCE_USERNAME": "YOUR_SALESFORCE_USERNAME",
         "SALESFORCE_PASSWORD": "YOUR_SALESFORCE_PASSWORD",
