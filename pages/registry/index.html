@@ -1048,7 +1048,7 @@
             const jsonContent = document.getElementById('jsonContent');
             
             // Set modal title and API URL
-            modalTitle.textContent = `${server.displayName} Manifest`;
+            modalTitle.textContent = `${server.display_name || server.name} Manifest`;
             
             // Full URL for API endpoint
             const fullApiUrl = `${window.location.origin}/api/servers/${server.name}.json`;
@@ -1317,8 +1317,9 @@
             // Then filter by search term
             if (searchTerm) {
                 filteredServers = filteredServers.filter(server => 
-                    server.displayName.toLowerCase().includes(searchTerm) || 
-                    server.description.toLowerCase().includes(searchTerm) ||
+                    (server.display_name && server.display_name.toLowerCase().includes(searchTerm)) || 
+                    (server.name && server.name.toLowerCase().includes(searchTerm)) || 
+                    (server.description && server.description.toLowerCase().includes(searchTerm)) ||
                     (server.tags && server.tags.some(tag => tag.toLowerCase().includes(searchTerm)))
                 );
             }
