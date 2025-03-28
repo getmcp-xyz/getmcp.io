@@ -29,9 +29,9 @@
         "-y",
         "@ergut/mcp-bigquery-server",
         "--project-id",
-        "your-project-id",
+        "${PROJECT_ID}",
         "--location",
-        "us-central1"
+        "${LOCATION}"
       ]
     }
   }

@@ -31,7 +31,7 @@
         "@modelcontextprotocol/server-brave-search"
       ],
       "env": {
-        "BRAVE_API_KEY": "YOUR_API_KEY_HERE"
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
     },
     "docker": {
@@ -46,7 +46,7 @@
         "mcp/brave-search"
       ],
       "env": {
-        "BRAVE_API_KEY": "YOUR_API_KEY_HERE"
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
     }
   },

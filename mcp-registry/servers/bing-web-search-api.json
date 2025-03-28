@@ -28,14 +28,12 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-        "--directory",
-        "/path/to/your/folder",
-        "run",
-        "-m",
+        "--from",
+        "http://github.com/leehanchung/bing-search-mcp",
         "mcp_server_bin_search"
       ],
       "env": {
-        "BING_API_KEY": "your-bing-api-key"
+        "BING_API_KEY": "${BING_API_KEY}"
       }
     }
   },

@@ -29,7 +29,7 @@
         "devrev-mcp"
       ],
       "env": {
-        "DEVREV_API_KEY": "YOUR_DEVREV_API_KEY"
+        "DEVREV_API_KEY": "${DEVREV_API_KEY}"
       }
     }
   }

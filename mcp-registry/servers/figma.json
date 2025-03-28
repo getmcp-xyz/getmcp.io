@@ -24,7 +24,7 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "figma-developer-mcp", "--figma-api-key=<your-figma-api-key>", "--stdio"]
+      "args": ["-y", "figma-developer-mcp", "--figma-api-key=${FIGMA_API_KEY}", "--stdio"]
     }
   }
 }

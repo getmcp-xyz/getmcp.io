@@ -26,7 +26,7 @@
       "command": "npx",
       "args": ["-y", "@ivotoby/contentful-management-mcp-server"],
       "env": {
-        "CONTENTFUL_MANAGEMENT_ACCESS_TOKEN": "<Your CMA token>"
+        "CONTENTFUL_MANAGEMENT_ACCESS_TOKEN": "${CONTENTFUL_MANAGEMENT_ACCESS_TOKEN}"
       }
     }
   }

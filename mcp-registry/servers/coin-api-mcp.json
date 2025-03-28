@@ -27,7 +27,7 @@
       "command": "python",
       "args": ["-m", "coin_api_mcp"],
       "env": {
-        "COINMARKETCAP_API_KEY": "your_api_key_here"
+        "COINMARKETCAP_API_KEY": "${COINMARKETCAP_API_KEY}"
       }
     }
   },

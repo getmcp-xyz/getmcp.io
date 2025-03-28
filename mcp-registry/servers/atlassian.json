@@ -27,12 +27,12 @@
       "command": "uvx",
       "args": [
         "mcp-atlassian",
-        "--confluence-url=https://your-company.atlassian.net/wiki",
-        "--confluence-username=your.email@company.com",
-        "--confluence-token=your_api_token",
-        "--jira-url=https://your-company.atlassian.net",
-        "--jira-username=your.email@company.com",
-        "--jira-token=your_api_token"
+        "--confluence-url=${CONFLUENCE_URL}",
+        "--confluence-username=${CONFLUENCE_USERNAME}",
+        "--confluence-token=${CONFLUENCE_TOKEN}",
+        "--jira-url=${JIRA_URL}",
+        "--jira-username=${JIRA_USERNAME}",
+        "--jira-token=${JIRA_TOKEN}"
       ],
       "description": "Run with uvx (requires uv install)"
     },
@@ -42,12 +42,12 @@
       "args": [
         "-m",
         "mcp-atlassian",
-        "--confluence-url=https://your-company.atlassian.net/wiki",
-        "--confluence-username=your.email@company.com",
-        "--confluence-token=your_api_token",
-        "--jira-url=https://your-company.atlassian.net",
-        "--jira-username=your.email@company.com",
-        "--jira-token=your_api_token"
+        "--confluence-url=${CONFLUENCE_URL}",
+        "--confluence-username=${CONFLUENCE_USERNAME}",
+        "--confluence-token=${CONFLUENCE_TOKEN}",
+        "--jira-url=${JIRA_URL}",
+        "--jira-username=${JIRA_USERNAME}",
+        "--jira-token=${JIRA_TOKEN}"
       ],
       "description": "Run with Python module (requires pip install)"
     },
@@ -59,12 +59,12 @@
         "--rm",
         "-i",
         "mcp/atlassian",
-        "--confluence-url=https://your-company.atlassian.net/wiki",
-        "--confluence-username=your.email@company.com",
-        "--confluence-token=your_api_token",
-        "--jira-url=https://your-company.atlassian.net",
-        "--jira-username=your.email@company.com",
-        "--jira-token=your_api_token"
+        "--confluence-url=${CONFLUENCE_URL}",
+        "--confluence-username=${CONFLUENCE_USERNAME}",
+        "--confluence-token=${CONFLUENCE_TOKEN}",
+        "--jira-url=${JIRA_URL}",
+        "--jira-username=${JIRA_USERNAME}",
+        "--jira-token=${JIRA_TOKEN}"
       ]
     }
   }

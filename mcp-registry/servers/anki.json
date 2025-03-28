@@ -22,11 +22,14 @@
     "Review"
   ],
   "installations": {
-    "custom": {
-      "type": "custom",
-      "command": "node",
-      "description": "Run with npm (requires npm install)",
-      "args": ["/path/to/anki-mcp-server/build/index.js"]
+    "npm": {
+      "type": "npm",
+      "command": "npx",
+      "args": [
+        "-y",
+        "https://github.com/scorzeth/anki-mcp-server"
+      ],
+      "description": "Run with npx (requires npm install)"
     }
   }
 }
