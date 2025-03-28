@@ -1112,7 +1112,7 @@
                 serverHeader.className = 'server-header';
                 
                 const heading = document.createElement('h3');
-                heading.textContent = server.displayName;
+                heading.textContent = server.display_name || server.name;
                 serverHeader.appendChild(heading);
                 
                 // Add placeholder for GitHub stars in the header

@@ -4,13 +4,15 @@ import json
 import os
 import sys
 from pathlib import Path
-from typing import Dict, List
+from typing import Any, Dict, List
 
+import jsonschema
 import requests
 
 # Constants
 GITHUB_API_URL = "https://api.github.com/graphql"
 BATCH_SIZE = 50  # Process repositories in batches of 50 to avoid rate limits
+SCHEMA_PATH = Path("mcp-registry/schema/server-schema.json")
 
 def error_exit(message: str) -> None:
     """Print error message and exit with error code"""
@@ -21,11 +23,36 @@ def status_message(message: str) -> None:
     """Print status message"""
     print(f"🔄 {message}")
 
-def load_manifest(manifest_path: Path) -> Dict:
-    """Load and parse a manifest file"""
+def load_schema() -> Dict[str, Any]:
+    """Load the JSON schema for validation"""
+    try:
+        with open(SCHEMA_PATH, 'r') as f:
+            return json.load(f)
+    except json.JSONDecodeError as e:
+        error_exit(f"Invalid JSON in schema file: {e}")
+    except FileNotFoundError:
+        error_exit(f"Schema file not found at {SCHEMA_PATH}")
+    except Exception as e:
+        error_exit(f"Error reading schema file: {e}")
+
+def load_manifest(manifest_path: Path) -> Dict[str, Any]:
+    """Load and parse a manifest file with schema validation"""
     try:
         with open(manifest_path, 'r') as f:
-            return json.load(f)
+            manifest = json.load(f)
+        
+        # Get the schema
+        schema = load_schema()
+        
+        # Validate against schema (will raise exception if invalid)
+        try:
+            jsonschema.validate(instance=manifest, schema=schema)
+        except jsonschema.exceptions.ValidationError:
+            # If validation fails, we continue but log a warning
+            # This allows the site to build even with some schema issues
+            print(f"⚠️ Warning: {manifest_path} does not fully conform to the schema")
+            
+        return manifest
     except json.JSONDecodeError as e:
         error_exit(f"Invalid JSON in {manifest_path}: {e}")
     except Exception as e:
@@ -58,7 +85,9 @@ def extract_github_repos(server_manifests: List[Path]) -> Dict[str, str]:
             # Handle both string and dictionary repository formats
             if isinstance(repo_url, str) and repo_url.startswith('https://github.com/'):
                 github_repos[server_name] = repo_url
-            elif isinstance(repo_url, dict) and 'url' in repo_url and isinstance(repo_url['url'], str) and repo_url['url'].startswith('https://github.com/'):
+            elif (isinstance(repo_url, dict) and 'url' in repo_url and 
+                  isinstance(repo_url['url'], str) and 
+                  repo_url['url'].startswith('https://github.com/')):
                 github_repos[server_name] = repo_url['url']
     
     return github_repos
@@ -100,20 +129,24 @@ def fetch_github_stars_batch(repo_urls: List[str]) -> Dict[str, int]:
         variables = {}
         
         for i, (owner, repo) in enumerate(batch):
-            query_parts.append(f"""
-            repo{i}: repository(owner: $owner{i}, name: $repo{i}) {{
+            query_parts.append(
+                f"""repo{i}: repository(owner: $owner{i}, name: $repo{i}) {{
                 stargazerCount
                 url
-            }}
-            """)
+            }}"""
+            )
             variables[f"owner{i}"] = owner
             variables[f"repo{i}"] = repo
         
-        query = f"""
-        query ({', '.join(f'$owner{i}: String!, $repo{i}: String!' for i in range(len(batch)))}) {{
-            {' '.join(query_parts)}
-        }}
-        """
+        # Join the query parts with proper line length
+        variable_defs = ', '.join(f'$owner{i}: String!, $repo{i}: String!' 
+                               for i in range(len(batch)))
+        query_body = ' '.join(query_parts)
+        
+        query = f"""query ({variable_defs}) {{
+            {query_body}
+        }}"""
+        
         
         # Send GraphQL request
         try:
@@ -126,11 +159,11 @@ def fetch_github_stars_batch(repo_urls: List[str]) -> Dict[str, int]:
             # Check for errors
             if response.status_code != 200:
                 if response.status_code == 401:
-                    print(f"⚠️ GitHub API authentication failed. Set GITHUB_TOKEN environment variable for higher rate limits.")
+                    print("⚠️ GitHub API authentication failed. Set GITHUB_TOKEN for higher rate limits.")
                 elif response.status_code == 403:
-                    print(f"⚠️ GitHub API rate limit exceeded. Set GITHUB_TOKEN environment variable for higher rate limits.")
+                    print("⚠️ GitHub API rate limit exceeded. Set GITHUB_TOKEN for higher rate limits.")
                 else:
-                    print(f"⚠️ GitHub API request failed with status {response.status_code}: {response.text}")
+                    print(f"⚠️ GitHub API request failed: status {response.status_code}")
                 continue
             
             data = response.json()
@@ -158,7 +191,8 @@ def get_github_stars(github_repos: Dict[str, str]) -> Dict[str, int]:
     if not github_repos:
         return {}
     
-    status_message(f"Fetching GitHub stars for {len(github_repos)} repositories...")
+    repo_count = len(github_repos)
+    status_message(f"Fetching GitHub stars for {repo_count} repositories...")
     
     # Convert dict values to list for batch processing
     repo_urls = list(github_repos.values())
@@ -174,7 +208,7 @@ def get_github_stars(github_repos: Dict[str, str]) -> Dict[str, int]:
     
     return server_stars
 
-def generate_servers_json(server_manifests: List[Path], output_path: Path) -> Dict[str, Dict]:
+def generate_servers_json(server_manifests: List[Path], output_path: Path) -> Dict[str, Dict[str, Any]]:
     """Generate servers.json file with server metadata"""
     status_message("Generating servers.json...")
     
@@ -184,18 +218,12 @@ def generate_servers_json(server_manifests: List[Path], output_path: Path) -> Di
         server_name = manifest_path.stem  # Get filename without extension
         manifest = load_manifest(manifest_path)
         
-        # Extract relevant fields
-        server_info = {
-            'name': manifest.get('name', server_name),
-            'description': manifest.get('description', ''),
-            'version': manifest.get('version'),
-            'repository': manifest.get('repository', ''),
-            'author': manifest.get('author', ''),
-            'categories': manifest.get('categories', []),
-            'tags': manifest.get('tags', [])
-        }
-        
-        servers_data[server_name] = server_info
+        # Use the entire manifest as is, preserving all fields
+        # Ensure the name field at minimum is present
+        if 'name' not in manifest:
+            manifest['name'] = server_name
+            
+        servers_data[server_name] = manifest
     
     # Write servers.json
     with open(output_path, 'w') as f:
