@@ -47,10 +47,13 @@ jobs:
           mkdir -p pages/api/servers
           
       - name: Run preparation script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           chmod +x ./scripts/prepare.sh
           source .venv/bin/activate
           ./scripts/prepare.sh ./pages
+        
       
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
