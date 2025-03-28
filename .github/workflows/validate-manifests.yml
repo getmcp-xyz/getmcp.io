@@ -14,14 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate Manifest JSON Files
-        uses: walbo/validate-json@v1.1.0
+      - name: Validate Server JSON Files
+        uses: cardinalby/schema-validator-action@v3
         with:
-          # Validate all manifest.json files in the servers directory
-          files: mcp-registry/servers/*.json
-          # Use our schema file
-          schema: mcp-registry/schema/server-schema.json
-          # Use the latest draft 2020-12 as specified in our schema
-          schema-version: 2020-12
-          # Print information about valid files too
-          print-valid-files: true
+          # Path to files to validate (glob pattern)
+          file: 'mcp-registry/servers/*.json'
+          # Schema file to validate against
+          schema: 'mcp-registry/schema/server-schema.json'
+          # Mode (lax, spec, default, strong)
+          mode: 'default'
+          # Experimental: fix schema formats if needed
+          fixSchemas: 'false'
