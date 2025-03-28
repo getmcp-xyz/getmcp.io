@@ -1051,7 +1051,7 @@
             modalTitle.textContent = `${server.displayName} Manifest`;
             
             // Full URL for API endpoint
-            const fullApiUrl = `${window.location.origin}${server.apiEndpoint}`;
+            const fullApiUrl = `${window.location.origin}/api/servers/${server.name}.json`;
             apiUrl.textContent = fullApiUrl;
             
             // Display the server data directly from our already loaded servers array
@@ -1066,18 +1066,42 @@
             modal.style.display = 'flex';
         }
         
-        // Copy text to clipboard
+        // Copy text to clipboard - using simple, compatible method
         function copyToClipboard(text, button) {
-            navigator.clipboard.writeText(text).then(() => {
-                const originalText = button.textContent;
-                button.textContent = 'Copied!';
-                setTimeout(() => {
-                    button.textContent = originalText;
-                }, 1500);
-            }).catch(() => {
-                // Silent fail for copy operation
-            });
+            // Create a temporary textarea element
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            
+            // Make the textarea out of the user's sight but still technically visible
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            textArea.style.top = '0';
+            textArea.style.opacity = '0';
+            
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                // Execute copy command
+                const successful = document.execCommand('copy');
+                
+                if (successful) {
+                    // Provide visual feedback
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 1500);
+                }
+            } catch (err) {
+                console.log('Simple copy failed:', err);
+            }
+            
+            // Remove the temporary element
+            document.body.removeChild(textArea);
         }
+        
+        // Render server cards
         
         // Render server cards
         function renderServerCards(serversToRender) {
@@ -1431,9 +1455,16 @@
             });
             
             // Copy URL button
-            copyUrlButton.addEventListener('click', () => {
+            copyUrlButton.addEventListener('click', (event) => {
+                // Prevent event bubbling
+                event.stopPropagation();
+                
                 const apiUrl = document.getElementById('apiUrl').textContent;
-                copyToClipboard(apiUrl, copyUrlButton);
+                if (apiUrl) {
+                    copyToClipboard(apiUrl, copyUrlButton);
+                } else {
+                    console.error('API URL is empty or undefined');
+                }
             });
             
             // Copy JSON content button
