@@ -44,7 +44,9 @@ generate_server_data() {
     SKIP_STARS=""
   fi
   
-  if python3 "$(dirname "$0")/prepare.py" "$(pwd)/mcp-registry" "$TARGET_DIR" $SKIP_STARS; then
+  # Get the absolute path to the script directory
+  SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
+  if python3 "$SCRIPT_DIR/prepare.py" "$(pwd)/mcp-registry" "$TARGET_DIR" $SKIP_STARS; then
     echo "  ✓ Successfully generated servers.json and stars.json"
   else
     error_exit "Failed to process server data with Python script"
