@@ -1,7 +1,6 @@
 {
   "name": "spotify",
   "display_name": "Spotify MCP",
-  "version": "1.0.0",
   "description": "This MCP allows an LLM to play and use Spotify.",
   "repository": {
     "type": "git",

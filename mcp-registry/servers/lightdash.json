@@ -1,7 +1,6 @@
 {
   "name": "lightdash",
   "display_name": "Lightdash MCP Server",
-  "version": "NOT GIVEN",
   "description": "Interact with [Lightdash](https://www.lightdash.com/), a BI tool.",
   "repository": {
     "type": "git",

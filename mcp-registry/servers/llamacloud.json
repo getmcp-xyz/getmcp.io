@@ -1,7 +1,6 @@
 {
   "name": "llamacloud",
   "display_name": "LlamaCloud MCP Server",
-  "version": "1.0.0",
   "description": "Integrate the data stored in a managed index on [LlamaCloud](https://cloud.llamaindex.ai/)",
   "repository": {
     "type": "git",

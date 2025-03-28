@@ -1,7 +1,6 @@
 {
   "name": "siri-shortcuts",
   "display_name": "Siri Shortcuts MCP Server",
-  "version": "1.0.0",
   "description": "MCP to interact with Siri Shortcuts on macOS. Exposes all Shortcuts as MCP tools.",
   "repository": {
     "type": "git",
@@ -37,7 +36,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["mcp-server-siri-shortcuts"]
+      "args": [
+        "mcp-server-siri-shortcuts"
+      ]
     }
   }
 }

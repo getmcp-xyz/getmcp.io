@@ -1,7 +1,6 @@
 {
   "name": "llm-context",
   "display_name": "LLM Context",
-  "version": "0.2.16",
   "description": "Provides a repo-packing MCP tool with configurable profiles that specify file inclusion/exclusion patterns and optional prompts.",
   "repository": {
     "type": "git",
@@ -28,7 +27,11 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["--from", "llm-context", "lc-mcp"]
+      "args": [
+        "--from",
+        "llm-context",
+        "lc-mcp"
+      ]
     }
   }
 }

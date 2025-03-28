@@ -1,7 +1,6 @@
 {
   "name": "basic-memory",
   "display_name": "Basic Memory",
-  "version": "1.0.0",
   "description": "Local-first knowledge management system that builds a semantic graph from Markdown files, enabling persistent memory across conversations with LLMs.",
   "repository": {
     "type": "git",

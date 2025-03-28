@@ -1,7 +1,6 @@
 {
   "name": "cloudinary",
   "display_name": "Cloudinary MCP Server",
-  "version": "1.0.0",
   "description": "Cloudinary Model Context Protocol Server to upload media to Cloudinary and get back the media link and details.",
   "repository": {
     "type": "git",
@@ -25,7 +24,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["@felores/cloudinary-mcp-server@latest"],
+      "args": [
+        "@felores/cloudinary-mcp-server@latest"
+      ],
       "env": {
         "CLOUDINARY_CLOUD_NAME": "${CLOUDINARY_CLOUD_NAME}",
         "CLOUDINARY_API_KEY": "${CLOUDINARY_API_KEY}",

@@ -1,7 +1,6 @@
 {
   "name": "openapi-anyapi",
   "display_name": "Scalable OpenAPI Endpoint Discovery and API Request Tool",
-  "version": "1.0.0",
   "description": "Interact with large [OpenAPI](https://www.openapis.org/) docs using built-in semantic search for endpoints. Allows for customizing the MCP server prefix.",
   "repository": {
     "type": "git",

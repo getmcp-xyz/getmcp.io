@@ -1,7 +1,6 @@
 {
   "name": "goal-story",
   "display_name": "Goal Story MCP",
-  "version": "1.0.0",
   "description": "a Goal Tracker and Visualization Tool for personal and professional development.",
   "repository": {
     "type": "git",
@@ -26,7 +25,12 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "goalstory-mcp", "https://prod-goalstory-rqc2.encr.app", "your-api-key"]
+      "args": [
+        "-y",
+        "goalstory-mcp",
+        "https://prod-goalstory-rqc2.encr.app",
+        "your-api-key"
+      ]
     }
   }
 }

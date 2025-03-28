@@ -1,7 +1,6 @@
 {
   "name": "airflow",
   "display_name": "MCP Server Apache Airflow",
-  "version": "1.0.0",
   "description": "A MCP Server that connects to [Apache Airflow](https://airflow.apache.org/) using official python client.",
   "repository": {
     "type": "git",
@@ -40,10 +39,12 @@
     }
   },
   "installations": {
-    "uvx":{
+    "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-server-apache-airflow"],
+      "args": [
+        "mcp-server-apache-airflow"
+      ],
       "env": {
         "AIRFLOW_HOST": "${AIRFLOW_HOST}",
         "AIRFLOW_USERNAME": "${AIRFLOW_USERNAME}",

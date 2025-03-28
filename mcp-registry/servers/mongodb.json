@@ -1,7 +1,6 @@
 {
   "name": "mongodb",
   "display_name": "MCP MongoDB Server",
-  "version": "[NOT GIVEN]",
   "description": "A Model Context Protocol Server for MongoDB.",
   "repository": {
     "type": "git",

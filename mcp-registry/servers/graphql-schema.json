@@ -1,7 +1,6 @@
 {
   "name": "graphql-schema",
   "display_name": "GraphQL Schema Model Context Protocol Server",
-  "version": "1.0.0",
   "description": "Allow LLMs to explore large GraphQL schemas without bloating the context.",
   "repository": {
     "type": "git",
@@ -26,7 +25,11 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "mcp-graphql-schema", "/ABSOLUTE/PATH/TO/schema.graphqls"]
+      "args": [
+        "-y",
+        "mcp-graphql-schema",
+        "/ABSOLUTE/PATH/TO/schema.graphqls"
+      ]
     }
   },
   "examples": [

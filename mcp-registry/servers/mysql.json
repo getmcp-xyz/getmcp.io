@@ -1,7 +1,6 @@
 {
   "name": "mysql",
   "display_name": "MySQL MCP Server",
-  "version": "1.0.0",
   "description": "MySQL database integration in Python with configurable access controls and schema inspection",
   "repository": {
     "type": "git",

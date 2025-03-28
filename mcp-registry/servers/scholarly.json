@@ -1,7 +1,6 @@
 {
   "name": "scholarly",
   "display_name": "mcp-scholarly",
-  "version": "NOT GIVEN",
   "description": "A MCP server to search for scholarly and academic articles.",
   "repository": {
     "type": "git",
@@ -24,12 +23,19 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["mcp-scholarly"]
+      "args": [
+        "mcp-scholarly"
+      ]
     },
     "docker": {
       "type": "docker",
       "command": "docker",
-      "args": ["run", "--rm", "-i", "mcp/scholarly"]
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "mcp/scholarly"
+      ]
     }
   }
 }

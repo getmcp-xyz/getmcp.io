@@ -1,7 +1,6 @@
 {
   "name": "linear",
   "display_name": "Linear MCP Server",
-  "version": "[NOT GIVEN]",
   "description": "Allows LLM to interact with Linear's API for project management, including searching, creating, and updating issues.",
   "repository": {
     "type": "git",

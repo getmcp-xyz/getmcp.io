@@ -1,7 +1,6 @@
 {
   "name": "notion",
   "display_name": "Notion MCP Server",
-  "version": "1.0.0",
   "description": "Notion MCP integration. Search, Read, Update, and Create pages through Claude chat.",
   "repository": {
     "type": "git",

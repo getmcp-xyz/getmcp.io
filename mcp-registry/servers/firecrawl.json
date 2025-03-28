@@ -1,7 +1,6 @@
 {
   "name": "firecrawl",
   "display_name": "Firecrawl MCP Server",
-  "version": "1.0.0",
   "description": "Advanced web scraping with JavaScript rendering, PDF support, and smart rate limiting",
   "repository": {
     "type": "git",
@@ -36,10 +35,13 @@
     }
   ],
   "installations": {
-    "npm": {  
+    "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "firecrawl-mcp"],
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
       "env": {
         "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
       }

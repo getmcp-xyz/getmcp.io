@@ -1,7 +1,6 @@
 {
   "name": "openapi",
   "display_name": "OpenAPI MCP Server",
-  "version": "2.0.0",
   "description": "Interact with [OpenAPI](https://www.openapis.org/) APIs.",
   "repository": {
     "type": "git",
@@ -24,7 +23,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "openapi-mcp-server"]
+      "args": [
+        "-y",
+        "openapi-mcp-server"
+      ]
     }
   },
   "examples": [

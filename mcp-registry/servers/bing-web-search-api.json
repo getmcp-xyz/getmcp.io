@@ -1,7 +1,6 @@
 {
   "name": "bing-web-search-api",
   "display_name": "Bing Search MCP Server",
-  "version": "1.0.0",
   "description": "Server implementation for Microsoft Bing Web Search API.",
   "repository": {
     "type": "git",
@@ -24,7 +23,7 @@
     "Images"
   ],
   "installations": {
-    "uvx":{
+    "uvx": {
       "type": "uvx",
       "command": "uvx",
       "args": [

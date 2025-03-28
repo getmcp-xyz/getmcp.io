@@ -1,7 +1,6 @@
 {
   "name": "evm-mcp-server",
   "display_name": "EVM MCP Server",
-  "version": "1.0.0",
   "description": "Comprehensive blockchain services for 30+ EVM networks, supporting native tokens, ERC20, NFTs, smart contracts, transactions, and ENS resolution.",
   "repository": {
     "type": "git",
@@ -24,7 +23,10 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["-y", "@mcpdotdirect/evm-mcp-server"]
+      "args": [
+        "-y",
+        "@mcpdotdirect/evm-mcp-server"
+      ]
     }
   },
   "author": {

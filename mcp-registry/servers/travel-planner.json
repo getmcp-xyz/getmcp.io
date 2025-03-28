@@ -1,7 +1,6 @@
 {
   "name": "travel-planner",
   "display_name": "Travel Planner MCP Server",
-  "version": "NOT GIVEN",
   "description": "Travel planning and itinerary management server integrating with Google Maps API for location search, place details, and route calculations.",
   "repository": {
     "type": "git",
@@ -23,7 +22,9 @@
     "npm": {
       "type": "npm",
       "command": "npx",
-      "args": ["@gongrzhe/server-travelplanner-mcp"],
+      "args": [
+        "@gongrzhe/server-travelplanner-mcp"
+      ],
       "env": {
         "GOOGLE_MAPS_API_KEY": "your_google_maps_api_key"
       }

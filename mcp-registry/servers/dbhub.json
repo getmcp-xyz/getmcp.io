@@ -1,7 +1,6 @@
 {
   "name": "dbhub",
   "display_name": "DBHub",
-  "version": "1.0.0",
   "description": "Universal database MCP server connecting to MySQL, PostgreSQL, SQLite, DuckDB and etc.",
   "repository": {
     "type": "git",

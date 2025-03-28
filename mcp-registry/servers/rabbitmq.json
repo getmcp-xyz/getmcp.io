@@ -1,7 +1,6 @@
 {
   "name": "rabbitmq",
   "display_name": "RabbitMQ MCP Server",
-  "version": "1.0.0",
   "description": "The MCP server that interacts with RabbitMQ to publish and consume messages.",
   "repository": {
     "type": "git",
@@ -26,12 +25,12 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-        "--from", 
+        "--from",
         "https://github.com/kenliao94/mcp-server-rabbitmq",
         "mcp-server-rabbitmq",
         "--rabbitmq-host",
         "<hostname ex. test.rabbit.com, localhost>",
-        "--port", 
+        "--port",
         "<port number ex. 5672>",
         "--username",
         "<rabbitmq username>",

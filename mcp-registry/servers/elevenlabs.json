@@ -1,7 +1,6 @@
 {
   "name": "elevenlabs",
   "display_name": "ElevenLabs MCP Server",
-  "version": "1.0.0",
   "description": "A server that integrates with ElevenLabs text-to-speech API capable of generating full voiceovers with multiple voices.",
   "repository": {
     "type": "git",
@@ -26,7 +25,9 @@
     "uvx": {
       "type": "uvx",
       "command": "uvx",
-      "args": ["elevenlabs-mcp-server"],
+      "args": [
+        "elevenlabs-mcp-server"
+      ],
       "env": {
         "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
         "ELEVENLABS_VOICE_ID": "${ELEVENLABS_VOICE_ID}",

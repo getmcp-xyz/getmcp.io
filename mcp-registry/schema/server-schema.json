@@ -6,7 +6,6 @@
   "required": [
     "name",
     "display_name",
-    "version",
     "description",
     "repository",
     "license",
@@ -21,10 +20,6 @@
     "display_name": {
       "type": "string",
       "description": "Human-readable server name"
-    },
-    "version": {
-      "type": ["string", "null"],
-      "description": "Server version - can be any string or null"
     },
     "description": {
       "type": "string",

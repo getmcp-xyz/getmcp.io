@@ -1,7 +1,6 @@
 {
   "name": "holaspirit",
   "display_name": "Holaspirit MCP Server",
-  "version": "1.0.0",
   "description": "Interact with [Holaspirit](https://www.holaspirit.com/).",
   "repository": {
     "type": "git",

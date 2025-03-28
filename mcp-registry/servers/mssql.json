@@ -1,7 +1,6 @@
 {
   "name": "mssql",
   "display_name": "MSSQL MCP Server",
-  "version": "1.0.0",
   "description": "MCP Server for MSSQL database in Python",
   "repository": {
     "type": "git",

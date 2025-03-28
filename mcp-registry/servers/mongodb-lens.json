@@ -1,7 +1,6 @@
 {
   "name": "mongodb-lens",
   "display_name": "MongoDB Lens",
-  "version": "5.0.7",
   "description": "Full Featured MCP Server for MongoDB Databases.",
   "repository": {
     "type": "git",
@@ -12,7 +11,7 @@
     "name": "furey"
   },
   "license": "MIT",
-  "categories": [ 
+  "categories": [
     "database"
   ],
   "tags": [
@@ -41,7 +40,8 @@
         "-i",
         "--network=host",
         "--pull=always",
-        "-e", "CONFIG_LOG_LEVEL='verbose'",
+        "-e",
+        "CONFIG_LOG_LEVEL='verbose'",
         "furey/mongodb-lens",
         "mongodb://your-connection-string"
       ]

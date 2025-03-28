@@ -1,7 +1,6 @@
 {
   "name": "json",
   "display_name": "JSON Model Context Protocol Server",
-  "version": "1.0.3",
   "description": "JSON handling and processing server with advanced query capabilities using JSONPath syntax and support for array, string, numeric, and date operations.",
   "repository": {
     "type": "git",

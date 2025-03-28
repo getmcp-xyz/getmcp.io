@@ -1,7 +1,6 @@
 {
   "name": "anki",
   "display_name": "Anki MCP Server",
-  "version": "1.0.0",
   "description": "An MCP server for interacting with your [Anki](https://apps.ankiweb.net/) decks and cards.",
   "repository": {
     "type": "git",

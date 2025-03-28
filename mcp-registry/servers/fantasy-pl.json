@@ -1,7 +1,6 @@
 {
   "name": "fantasy-pl",
   "display_name": "Fantasy Premier League MCP Server",
-  "version": "0.1.0",
   "description": "Give your coding agent direct access to up-to date Fantasy Premier League data",
   "repository": {
     "type": "git",
@@ -25,7 +24,10 @@
     "python": {
       "type": "python",
       "command": "python",
-      "args": ["-m", "fpl_mcp"]
+      "args": [
+        "-m",
+        "fpl_mcp"
+      ]
     }
   },
   "examples": [
