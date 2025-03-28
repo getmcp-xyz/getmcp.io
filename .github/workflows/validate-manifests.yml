@@ -14,14 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate Manifest JSON Files
-        uses: walbo/validate-json@v1.1.0
+      - name: Install uv with caching
+        uses: astral-sh/setup-uv@v5
         with:
-          # Validate all manifest.json files in the servers directory
-          files: mcp-registry/servers/*/manifest.json
-          # Use our schema file
-          schema: mcp-registry/schema/manifest-schema.json
-          # Use draft-07 as specified in our schema
-          schema-version: draft-07
-          # Print information about valid files too
-          print-valid-files: true
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+
+      - name: Install dependencies
+        run: |
+          uv sync
+
+      - name: Validate Manifest JSON Files
+        run: |
+          python scripts/validate_manifest.py

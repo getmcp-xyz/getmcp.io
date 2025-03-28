@@ -1,0 +1,14 @@
+[project]
+name = "getmcp-io"
+version = "0.1.0"
+description = "Tools for building the getmcp.io website"
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.28.0",
+    "jsonschema>=4.17.0",
+]
+
+[tool.ruff]
+select = ["E", "F", "I"]
+line-length = 88
+target-version = "py38"

@@ -21,6 +21,16 @@ getmcp.io/
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for setup and local development instructions.
 
+### GitHub API Access
+
+When running the development server or build scripts, you can provide a GitHub token to avoid API rate limits when fetching repository star counts:
+
+```bash
+GITHUB_TOKEN=your_github_token ./dev.sh
+```
+
+Without a token, the site will still build but may not display star counts for all repositories.
+
 ## Contributing
 
 Please see [Contributing Guidelines](/mcp-registry/CONTRIBUTING.md) for information on how to add or update MCP servers in the Server Registry.

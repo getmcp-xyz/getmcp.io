@@ -5,6 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
 
 permissions:
   contents: read
@@ -27,12 +29,17 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       
-      - name: Install jq
+      - name: Install uv with caching
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+
+      - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y jq
+          uv sync
           
       - name: Setup site structure
         run: |
@@ -45,7 +52,7 @@ jobs:
           ./scripts/prepare.sh ./pages
       
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1.0.12
+        uses: actions/jekyll-build-pages@v1
         with:
           source: ./pages
           destination: ./_site

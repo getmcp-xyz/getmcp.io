@@ -11,13 +11,6 @@ status_message() {
   echo -e "🔄 $1"
 }
 
-# Check if jq is installed
-check_dependencies() {
-  if ! command -v jq &> /dev/null; then
-    error_exit "jq is required but not installed. Please install it with 'brew install jq'"
-  fi
-}
-
 # Set up the directory structure and copy necessary files
 setup_directories() {
   TARGET_DIR="$1"
@@ -38,47 +31,35 @@ setup_directories() {
   done
 }
 
-# Generate the combined servers.json file as a map with server names as keys
-generate_servers_json() {
+# Use Python script to generate servers.json and stars.json
+generate_server_data() {
   TARGET_DIR="$1"
   
-  status_message "Generating combined servers.json..."
-  echo "{" > "$TARGET_DIR/api/servers.json"
-  first=true
-  for server_file in $(find mcp-registry/servers -name "*.json" -type f | sort); do
-    server_name=$(basename "$server_file" .json)
-    if [ "$first" = true ]; then
-      first=false
-    else
-      echo "," >> "$TARGET_DIR/api/servers.json"
-    fi
-    
-    # Process the server file to create server entry with additional frontend fields
-    echo -n "\"$server_name\": " >> "$TARGET_DIR/api/servers.json"
-    jq -c '. + {
-      "name": .name,
-      "displayName": .display_name,
-      "tags": .tags,
-      "repository": .repository.url,
-      "documentation": "/registry/servers/\(.name)/",
-      "apiEndpoint": "/api/servers/\(.name).json"
-    }' "$server_file" >> "$TARGET_DIR/api/servers.json"
-  done
-  echo "}" >> "$TARGET_DIR/api/servers.json"
+  # Check if stars.json already exists
+  if [ -f "$TARGET_DIR/api/stars.json" ]; then
+    status_message "Using existing stars.json file..."
+    SKIP_STARS="--skip-stars"
+  else
+    status_message "Processing server JSON data and fetching GitHub stars..."
+    SKIP_STARS=""
+  fi
+  
+  if python3 "$(dirname "$0")/prepare.py" "$(pwd)/mcp-registry" "$TARGET_DIR" $SKIP_STARS; then
+    echo "  ✓ Successfully generated servers.json and stars.json"
+  else
+    error_exit "Failed to process server data with Python script"
+  fi
 }
 
 # Main function to prepare the site
 prepare_site() {
   TARGET_DIR="$1"
   
-  # Check dependencies first
-  check_dependencies
-  
   # Setup directories and copy files
   setup_directories "$TARGET_DIR"
   
-  # Generate servers.json
-  generate_servers_json "$TARGET_DIR"
+  # Generate servers.json and stars.json using Python script
+  generate_server_data "$TARGET_DIR"
   
   echo -e "✅ Preparation complete!\n"
 }
