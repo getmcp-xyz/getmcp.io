@@ -53,5 +53,17 @@
         "FR24_API_URL": "${FR24_API_URL}"
       }
     }
+  },
+  "arguments": {
+    "FR24_API_KEY": {
+      "description": "Flightradar24 API key required for accessing flight data from the Flightradar24 API.",
+      "required": true,
+      "example": "your_actual_api_key_here"
+    },
+    "FR24_API_URL": {
+      "description": "The base URL for calling the Flightradar24 API for fetching real-time flight data.",
+      "required": false,
+      "example": "https://fr24api.flightradar24.com"
+    }
   }
 }

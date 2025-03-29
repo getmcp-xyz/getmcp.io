@@ -42,5 +42,22 @@
         "AWS_DEFAULT_REGION": "${AWS_DEFAULT_REGION}"
       }
     }
+  },
+  "arguments": {
+    "AWS_ACCESS_KEY_ID": {
+      "description": "Your AWS access key.",
+      "required": true,
+      "example": "your_access_key_id_here"
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "description": "Your AWS secret key.",
+      "required": true,
+      "example": "your_secret_access_key_here"
+    },
+    "AWS_DEFAULT_REGION": {
+      "description": "AWS region to operate in. Defaults to 'us-east-1' if not set.",
+      "required": false,
+      "example": "us-east-1"
+    }
   }
 }

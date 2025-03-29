@@ -51,5 +51,22 @@
         "${UC_SCHEMA}"
       ]
     }
+  },
+  "arguments": {
+    "UC_SERVER": {
+      "description": "The base URL of the Unity Catalog server.",
+      "required": true,
+      "example": "https://my-unity-catalog.com"
+    },
+    "UC_CATALOG": {
+      "description": "The name of the Unity Catalog catalog.",
+      "required": true,
+      "example": "my_catalog"
+    },
+    "UC_SCHEMA": {
+      "description": "The name of the schema within a Unity Catalog catalog.",
+      "required": true,
+      "example": "my_schema"
+    }
   }
 }

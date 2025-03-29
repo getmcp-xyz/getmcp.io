@@ -30,5 +30,17 @@
         "mcp-local-rag"
       ]
     }
+  },
+  "arguments": {
+    "python": {
+      "description": "Specifies the Python version to use for running the server.",
+      "required": true,
+      "example": "3.10"
+    },
+    "from": {
+      "description": "Indicates the source from which to clone or fetch the repository.",
+      "required": true,
+      "example": "git+https://github.com/nkapila6/mcp-local-rag"
+    }
   }
 }

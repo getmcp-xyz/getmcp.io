@@ -42,5 +42,22 @@
         "XERO_REDIRECT_URI": "${XERO_REDIRECT_URI}"
       }
     }
+  },
+  "arguments": {
+    "XERO_CLIENT_ID": {
+      "description": "The Client ID obtained from the Xero Developer center after creating an OAuth 2.0 app, required for authentication.",
+      "required": true,
+      "example": "YOUR_CLIENT_ID"
+    },
+    "XERO_CLIENT_SECRET": {
+      "description": "The Client Secret generated in the Xero Developer center, necessary for authenticating requests.",
+      "required": true,
+      "example": "YOUR_CLIENT_SECRET"
+    },
+    "XERO_REDIRECT_URI": {
+      "description": "The URI to redirect to after authentication, should typically match the redirect URI specified in the OAuth 2.0 app settings.",
+      "required": false,
+      "example": "http://localhost:5000/callback"
+    }
   }
 }

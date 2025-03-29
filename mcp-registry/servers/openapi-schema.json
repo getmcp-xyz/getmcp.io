@@ -29,5 +29,12 @@
         "/ABSOLUTE/PATH/TO/openapi.yaml"
       ]
     }
+  },
+  "arguments": {
+    "ABSOLUTE_PATH_TO_OPENAPI_YAML": {
+      "description": "The absolute path to the OpenAPI YAML file that the MCP server will use to load the schema.",
+      "required": true,
+      "example": "/absolute/path/to/openapi.yaml"
+    }
   }
 }

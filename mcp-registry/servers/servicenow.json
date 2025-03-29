@@ -46,5 +46,27 @@
         "SERVICENOW_AUTH_TYPE": "${SERVICENOW_AUTH_TYPE}"
       }
     }
+  },
+  "arguments": {
+    "SERVICENOW_INSTANCE_URL": {
+      "description": "URL of the ServiceNow instance to connect to.",
+      "required": true,
+      "example": "https://your-instance.service-now.com"
+    },
+    "SERVICENOW_USERNAME": {
+      "description": "Username for accessing the ServiceNow instance.",
+      "required": true,
+      "example": "your-username"
+    },
+    "SERVICENOW_PASSWORD": {
+      "description": "Password for the ServiceNow username.",
+      "required": true,
+      "example": "your-password"
+    },
+    "SERVICENOW_AUTH_TYPE": {
+      "description": "Authentication type for connecting to ServiceNow. Options are 'basic', 'oauth', or 'api_key'.",
+      "required": true,
+      "example": "basic"
+    }
   }
 }

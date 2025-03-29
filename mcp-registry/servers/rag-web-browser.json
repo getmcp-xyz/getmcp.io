@@ -43,5 +43,12 @@
       "description": "Find and analyze recent research papers about LLMs.",
       "prompt": "Find and analyze recent research papers about LLMs."
     }
-  ]
+  ],
+  "arguments": {
+    "APIFY_TOKEN": {
+      "description": "Environment variable for your Apify API token to authenticate requests.",
+      "required": true,
+      "example": "your-apify-api-token"
+    }
+  }
 }

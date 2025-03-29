@@ -50,5 +50,17 @@
         "GHOST_STAFF_API_KEY": "${GHOST_STAFF_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "GHOST_API_URL": {
+      "description": "Your Ghost Admin API URL",
+      "required": true,
+      "example": "https://yourblog.com"
+    },
+    "GHOST_STAFF_API_KEY": {
+      "description": "Your Ghost Staff API key",
+      "required": true,
+      "example": "your_staff_api_key"
+    }
   }
 }

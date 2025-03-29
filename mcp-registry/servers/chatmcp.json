@@ -34,5 +34,12 @@
         "PATH": "${PATH}"
       }
     }
+  },
+  "arguments": {
+    "PATH": {
+      "description": "This environment variable specifies the system's executable search path, which determines where the operating system looks for executable files when running commands.",
+      "required": false,
+      "example": "C:\\Program Files\\nodejs;C:\\Windows\\System32"
+    }
   }
 }

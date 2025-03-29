@@ -68,5 +68,132 @@
       "description": "Get the current location information of the avatar.",
       "prompt": "Where are you now?"
     }
-  ]
+  ],
+  "arguments": {
+    "GoogleMapApi_key": {
+      "description": "API key for accessing Google Maps services.",
+      "required": true,
+      "example": "YOUR_GOOGLE_MAP_API_KEY"
+    },
+    "mapApi_url": {
+      "description": "Custom endpoint for the Map API, if any; otherwise, the default endpoint is used.",
+      "required": false,
+      "example": "https://your-custom-map-api.com"
+    },
+    "time_scale": {
+      "description": "Scale factor to adjust the travel time based on real roads duration; default is 4.",
+      "required": false,
+      "example": "5"
+    },
+    "sqlite_path": {
+      "description": "Path for saving the SQLite database file. It determines where the travel log will be stored.",
+      "required": true,
+      "example": "%USERPROFILE%/Desktop/traveler.sqlite"
+    },
+    "rembg_path": {
+      "description": "Absolute path of the installed rembg command line interface for removing backgrounds from images.",
+      "required": true,
+      "example": "C:\\path\\to\\your\\rembg.exe"
+    },
+    "remBgUrl": {
+      "description": "URL for the rembg API service if used; this is an alternative to the command line interface.",
+      "required": false,
+      "example": "http://rembg:7000"
+    },
+    "pixAi_key": {
+      "description": "API key for accessing PixAI image generation services; either this or sd_key must be set to use image generation.",
+      "required": true,
+      "example": "YOUR_PIXAI_API_KEY"
+    },
+    "sd_key": {
+      "description": "API key for accessing Stability.ai image generation services; either this or pixAi_key must be set.",
+      "required": true,
+      "example": "YOUR_STABILITY_AI_API_KEY"
+    },
+    "pixAi_modelId": {
+      "description": "ID for the PixAI model to be used, if not set, the default model will be used.",
+      "required": false,
+      "example": "1648918127446573124"
+    },
+    "comfy_url": {
+      "description": "URL to the ComfyUI API for image generation; must be set if using ComfyUI for this purpose.",
+      "required": false,
+      "example": "http://192.168.1.100:8188"
+    },
+    "comfy_workflow_t2i": {
+      "description": "Path to the workflow JSON file for text-to-image conversion in ComfyUI.",
+      "required": false,
+      "example": "C:\\path\\to\\workflow\\t2i.json"
+    },
+    "comfy_workflow_i2i": {
+      "description": "Path to the workflow JSON file for image-to-image conversion in ComfyUI.",
+      "required": false,
+      "example": "C:\\path\\to\\workflow\\i2i.json"
+    },
+    "comfy_params": {
+      "description": "Parameters for the ComfyUI workflow in key-value format, received during the request.",
+      "required": false,
+      "example": "key1=value1,key2=value2"
+    },
+    "fixed_model_prompt": {
+      "description": "A fixed prompt for avatar generation that prevents changes during conversations.",
+      "required": false,
+      "example": "Generate a friendly avatar."
+    },
+    "bodyAreaRatio": {
+      "description": "Acceptable ratio for the avatar image area; affects how much of the image is used for the avatar.",
+      "required": false,
+      "example": "0.042"
+    },
+    "bodyHWRatio": {
+      "description": "Acceptable aspect ratios for the avatar image; ensures correct proportions for the avatar.",
+      "required": false,
+      "example": "1.5~2.3"
+    },
+    "bodyWindowRatioW": {
+      "description": "Horizontal ratio for the avatar composite window; affects layout.",
+      "required": false,
+      "example": "0.5"
+    },
+    "bodyWindowRatioH": {
+      "description": "Aspect ratio for the avatar composite window; also affects layout.",
+      "required": false,
+      "example": "0.75"
+    },
+    "bs_id": {
+      "description": "Bluesky SNS registration address for posting travel updates.",
+      "required": false,
+      "example": "YOUR_BSKY_ID"
+    },
+    "bs_pass": {
+      "description": "Bluesky SNS password for the dedicated account used for posting.",
+      "required": false,
+      "example": "YOUR_BSKY_PASSWORD"
+    },
+    "bs_handle": {
+      "description": "Bluesky SNS handle name for the account; used in the posts.",
+      "required": false,
+      "example": "myusername.bsky.social"
+    },
+    "filter_tools": {
+      "description": "Settings to filter the tools available for use; all tools will be available by default.",
+      "required": false,
+      "example": "tips,set_traveler_location"
+    },
+    "moveMode": {
+      "description": "Indicates whether the movement mode is realtime or skip; default is realtime.",
+      "required": false,
+      "example": "realtime"
+    },
+    "image_width": {
+      "description": "Width of the generated output image in pixels; the default is 512.",
+      "required": false,
+      "example": "512"
+    },
+    "DATABASE_URL": {
+      "description": "Database URL for persistent storage; used if a different database should be connected.",
+      "required": false,
+      "example": "mysql://user:password@host/dbname"
+    }
+  }
 }

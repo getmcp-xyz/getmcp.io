@@ -31,5 +31,12 @@
         "UV_PATH": "${UV_PATH}"
       }
     }
+  },
+  "arguments": {
+    "UV_PATH": {
+      "description": "Environment variable specifying the installation location of the `uv` dependency.",
+      "required": false,
+      "example": "/path/to/uv"
+    }
   }
 }

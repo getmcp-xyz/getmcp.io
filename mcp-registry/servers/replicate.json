@@ -36,5 +36,12 @@
         "REPLICATE_API_TOKEN": "${REPLICATE_API_TOKEN}"
       }
     }
+  },
+  "arguments": {
+    "REPLICATE_API_TOKEN": {
+      "description": "Your Replicate API token to authenticate requests to the Replicate API. Needed for the server to function and fetch models or execute predictions.",
+      "required": true,
+      "example": "your_token_here"
+    }
   }
 }

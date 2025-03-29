@@ -27,6 +27,11 @@
       "description": "GitHub Personal Access Token with appropriate permissions for the repositories you want to access",
       "required": true,
       "example": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    "GITHUB_PERSONAL_ACCESS_TOKEN": {
+      "description": "Personal Access Token for GitHub to authenticate API requests",
+      "required": true,
+      "example": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     }
   },
   "installations": {

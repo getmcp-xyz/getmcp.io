@@ -60,5 +60,12 @@
         "${YOUR_SENTRY_TOKEN}"
       ]
     }
+  },
+  "arguments": {
+    "YOUR_SENTRY_TOKEN": {
+      "description": "An authentication token required to access your Sentry account and retrieve issue details.",
+      "required": true,
+      "example": "abc123def456"
+    }
   }
 }

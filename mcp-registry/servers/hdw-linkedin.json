@@ -34,5 +34,17 @@
         "HDW_ACCOUNT_ID": "${HDW_ACCOUNT_ID}"
       }
     }
+  },
+  "arguments": {
+    "HDW_ACCESS_TOKEN": {
+      "description": "Access token for HorizonDataWave API, used for authentication and authorization to access user data.",
+      "required": true,
+      "example": "YOUR_HD_W_ACCESS_TOKEN"
+    },
+    "HDW_ACCOUNT_ID": {
+      "description": "Account ID for HorizonDataWave API, used to identify the user's account.",
+      "required": true,
+      "example": "YOUR_HD_W_ACCOUNT_ID"
+    }
   }
 }

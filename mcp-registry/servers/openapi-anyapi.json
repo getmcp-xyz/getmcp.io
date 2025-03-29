@@ -65,5 +65,22 @@
       "description": "Use this tool to find relevant API endpoints by describing your intent.",
       "prompt": "Get prices for all stocks"
     }
-  ]
+  ],
+  "arguments": {
+    "OPENAPI_JSON_DOCS_URL": {
+      "description": "URL to the OpenAPI specification JSON (defaults to https://api.staging.readymojo.com/openapi.json)",
+      "required": false,
+      "example": "https://api.example.com/openapi.json"
+    },
+    "API_REQUEST_BASE_URL": {
+      "description": "Optional base URL to override the default URL extracted from the OpenAPI document.",
+      "required": false,
+      "example": "https://api.finance.com"
+    },
+    "MCP_API_PREFIX": {
+      "description": "Customizable tool namespace (default 'any_openapi'). Allows for control over tool naming.",
+      "required": false,
+      "example": "finance"
+    }
+  }
 }

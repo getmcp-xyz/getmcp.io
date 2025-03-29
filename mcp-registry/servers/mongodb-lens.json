@@ -49,5 +49,12 @@
         "CONFIG_LOG_LEVEL": "${CONFIG_LOG_LEVEL}"
       }
     }
+  },
+  "arguments": {
+    "CONFIG_LOG_LEVEL": {
+      "description": "Sets the logging level of MongoDB Lens, controlling the verbosity of log output.",
+      "required": false,
+      "example": "verbose"
+    }
   }
 }

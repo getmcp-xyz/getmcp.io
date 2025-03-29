@@ -49,5 +49,12 @@
       "description": "Perform a web search using the OpenAI WebSearch MCP server.",
       "prompt": "search('latest news on AI')"
     }
-  ]
+  ],
+  "arguments": {
+    "OPENAI_API_KEY": {
+      "description": "Your OpenAI API key to authenticate requests to the OpenAI API.",
+      "required": true,
+      "example": "sk-xxxx"
+    }
+  }
 }

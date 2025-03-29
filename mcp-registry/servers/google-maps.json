@@ -46,5 +46,12 @@
         "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "GOOGLE_MAPS_API_KEY": {
+      "description": "Your Google Maps API key obtained from the Google Developers Console.",
+      "required": true,
+      "example": "AIzaSyD..."
+    }
   }
 }

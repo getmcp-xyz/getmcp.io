@@ -47,5 +47,12 @@
       "description": "Creates an edit from found video segments.",
       "prompt": "can you create an edit of all the times the video says \"fly trap\"?"
     }
-  ]
+  ],
+  "arguments": {
+    "YOURAPIKEY": {
+      "description": "API key required to authenticate and communicate with Video Jungle services.",
+      "required": true,
+      "example": "YOURAPIKEY"
+    }
+  }
 }

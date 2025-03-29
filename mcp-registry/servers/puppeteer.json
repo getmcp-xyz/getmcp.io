@@ -44,5 +44,12 @@
         "mcp/puppeteer"
       ]
     }
+  },
+  "arguments": {
+    "DOCKER_CONTAINER": {
+      "description": "Environment variable to indicate that the application is running in Docker container mode",
+      "required": false,
+      "example": "true"
+    }
   }
 }

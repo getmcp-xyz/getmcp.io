@@ -864,10 +864,11 @@ def remove_extra_args():
         arguments = manifest['arguments']
         to_pop = []
         for key in arguments:
-            if not re.match(r'^\w+\w_?\w$', key):
+            if not re.match(r'^\w+[\w_]?\w$', key):
                 to_pop.append(key)
-                continue
-            if key[:-2] in ('py', 'js'):
+            elif key[:-2] in ('py', 'js'):
+                to_pop.append(key)
+            elif key == 'args':
                 to_pop.append(key)
         if to_pop:
             print(f'removing {to_pop} from {path}')
@@ -953,6 +954,6 @@ if __name__ == '__main__':
     # remove_version()
     # format_params()
     # remove_field('arguments')
-    add_params()
-    # remove_extra_args()
+    # add_params()
+    remove_extra_args()
 

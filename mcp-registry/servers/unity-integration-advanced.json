@@ -44,5 +44,12 @@
       "description": "Run specific C# code directly within the Unity Editor.",
       "prompt": "execute_editor_command('Debug.Log(\"Hello, World!\");')"
     }
-  ]
+  ],
+  "arguments": {
+    "MCP_WEBSOCKET_PORT": {
+      "description": "Environment variable to specify the WebSocket port used by the MCP server.",
+      "required": false,
+      "example": "5010"
+    }
+  }
 }

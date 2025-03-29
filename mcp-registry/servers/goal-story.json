@@ -32,5 +32,12 @@
         "${YOUR_API_KEY}"
       ]
     }
+  },
+  "arguments": {
+    "YOUR_API_KEY": {
+      "description": "The API key required to authenticate your requests to the Goal Story service.",
+      "required": true,
+      "example": "abcdefgh12345678"
+    }
   }
 }

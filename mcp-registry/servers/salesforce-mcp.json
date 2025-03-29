@@ -32,5 +32,20 @@
         "SALESFORCE_SECURITY_TOKEN": "${SALESFORCE_SECURITY_TOKEN}"
       }
     }
+  },
+  "arguments": {
+    "SALESFORCE_USERNAME": {
+      "description": "Your Salesforce username for authentication",
+      "required": true,
+      "example": "myemail@example.com"
+    },
+    "SALESFORCE_PASSWORD": {
+      "description": "Your Salesforce password for authentication",
+      "required": true
+    },
+    "SALESFORCE_SECURITY_TOKEN": {
+      "description": "Your Salesforce security token for additional security measures",
+      "required": true
+    }
   }
 }

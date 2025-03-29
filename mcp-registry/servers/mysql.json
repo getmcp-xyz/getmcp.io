@@ -34,5 +34,32 @@
         "MYSQL_DATABASE": "${MYSQL_DATABASE}"
       }
     }
+  },
+  "arguments": {
+    "MYSQL_HOST": {
+      "description": "Database host",
+      "required": true,
+      "example": "localhost"
+    },
+    "MYSQL_PORT": {
+      "description": "Database port (defaults to 3306 if not specified)",
+      "required": false,
+      "example": "3306"
+    },
+    "MYSQL_USER": {
+      "description": "Username for database access",
+      "required": true,
+      "example": "your_username"
+    },
+    "MYSQL_PASSWORD": {
+      "description": "Password for the database user",
+      "required": true,
+      "example": "your_password"
+    },
+    "MYSQL_DATABASE": {
+      "description": "Database name to connect to",
+      "required": true,
+      "example": "your_database"
+    }
   }
 }

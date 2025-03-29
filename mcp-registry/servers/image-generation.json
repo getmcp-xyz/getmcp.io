@@ -34,5 +34,17 @@
         "alternative-model-name": "${alternative_model_name}"
       }
     }
+  },
+  "arguments": {
+    "REPLICATE_API_TOKEN": {
+      "description": "Your Replicate API token for authentication",
+      "required": true,
+      "example": "your-replicate-api-token"
+    },
+    "MODEL": {
+      "description": "The Replicate model to use for image generation. Defaults to \"black-forest-labs/flux-schnell\"",
+      "required": false,
+      "example": "alternative-model-name"
+    }
   }
 }

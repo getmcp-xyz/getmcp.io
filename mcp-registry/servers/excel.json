@@ -31,5 +31,12 @@
         "EXCEL_FILES_PATH": "${EXCEL_FILES_PATH}"
       }
     }
+  },
+  "arguments": {
+    "EXCEL_FILES_PATH": {
+      "description": "Directory where Excel files will be stored.",
+      "required": false,
+      "example": "/path/to/excel/files"
+    }
   }
 }

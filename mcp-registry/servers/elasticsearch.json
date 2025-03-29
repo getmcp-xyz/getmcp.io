@@ -32,5 +32,22 @@
         "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}"
       }
     }
+  },
+  "arguments": {
+    "ELASTIC_HOST": {
+      "description": "The host URL of the Elasticsearch server.",
+      "required": true,
+      "example": "https://localhost:9200"
+    },
+    "ELASTIC_USERNAME": {
+      "description": "The username for authenticating with the Elasticsearch server.",
+      "required": true,
+      "example": "elastic"
+    },
+    "ELASTIC_PASSWORD": {
+      "description": "The password for authenticating with the Elasticsearch server.",
+      "required": true,
+      "example": "test123"
+    }
   }
 }

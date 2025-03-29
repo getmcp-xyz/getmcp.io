@@ -31,5 +31,12 @@
         "REMEMBERIZER_API_TOKEN": "${REMEMBERIZER_API_TOKEN}"
       }
     }
+  },
+  "arguments": {
+    "REMEMBERIZER_API_TOKEN": {
+      "description": "Your Rememberizer API token, required for accessing the Rememberizer API.",
+      "required": true,
+      "example": "your_rememberizer_api_token"
+    }
   }
 }

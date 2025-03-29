@@ -46,5 +46,22 @@
         "SPOTIFY_REDIRECT_URI": "${SPOTIFY_REDIRECT_URI}"
       }
     }
+  },
+  "arguments": {
+    "SPOTIFY_CLIENT_ID": {
+      "description": "The client ID for your Spotify application, required to authenticate with the Spotify API.",
+      "required": true,
+      "example": "your_spotify_client_id_here"
+    },
+    "SPOTIFY_CLIENT_SECRET": {
+      "description": "The client secret for your Spotify application, needed for secure authentication with the API.",
+      "required": true,
+      "example": "your_spotify_client_secret_here"
+    },
+    "SPOTIFY_REDIRECT_URI": {
+      "description": "The redirect URI you specified when creating the Spotify application, needed for the OAuth authentication process.",
+      "required": false,
+      "example": "http://localhost:8888"
+    }
   }
 }

@@ -30,5 +30,12 @@
         "HOLASPIRIT_API_TOKEN": "${HOLASPIRIT_API_TOKEN}"
       }
     }
+  },
+  "arguments": {
+    "HOLASPIRIT_API_TOKEN": {
+      "description": "Your Holaspirit API token",
+      "required": true,
+      "example": "<your token>"
+    }
   }
 }

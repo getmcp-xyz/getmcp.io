@@ -58,5 +58,17 @@
   "author": {
     "name": "modelcontextprotocol"
   },
-  "homepage": "https://github.com/modelcontextprotocol/servers/blob/main/src/slack"
+  "homepage": "https://github.com/modelcontextprotocol/servers/blob/main/src/slack",
+  "arguments": {
+    "SLACK_BOT_TOKEN": {
+      "description": "The OAuth token for the bot user in the Slack workspace, used for authenticating API requests.",
+      "required": true,
+      "example": "xoxb-your-bot-token"
+    },
+    "SLACK_TEAM_ID": {
+      "description": "The unique identifier of the Slack workspace, required for operations within the workspace.",
+      "required": true,
+      "example": "T01234567"
+    }
+  }
 }

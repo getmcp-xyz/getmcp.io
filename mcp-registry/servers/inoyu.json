@@ -36,5 +36,35 @@
         "UNOMI_SOURCE_ID": "${UNOMI_SOURCE_ID}"
       }
     }
+  },
+  "arguments": {
+    "UNOMI_BASE_URL": {
+      "description": "The base URL of your Apache Unomi server (e.g., http://your-unomi-server:8181)",
+      "required": true
+    },
+    "UNOMI_USERNAME": {
+      "description": "The username to authenticate with the Apache Unomi server, default is 'karaf'",
+      "required": true
+    },
+    "UNOMI_PASSWORD": {
+      "description": "The password to authenticate with the Apache Unomi server, default is 'karaf'",
+      "required": true
+    },
+    "UNOMI_PROFILE_ID": {
+      "description": "The ID of the user profile to be used for context management",
+      "required": false
+    },
+    "UNOMI_KEY": {
+      "description": "The authorization key required for secured operations with the Unomi server, defaults to '670c26d1cc413346c3b2fd9ce65dab41'",
+      "required": false
+    },
+    "UNOMI_EMAIL": {
+      "description": "The email address associated with the user profile, used for profile lookup",
+      "required": false
+    },
+    "UNOMI_SOURCE_ID": {
+      "description": "An identifier for the source of the request (e.g., claude-desktop)",
+      "required": false
+    }
   }
 }

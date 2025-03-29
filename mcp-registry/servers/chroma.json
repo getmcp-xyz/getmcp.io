@@ -41,5 +41,12 @@
         "src/chroma/server.py"
       ]
     }
+  },
+  "arguments": {
+    "from": {
+      "description": "The source to fetch the server code from, typically a git repository URL.",
+      "required": true,
+      "example": "git+https://github.com/privetin/chroma"
+    }
   }
 }

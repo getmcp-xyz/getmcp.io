@@ -35,5 +35,22 @@
         "INFLUXDB_ORG": "your_org"
       }
     }
+  },
+  "arguments": {
+    "INFLUXDB_TOKEN": {
+      "description": "Authentication token for the InfluxDB API",
+      "required": true,
+      "example": "your_token"
+    },
+    "INFLUXDB_URL": {
+      "description": "URL of the InfluxDB instance",
+      "required": false,
+      "example": "http://localhost:8086"
+    },
+    "INFLUXDB_ORG": {
+      "description": "Default organization name for certain operations",
+      "required": false,
+      "example": "your_org"
+    }
   }
 }

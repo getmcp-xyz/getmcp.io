@@ -34,5 +34,12 @@
         "HEURIST_API_KEY": "${HEURIST_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "HEURIST_API_KEY": {
+      "description": "API key for accessing the Heurist services.",
+      "required": true,
+      "example": "your-api-key-here"
+    }
   }
 }
