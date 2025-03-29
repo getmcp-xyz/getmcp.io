@@ -43,7 +43,7 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-        "${AIRFLOW_HOST}"
+        "mcp-server-apache-airflow"
       ],
       "env": {
         "AIRFLOW_HOST": "${AIRFLOW_HOST}",

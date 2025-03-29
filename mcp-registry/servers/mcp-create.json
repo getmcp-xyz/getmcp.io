@@ -41,11 +41,5 @@
       "description": "Example of executing a tool on a server.",
       "prompt": "{\"name\":\"execute-tool\",\"arguments\":{\"serverId\":\"ba7c9a4f-6ba8-4cad-8ec8-a41a08c19fac\",\"toolName\":\"echo\",\"args\":{\"message\":\"Hello, dynamic MCP server!\"}}}"
     }
-  ],
-  "arguments": {
-    "command": {
-      "description": "The command to execute within the Docker container. Here, it is 'docker'.",
-      "required": true
-    }
-  }
+  ]
 }

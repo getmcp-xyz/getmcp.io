@@ -39,12 +39,5 @@
         "mcp-server-docker"
       ]
     }
-  },
-  "arguments": {
-    "from": {
-      "description": "Specifies the source from which to install the MCP server, in this case, from the GitHub repository.",
-      "required": true,
-      "example": "git+https://github.com/ckreiling/mcp-server-docker"
-    }
   }
 }

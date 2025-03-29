@@ -29,12 +29,5 @@
         "@liuyoshio/mcp-compass"
       ]
     }
-  },
-  "arguments": {
-    "npx": {
-      "description": "Command to execute npm packages without installing them globally",
-      "required": false,
-      "example": "npx @liuyoshio/mcp-compass"
-    }
   }
 }

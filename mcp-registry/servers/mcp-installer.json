@@ -23,7 +23,7 @@
       "type": "npm",
       "command": "npx",
       "args": [
-        "${PACKAGE_NAME}"
+        "@anaisbetts/mcp-installer"
       ]
     }
   },
@@ -48,12 +48,5 @@
       "description": "Install the server @modelcontextprotocol/server-github with an environment variable",
       "prompt": "Install the server @modelcontextprotocol/server-github. Set the environment variable GITHUB_PERSONAL_ACCESS_TOKEN to '1234567890'"
     }
-  ],
-  "arguments": {
-    "PACKAGE_NAME": {
-      "description": "The name of the package to install as an MCP server.",
-      "required": true,
-      "example": "@modelcontextprotocol/server-filesystem"
-    }
-  }
+  ]
 }

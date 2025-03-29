@@ -64,11 +64,6 @@
       "description": "Your Hugging Face API token for accessing private datasets",
       "required": false,
       "example": ""
-    },
-    "command": {
-      "description": "The command to execute the server, in this case 'uv'",
-      "required": true,
-      "example": "uv"
     }
   }
 }

@@ -41,12 +41,5 @@
         "/path/to/configuration.yaml"
       ]
     }
-  },
-  "arguments": {
-    "from": {
-      "description": "Specifies the source from which to install the package, in this case, a git repository.",
-      "required": true,
-      "example": "git+https://github.com/ChristianHinge/dicom-mcp"
-    }
   }
 }

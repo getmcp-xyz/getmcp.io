@@ -25,7 +25,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "${REPO_PATH}"
+        "https://github.com/ihor-sokoliuk/mcp-searxng"
       ],
       "env": {
         "SEARXNG_URL": "${SEARXNG_URL}"
@@ -33,11 +33,6 @@
     }
   },
   "arguments": {
-    "REPO_PATH": {
-      "description": "Full path to the MCP SearXNG repository that is being installed.",
-      "required": true,
-      "example": "/path/to/mcp-searxng"
-    },
     "SEARXNG_URL": {
       "description": "Environment variable to set the URL of the SearXNG instance that will be used for search queries.",
       "required": true,
