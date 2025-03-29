@@ -50,5 +50,16 @@
         "GITLAB_API_URL": "${GITLAB_API_URL}"
       }
     }
+  },
+  "arguments": {
+    "GITLAB_PERSONAL_ACCESS_TOKEN": {
+      "description": "Your GitLab personal access token",
+      "required": true
+    },
+    "GITLAB_API_URL": {
+      "description": "Base URL for GitLab API",
+      "required": false,
+      "example": "https://gitlab.com/api/v4"
+    }
   }
 }

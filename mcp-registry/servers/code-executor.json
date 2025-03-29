@@ -36,9 +36,21 @@
         "https://github.com/bazinga012/mcp_code_executor"
       ],
       "env": {
-        "CODE_STORAGE_DIR": "/path/to/code/storage",
-        "CONDA_ENV_NAME": "your-conda-env"
+        "CODE_STORAGE_DIR": "${CODE_STORAGE_DIR}",
+        "CONDA_ENV_NAME": "${CONDA_ENV_NAME}"
       }
+    }
+  },
+  "arguments": {
+    "CODE_STORAGE_DIR": {
+      "description": "The directory where the generated code will be stored.",
+      "required": true,
+      "example": "/path/to/code/storage"
+    },
+    "CONDA_ENV_NAME": {
+      "description": "The name of the Conda environment in which the code will be executed.",
+      "required": true,
+      "example": "your-conda-env"
     }
   }
 }

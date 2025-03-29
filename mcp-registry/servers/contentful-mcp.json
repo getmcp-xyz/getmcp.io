@@ -31,5 +31,12 @@
         "CONTENTFUL_MANAGEMENT_ACCESS_TOKEN": "${CONTENTFUL_MANAGEMENT_ACCESS_TOKEN}"
       }
     }
+  },
+  "arguments": {
+    "CONTENTFUL_MANAGEMENT_ACCESS_TOKEN": {
+      "description": "Your Content Management API token for accessing Contentful services.",
+      "required": true,
+      "example": "<Your CMA token>"
+    }
   }
 }

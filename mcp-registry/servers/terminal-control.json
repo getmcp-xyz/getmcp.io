@@ -59,5 +59,12 @@
       "description": "Show me my recent command history",
       "prompt": "Show me my recent command history"
     }
-  ]
+  ],
+  "arguments": {
+    "terminal_controller": {
+      "description": "The Python module that contains the implementation of the Terminal Controller's functionalities.",
+      "required": true,
+      "example": "terminal_controller"
+    }
+  }
 }

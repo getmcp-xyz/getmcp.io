@@ -23,9 +23,9 @@
       "command": "uvx",
       "args": [
         "--index-name",
-        "{your-index-name}",
+        "${your-index-name}",
         "--api-key",
-        "{your-secret-api-key}",
+        "${your-secret-api-key}",
         "mcp-pinecone"
       ]
     }

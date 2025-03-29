@@ -51,5 +51,17 @@
       "description": "Lists all tables available in Bitable.",
       "prompt": "list_table"
     }
-  ]
+  ],
+  "arguments": {
+    "PERSONAL_BASE_TOKEN": {
+      "description": "Personal base token required for authentication with the Bitable API.",
+      "required": true,
+      "example": "your_personal_base_token"
+    },
+    "APP_TOKEN": {
+      "description": "Application token required for the Bitable server to function properly.",
+      "required": true,
+      "example": "your_app_token"
+    }
+  }
 }

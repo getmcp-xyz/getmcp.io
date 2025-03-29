@@ -21,7 +21,6 @@
     "example",
     "demo"
   ],
-  "arguments": {},
   "installations": {
     "npm": {
       "type": "npm",

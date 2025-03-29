@@ -51,5 +51,12 @@
         "${GIT_REPO_PATH}"
       ]
     }
+  },
+  "arguments": {
+    "GIT_REPO_PATH": {
+      "description": "The path to the Git repository that the mcp-server-git will interact with.",
+      "required": true,
+      "example": "/path/to/git/repo"
+    }
   }
 }

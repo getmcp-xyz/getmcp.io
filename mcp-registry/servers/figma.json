@@ -30,5 +30,12 @@
         "--stdio"
       ]
     }
+  },
+  "arguments": {
+    "FIGMA_API_KEY": {
+      "description": "Your Figma API access token (required)",
+      "required": true,
+      "example": "<your-figma-api-key>"
+    }
   }
 }

@@ -31,5 +31,12 @@
         "DEVREV_API_KEY": "${DEVREV_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "DEVREV_API_KEY": {
+      "description": "Your DevRev API key required to authenticate requests to the DevRev API.",
+      "required": true,
+      "example": "YOUR_DEVREV_API_KEY"
+    }
   }
 }
