@@ -31,5 +31,17 @@
         "LLAMA_CLOUD_API_KEY": "${LLAMA_CLOUD_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "LLAMA_CLOUD_PROJECT_NAME": {
+      "description": "The name of your LlamaCloud project that you want to use with the transfer tools.",
+      "required": true,
+      "example": "MyProject"
+    },
+    "LLAMA_CLOUD_API_KEY": {
+      "description": "Your API key for accessing LlamaCloud services, which is necessary for authentication.",
+      "required": true,
+      "example": "1234567890abcdef"
+    }
   }
 }

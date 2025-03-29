@@ -42,5 +42,12 @@
         "mcp/gmail"
       ]
     }
+  },
+  "arguments": {
+    "GMAIL_CREDENTIALS_PATH": {
+      "description": "The path to the Gmail credentials file that the server will use for OAuth authentication.",
+      "required": true,
+      "example": "/gmail-server/credentials.json"
+    }
   }
 }

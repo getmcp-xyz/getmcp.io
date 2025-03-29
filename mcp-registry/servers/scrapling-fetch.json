@@ -23,8 +23,15 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-        "scrapling-fetch-mcp"
+        "${INSTALLATION_NAME}"
       ]
+    }
+  },
+  "arguments": {
+    "INSTALLATION_NAME": {
+      "description": "The name of the installation that will be used by the MCP server to identify and run the associated command.",
+      "required": true,
+      "example": "scrapling-fetch-mcp"
     }
   }
 }

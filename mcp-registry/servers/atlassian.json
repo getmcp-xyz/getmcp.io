@@ -66,5 +66,37 @@
         "--jira-token=${JIRA_TOKEN}"
       ]
     }
+  },
+  "arguments": {
+    "CONFLUENCE_URL": {
+      "description": "The URL of the Confluence site to connect to. Required for both Cloud and Server/Data Center deployments.",
+      "required": true,
+      "example": "https://your-company.atlassian.net/wiki or https://confluence.your-company.com"
+    },
+    "CONFLUENCE_USERNAME": {
+      "description": "The username for the Confluence account (email for Cloud). Required to authenticate with Confluence.",
+      "required": true,
+      "example": "your.email@company.com"
+    },
+    "CONFLUENCE_TOKEN": {
+      "description": "The API token or personal access token for the Confluence account. Required for authentication with Confluence.",
+      "required": true,
+      "example": "your_api_token or your_token"
+    },
+    "JIRA_URL": {
+      "description": "The URL of the Jira site to connect to. Required for both Cloud and Server/Data Center deployments.",
+      "required": true,
+      "example": "https://your-company.atlassian.net or https://jira.your-company.com"
+    },
+    "JIRA_USERNAME": {
+      "description": "The username for the Jira account (email for Cloud). Required to authenticate with Jira.",
+      "required": true,
+      "example": "your.email@company.com"
+    },
+    "JIRA_TOKEN": {
+      "description": "The API token or personal access token for the Jira account. Required for authentication with Jira.",
+      "required": true,
+      "example": "your_api_token or your_token"
+    }
   }
 }

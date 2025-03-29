@@ -48,5 +48,12 @@
       "description": "Use the get_stored_response_with_markdown tool to convert HTML or PDF responses to Markdown for better processing by LLMs.",
       "prompt": "get_stored_response_with_markdown('document.pdf')"
     }
-  ]
+  ],
+  "arguments": {
+    "command": {
+      "description": "The command to start the mcp-rquest server. Can be 'uvx', 'python', or 'pipx'.",
+      "required": true,
+      "example": "python"
+    }
+  }
 }

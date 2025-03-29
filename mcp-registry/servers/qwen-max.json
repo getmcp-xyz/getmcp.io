@@ -27,5 +27,12 @@
         "@gongrzhe/quickchart-mcp-server"
       ]
     }
+  },
+  "arguments": {
+    "DASHSCOPE_API_KEY": {
+      "description": "API key required for authentication with the Dashscope service.",
+      "required": true,
+      "example": "your-api-key-here"
+    }
   }
 }

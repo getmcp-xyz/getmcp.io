@@ -33,5 +33,17 @@
         "${LOCATION}"
       ]
     }
+  },
+  "arguments": {
+    "PROJECT_ID": {
+      "description": "Your Google Cloud project ID",
+      "required": true,
+      "example": "your-project-id"
+    },
+    "LOCATION": {
+      "description": "BigQuery location, defaults to 'us-central1'.",
+      "required": false,
+      "example": "us-central1"
+    }
   }
 }

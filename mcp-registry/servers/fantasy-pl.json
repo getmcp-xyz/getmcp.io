@@ -51,5 +51,12 @@
       "description": "This example retrieves the top 5 forwards by points.",
       "prompt": "Show me the top 5 forwards by points."
     }
-  ]
+  ],
+  "arguments": {
+    "path": {
+      "description": "The full path to the Python executable needed to run the MCP server when using the command line directly with the installed command.",
+      "required": true,
+      "example": "/full/path/to/your/venv/bin/python"
+    }
+  }
 }

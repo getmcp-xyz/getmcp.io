@@ -39,5 +39,12 @@
         "CHAT_DB_PATH": "path-to/mcp-server-chatsum/chatbot/data/chat.db"
       }
     }
+  },
+  "arguments": {
+    "CHAT_DB_PATH": {
+      "description": "Path to your chat database file that the server will use to store and retrieve chat messages.",
+      "required": true,
+      "example": "path-to/mcp-server-chatsum/chatbot/data/chat.db"
+    }
   }
 }

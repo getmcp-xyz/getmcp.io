@@ -32,5 +32,12 @@
         "DEEPSEEK_API_KEY": "${DEEPSEEK_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "DEEPSEEK_API_KEY": {
+      "description": "An API key required to authenticate requests to the DeepSeek API.",
+      "required": true,
+      "example": "your-api-key"
+    }
   }
 }

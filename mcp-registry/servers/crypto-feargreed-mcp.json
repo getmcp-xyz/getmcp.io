@@ -44,5 +44,12 @@
         "main.py"
       ]
     }
+  },
+  "arguments": {
+    "from": {
+      "description": "Specifies the source from which to clone the repository, in this case, a GitHub URL.",
+      "required": true,
+      "example": "git+https://github.com/kukapay/crypto-feargreed-mcp"
+    }
   }
 }

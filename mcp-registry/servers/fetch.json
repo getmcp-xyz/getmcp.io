@@ -55,5 +55,17 @@
         "https://github.com/zcaceres/fetch-mcp"
       ]
     }
+  },
+  "arguments": {
+    "url": {
+      "description": "URL of the website to fetch",
+      "required": true,
+      "example": "https://example.com"
+    },
+    "headers": {
+      "description": "Custom headers to include in the request",
+      "required": false,
+      "example": "{\"Authorization\": \"Bearer token\"}"
+    }
   }
 }

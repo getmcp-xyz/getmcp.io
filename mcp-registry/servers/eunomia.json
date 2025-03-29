@@ -28,5 +28,27 @@
         "orchestra_server"
       ]
     }
+  },
+  "arguments": {
+    "APP_NAME": {
+      "description": "Name of the application",
+      "required": true,
+      "example": "mcp-server_orchestra"
+    },
+    "APP_VERSION": {
+      "description": "Current version of the application",
+      "required": true,
+      "example": "0.1.0"
+    },
+    "LOG_LEVEL": {
+      "description": "Logging level to control the verbosity of logs (default: 'info')",
+      "required": false,
+      "example": "info"
+    },
+    "REQUEST_TIMEOUT": {
+      "description": "Environment variable that sets the request timeout duration in seconds",
+      "required": false,
+      "example": "30"
+    }
   }
 }

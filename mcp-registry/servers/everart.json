@@ -46,5 +46,12 @@
         "EVERART_API_KEY": "${EVERART_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "EVERART_API_KEY": {
+      "description": "API key to access the EverArt API",
+      "required": true,
+      "example": "your_key_here"
+    }
   }
 }

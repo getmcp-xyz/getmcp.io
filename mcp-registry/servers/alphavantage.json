@@ -32,5 +32,12 @@
         "ALPHAVANTAGE_API_KEY": "${ALPHAVANTAGE_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "ALPHAVANTAGE_API_KEY": {
+      "description": "The API key to access the Alphavantage service.",
+      "required": true,
+      "example": "YOUR_API_KEY_HERE"
+    }
   }
 }

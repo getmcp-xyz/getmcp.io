@@ -33,5 +33,17 @@
         "FIREBASE_STORAGE_BUCKET": "${FIREBASE_STORAGE_BUCKET}"
       }
     }
+  },
+  "arguments": {
+    "SERVICE_ACCOUNT_KEY_PATH": {
+      "description": "Path to your Firebase service account key JSON file",
+      "required": true,
+      "example": "/absolute/path/to/serviceAccountKey.json"
+    },
+    "FIREBASE_STORAGE_BUCKET": {
+      "description": "Bucket name for Firebase Storage",
+      "required": false,
+      "example": "your-project-id.firebasestorage.app"
+    }
   }
 }

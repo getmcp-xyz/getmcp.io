@@ -31,5 +31,12 @@
         "API_ENDPOINT": "${API_ENDPOINT}"
       }
     }
+  },
+  "arguments": {
+    "API_ENDPOINT": {
+      "description": "The endpoint URL for the Langflow API service.",
+      "required": false,
+      "example": "http://127.0.0.1:7860/api/v1/run/<flow-id>?stream=false"
+    }
   }
 }

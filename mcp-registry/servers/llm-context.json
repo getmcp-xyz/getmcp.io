@@ -33,5 +33,17 @@
         "lc-mcp"
       ]
     }
+  },
+  "arguments": {
+    "from": {
+      "description": "Specifies the source of the command or the origin of the context to be processed.",
+      "required": true,
+      "example": "llm-context"
+    },
+    "mcp": {
+      "description": "Indicates the model context protocol that should be used for communication.",
+      "required": true,
+      "example": "lc-mcp"
+    }
   }
 }

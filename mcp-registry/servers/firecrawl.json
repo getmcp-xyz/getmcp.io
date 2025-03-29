@@ -46,5 +46,12 @@
         "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
       }
     }
+  },
+  "arguments": {
+    "FIRECRAWL_API_KEY": {
+      "description": "Your FireCrawl API key. Required for using the cloud API (default) and optional for self-hosted instances.",
+      "required": true,
+      "example": "fc-YOUR_API_KEY"
+    }
   }
 }

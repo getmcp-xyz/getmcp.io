@@ -37,8 +37,15 @@
       "type": "npm",
       "command": "npx",
       "args": [
-        "mcp-server-siri-shortcuts"
+        "${MCP_SERVER_SIRI_SHORTCUTS}"
       ]
+    }
+  },
+  "arguments": {
+    "MCP_SERVER_SIRI_SHORTCUTS": {
+      "description": "The name of the MCP server to be used for Siri Shortcuts functionality",
+      "required": true,
+      "example": "mcp-server-siri-shortcuts"
     }
   }
 }

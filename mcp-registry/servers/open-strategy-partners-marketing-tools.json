@@ -53,5 +53,12 @@
       "description": "Apply the OSP writing guide to create a document for a specific audience.",
       "prompt": "Apply the OSP writing guide to create a tutorial about setting up a CI/CD pipeline for junior developers."
     }
-  ]
+  ],
+  "arguments": {
+    "from": {
+      "description": "Specifies the source from where to fetch the OSP Marketing Tools package.",
+      "required": true,
+      "example": "git+https://github.com/open-strategy-partners/osp_marketing_tools@main"
+    }
+  }
 }

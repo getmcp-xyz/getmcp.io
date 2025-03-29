@@ -45,5 +45,22 @@
         "ashdev/discourse-mcp-server"
       ]
     }
+  },
+  "arguments": {
+    "DISCOURSE_API_URL": {
+      "description": "API URL for the Discourse forum that the server will connect to.",
+      "required": true,
+      "example": "https://try.discourse.org"
+    },
+    "DISCOURSE_API_KEY": {
+      "description": "API key for authenticating to the Discourse forum.",
+      "required": true,
+      "example": "1234"
+    },
+    "DISCOURSE_API_USERNAME": {
+      "description": "Username for authenticating to the Discourse forum.",
+      "required": true,
+      "example": "ash"
+    }
   }
 }

@@ -64,5 +64,12 @@
       "description": "Retrieve recent news articles on specific topics.",
       "prompt": "Give me the top 10 AI-related news in the last 5 days."
     }
-  ]
+  ],
+  "arguments": {
+    "TAVILY_API_KEY": {
+      "description": "Your Tavily API key for accessing Tavily's search API functionalities.",
+      "required": true,
+      "example": "your_api_key_here"
+    }
+  }
 }

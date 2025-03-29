@@ -34,5 +34,12 @@
         "COINBASE_CDP_PRIVATE_KEY": "${COINBASE_CDP_PRIVATE_KEY}"
       }
     }
+  },
+  "arguments": {
+    "COINBASE_CDP_API_KEY_NAME": {
+      "description": "The name of your Coinbase CDP API key, which is required for authenticating API requests.",
+      "required": true,
+      "example": "my_api_key_name"
+    }
   }
 }

@@ -34,5 +34,17 @@
       ],
       "env": {}
     }
+  },
+  "arguments": {
+    "VERSION": {
+      "description": "The version of the MCP server to be used. This must be provided to ensure compatibility with the installed Drupal version.",
+      "required": true,
+      "example": "1.0.0"
+    },
+    "DRUPAL_BASE_URL": {
+      "description": "The base URL of the Drupal site that the MCP server will interact with.",
+      "required": true,
+      "example": "https://example.com"
+    }
   }
 }
