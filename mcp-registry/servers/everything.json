@@ -21,13 +21,6 @@
     "example",
     "demo"
   ],
-  "arguments": {
-    "temperature": {
-      "description": "Temperature setting for controlling the randomness of outputs in the conversation.",
-      "required": true,
-      "example": "0.7"
-    }
-  },
   "installations": {
     "npm": {
       "type": "npm",

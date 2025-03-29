@@ -23,11 +23,6 @@
     "git"
   ],
   "arguments": {
-    "GITHUB_TOKEN": {
-      "description": "GitHub Personal Access Token with appropriate permissions for the repositories you want to access",
-      "required": true,
-      "example": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    },
     "GITHUB_PERSONAL_ACCESS_TOKEN": {
       "description": "Personal Access Token for GitHub to authenticate API requests",
       "required": true,
@@ -44,7 +39,6 @@
       ],
       "package": "@modelcontextprotocol/server-github",
       "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}",
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       },
       "description": "Install and run using NPX",
@@ -62,7 +56,6 @@
         "mcp/github"
       ],
       "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}",
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       },
       "description": "Run with Docker"
