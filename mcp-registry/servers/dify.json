@@ -27,7 +27,7 @@
       "args": [
         "--from",
         "git+https://github.com/YanxingLiu/dify-mcp-server",
-        "dify_mcp_server"
+        "${DIFY_MCP_SERVER}"
       ],
       "env": {
         "CONFIG_PATH": "${CONFIG_PATH}"

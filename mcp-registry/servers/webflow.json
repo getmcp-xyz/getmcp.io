@@ -27,7 +27,7 @@
         "https://github.com/kapilduraphe/webflow-mcp-server"
       ],
       "env": {
-        "WEBFLOW_API_TOKEN": "your-api-token"
+        "WEBFLOW_API_TOKEN": "${WEBFLOW_API_TOKEN}"
       }
     }
   },

@@ -28,11 +28,11 @@
         "git+https://github.com/ognis1205/mcp-server-unitycatalog",
         "mcp-server-unitycatalog",
         "--uc_server",
-        "<your unity catalog url>",
+        "${UC_SERVER}",
         "--uc_catalog",
-        "<your catalog name>",
+        "${UC_CATALOG}",
         "--uc_schema",
-        "<your schema name>"
+        "${UC_SCHEMA}"
       ]
     },
     "docker": {
@@ -44,11 +44,11 @@
         "-i",
         "mcp/unitycatalog",
         "--uc_server",
-        "<your unity catalog url>",
+        "${UC_SERVER}",
         "--uc_catalog",
-        "<your catalog name>",
+        "${UC_CATALOG}",
         "--uc_schema",
-        "<your schema name>"
+        "${UC_SCHEMA}"
       ]
     }
   }

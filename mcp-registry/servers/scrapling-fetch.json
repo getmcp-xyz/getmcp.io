@@ -23,7 +23,7 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-        "scrapling-fetch-mcp"
+        "${INSTALLATION_NAME}"
       ]
     }
   }

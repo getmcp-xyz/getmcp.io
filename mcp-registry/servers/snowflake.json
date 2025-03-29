@@ -26,19 +26,19 @@
       "args": [
         "mcp_snowflake_server",
         "--account",
-        "the_account",
+        "${ACCOUNT}",
         "--warehouse",
-        "the_warehouse",
+        "${WAREHOUSE}",
         "--user",
-        "the_user",
+        "${USER}",
         "--password",
-        "their_password",
+        "${PASSWORD}",
         "--role",
-        "the_role",
+        "${ROLE}",
         "--database",
-        "the_database",
+        "${DATABASE}",
         "--schema",
-        "the_schema"
+        "${SCHEMA}"
       ]
     }
   }

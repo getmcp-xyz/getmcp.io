@@ -1,5 +1,7 @@
+from inspect import Arguments
 import json
 import os
+import re
 from dotenv import load_dotenv
 from typing import List, Dict, Optional, Literal
 from openai import OpenAI, pydantic_function_tool
@@ -601,17 +603,122 @@ def fix_server_url():
         with open(f'mcp-registry/servers/{path}', 'w') as f:
             json.dump(manifest, f, indent=2)
 
+def format_installation_param(json_manifest):
+    client = OpenAI()
+    sys_prompt = """
+    You are an outstanding assistant who can helps to fix the json installation param.
+    You will be given a json manifest generated from the readme file.
+    You need to check the `installations` part from the given json, 
+    check the `args` and `env` field from the `installations` part.
+    if there are some example arguments like `<YOUR_API_KEY>`, `<THE_API_KEY>`, `DATABASE_URL`, etc. 
+    First determine what args are to be formatted.
+    Then, 
+    for `args` field, you need to replace it with the format `${KEY}`. KEY is the proper name for args. 
+    for `env` field, you need to replace it with the format `${KEY}`. KEY is the name of the env key. 
+    BE SURE all field in `env` field are formatted.
+    example arguments:
+    <arguments>
+    "env": {
+        "YOUTUBE_API_KEY": "<YOUR_API_KEY>"
+    }
+    </arguments>
+    Expected output: 
+    <output>
+    "env": {
+        "YOUTUBE_API_KEY": "${YOUTUBE_API_KEY}"
+    }
+    </output>
+    """
+    user_prompt_template = """
+    <json_manifest>
+    {json_manifest}
+    </json_manifest>
+    """
+    tool_call = {
+        "type": "function",
+        "function": {
+            "name": "format_installation_params",
+            "description": "Confirm the installation arguments by comparing the json manifest and the readme file.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "need_format_args": {
+                        "type": "boolean",
+                        "description": "Whether the args field need to be formatted",
+                    },
+                    "need_format_env": {
+                        "type": "boolean",
+                        "description": "Whether the env field need to be fromatted",
+                    },
+                    "formatted_args": {
+                        "type": "array",
+                        "description": "Formatted args field",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "installation_method": {
+                                    "type": "string",
+                                    "enum": ["uvx", "python", "npm", "docker"],
+                                    "description": "the installation method"
+                                },
+                                "args": {
+                                    "type": "array",
+                                    "description": "the args value",
+                                    "items": {
+                                        "type": "string",
+                                        "description": "the arg value"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "formatted_env": {
+                        "type": "array",
+                        "description": "Formatted env field, key and formatted value",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "env_key": {
+                                    "type": "string",
+                                    "description": "original key of the env var" 
+                                },
+                                "formatted_value": {
+                                    "type": "string",
+                                    "description": "formatted value with the format `${env_key}`"
+                                }
+                            },
+                            "required": ["env_key", "formatted_value"]
+                        }
+                    }
+                },
+                "required": ["need_format_args", "need_format_env"]
+            }
+        }
+    }
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": sys_prompt},
+            {"role": "user", "content": user_prompt_template.format(json_manifest=json_manifest)}
+        ],
+        tools=[tool_call],
+        tool_choice="required",
+    )
+    return response.choices[0].message.tool_calls[0].function.arguments
+
 def fix_installation_param(markdown, json_manifest):
     client = OpenAI()
     sys_prompt = """
     You are an outstanding assistant who can helps to complete the json installation param.
     You will be given a readme file and a json manifest generated from the file.
-    You need to check the `installations` part from the given json, 
-    and confirm if there is some example params like "Your API KEY", "example.key", "http://exmaple.com".
-    If there is, you need to replace it with placeholder which is just same to the key name but with a `$` wrapper.
-    for example, if the key is `API_KEY`, you need to replace it with `${API_KEY}`.
-    Then if there are arguments, you need to create description in json format for the arguments.
+    You need to check the `installations` part from the given json, in `args` or `env` field there are some arguments quoted with `${}`.
+    First check the arguments in `args` or `env` field, confirm if it contains arguments.
+    Next, if there contains arguments,
+    you need to create description in json format for the arguments to explain users what the arguments are. Arguments could be in `args` or `env` field.
     You need to confirm if the arguments are required or not by checking the readme file.
+    If there is no argument, you need to return an empty object.
+    REMEMBER: args in the json manifest are quoted with `${}`, if not quoted, it's not an arg.
+    DON'T ADD PARAMS FOR INSTALLATION.
     example arguments:
     <arguments>
     "arguments": {
@@ -639,39 +746,24 @@ def fix_installation_param(markdown, json_manifest):
         "type": "function",
         "function": {
             "name": "confirm_installation_arguments",
-            "description": "Confirm the installation arguments, if it's an example, replace it with placeholder. Add description for the arguments.",
+            "description": "Confirm the installation arguments by comparing the json manifest and the readme file.",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "arguments_description": {
-                        "type": "object",
-                        "description": "Arguments description extracted from the readme",
-                        "additionalProperties": {
-                            "type": "object",
-                            "properties": {
-                                "description": {
-                                    "type": "string",
-                                    "description": "Description of the argument"
-                                },
-                                "required": {
-                                    "type": "boolean",
-                                    "description": "Whether this argument is required for the server to function"
-                                },
-                                "example": {
-                                    "type": "string",
-                                    "description": "Example value for this argument"
-                                }
-                            },
-                            "required": ["description", "required", "example"]
-                        }
+                    "contains_arguments": {
+                        "type": "boolean",
+                        "description": "If there are arguments in the json manifest. arguments from the manifest MUST be quoted with `${}`."
                     },
-                    # TODO
                     "arguments_description": {
-                        "type": "object",
+                        "type": "array",
                         "description": "Arguments description extracted from the readme",
-                        "additionalProperties": {
+                        "items": {
                             "type": "object",
                             "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "description": "Name of the argument, extracted from the format `${name}`"
+                                },
                                 "description": {
                                     "type": "string",
                                     "description": "Description of the argument"
@@ -685,31 +777,108 @@ def fix_installation_param(markdown, json_manifest):
                                     "description": "Example value for this argument"
                                 }
                             },
-                            "required": ["description", "required", "example"]
+                            "required": ["name", "description", "required"]
                         }
                     }
                 },
-                "required": ["arguments_description"]
+                "required": ["contains_arguments"]
             }
         }
     }
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
-        tools=[function_tool()],
+        tools=[tool_call],
         tool_choice="required",
     )
     return response.choices[0].message.tool_calls[0].function.arguments
 
 
-def remove_version():
+def add_params():
+    updated = []
+    for path, markdown in read_markdowns():
+        if path in updated:
+            continue
+        name = path.split('.')[0]
+        if not os.path.exists(f'mcp-registry/servers/{name}.json'):
+            continue
+        with open(f'mcp-registry/servers/{name}.json', 'r') as f:
+            json_manifest = json.load(f)
+        result = json.loads(fix_installation_param(markdown, json_manifest))
+        if result['contains_arguments']:
+            arguments_description = result['arguments_description']
+            arguments = {}
+            for arg in arguments_description:
+                key = arg.pop('name')
+                arguments[key] = arg
+            print(arguments)
+            json_manifest['arguments'] = arguments
+            with open(f'mcp-registry/servers/{name}.json', 'w') as f:
+                json.dump(json_manifest, f, indent=2)
+        updated.append(path)
+        print(updated)
+        
+
+def format_params():
+    json_paths = os.listdir('mcp-registry/servers')
+    # with open('.updated', 'r') as f:
+    #     updated_full_paths = f.read().splitlines()
+    #     updated_paths = [path.split('/')[-1] for path in updated_full_paths]
+    for path in tqdm.tqdm(json_paths):
+        # if path in updated_paths:
+        #     continue
+        print(path)
+        with open(f'mcp-registry/servers/{path}', 'r') as f:
+            manifest = json.load(f)
+        result = json.loads(format_installation_param(manifest))
+        print(result)
+        if result['need_format_args']:
+            for items in result['formatted_args']:
+                if items['installation_method'] not in manifest['installations']:
+                    continue
+                manifest['installations'][items['installation_method']]['args'] = items['args']
+        if result['need_format_env']:
+            env = {r['env_key']: r['formatted_value'] for r in result['formatted_env']}
+            for key in manifest['installations']:
+                manifest['installations'][key]['env'] = env
+        with open(f'mcp-registry/servers/{path}', 'w') as f:
+            json.dump(manifest, f, indent=2)
+
+
+def remove_field(field):
     server_paths = os.listdir('mcp-registry/servers')
     for path in tqdm.tqdm(server_paths):
         with open(f'mcp-registry/servers/{path}', 'r') as f:
             manifest = json.load(f)
-        manifest.pop('version', None)
+        manifest.pop(field, None)
         with open(f'mcp-registry/servers/{path}', 'w') as f:
             json.dump(manifest, f, indent=2)
+
+def remove_extra_args():
+    server_paths = os.listdir('mcp-registry/servers')
+    for path in tqdm.tqdm(server_paths):
+        with open(f'mcp-registry/servers/{path}', 'r') as f:
+            manifest = json.load(f)
+        if 'arguments' not in manifest:
+            continue
+        arguments = manifest['arguments']
+        to_pop = []
+        for key in arguments:
+            if not re.match(r'^\w+\w_?\w$', key):
+                to_pop.append(key)
+                continue
+            if key[:-2] in ('py', 'js'):
+                to_pop.append(key)
+        if to_pop:
+            print(f'removing {to_pop} from {path}')
+            for k in to_pop:
+                arguments.pop(k)
+        if not arguments:
+            manifest.pop('arguments')
+
+        with open(f'mcp-registry/servers/{path}', 'w') as f:
+            json.dump(manifest, f, indent=2)
+
 
 # Example of using the Pydantic models
 # def example_pydantic_usage():
@@ -781,4 +950,9 @@ def remove_version():
 
 if __name__ == '__main__':
     # main()
-    remove_version()
+    # remove_version()
+    # format_params()
+    # remove_field('arguments')
+    add_params()
+    # remove_extra_args()
+

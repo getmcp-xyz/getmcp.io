@@ -25,10 +25,10 @@
       "command": "npx",
       "args": [
         "-y",
-        "<full path to mcp-searxng repo>/"
+        "${REPO_PATH}"
       ],
       "env": {
-        "SEARXNG_URL": "YOUR_SEARXNG_INSTANCE_URL"
+        "SEARXNG_URL": "${SEARXNG_URL}"
       }
     }
   }

@@ -24,7 +24,7 @@
         "basic-memory",
         "mcp",
         "--project",
-        "your-project-name"
+        "${PROJECT_NAME}"
       ]
     }
   },

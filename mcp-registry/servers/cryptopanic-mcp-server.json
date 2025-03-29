@@ -38,7 +38,7 @@
         "main.py"
       ],
       "env": {
-        "CRYPTOPANIC_API_KEY": ""
+        "CRYPTOPANIC_API_KEY": "${CRYPTOPANIC_API_KEY}"
       }
     }
   }

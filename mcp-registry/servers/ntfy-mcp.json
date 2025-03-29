@@ -28,7 +28,7 @@
         "https://github.com/teddyzxcv/ntfy-mcp"
       ],
       "env": {
-        "NTFY_TOPIC": "<your topic name>"
+        "NTFY_TOPIC": "${NTFY_TOPIC}"
       }
     }
   },

@@ -30,9 +30,9 @@
         "src/prometheus_mcp_server/main.py"
       ],
       "env": {
-        "PROMETHEUS_URL": "http://your-prometheus-server:9090",
-        "PROMETHEUS_USERNAME": "your_username",
-        "PROMETHEUS_PASSWORD": "your_password"
+        "PROMETHEUS_URL": "${PROMETHEUS_URL}",
+        "PROMETHEUS_USERNAME": "${PROMETHEUS_USERNAME}",
+        "PROMETHEUS_PASSWORD": "${PROMETHEUS_PASSWORD}"
       }
     }
   },

@@ -35,7 +35,7 @@
       "args": [
         "mcp-server-sentry",
         "--auth-token",
-        "YOUR_SENTRY_TOKEN"
+        "${YOUR_SENTRY_TOKEN}"
       ]
     },
     "docker": {
@@ -47,7 +47,7 @@
         "--rm",
         "mcp/sentry",
         "--auth-token",
-        "YOUR_SENTRY_TOKEN"
+        "${YOUR_SENTRY_TOKEN}"
       ]
     },
     "python": {
@@ -57,7 +57,7 @@
         "-m",
         "mcp_server_sentry",
         "--auth-token",
-        "YOUR_SENTRY_TOKEN"
+        "${YOUR_SENTRY_TOKEN}"
       ]
     }
   }

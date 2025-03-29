@@ -29,7 +29,7 @@
         "-y",
         "goalstory-mcp",
         "https://prod-goalstory-rqc2.encr.app",
-        "your-api-key"
+        "${YOUR_API_KEY}"
       ]
     }
   }

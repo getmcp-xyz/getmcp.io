@@ -49,8 +49,8 @@
         "https://github.com/sunsetcoder/flightradar24-mcp-server"
       ],
       "env": {
-        "FR24_API_KEY": "your_api_key_here",
-        "FR24_API_URL": "https://fr24api.flightradar24.com"
+        "FR24_API_KEY": "${FR24_API_KEY}",
+        "FR24_API_URL": "${FR24_API_URL}"
       }
     }
   }

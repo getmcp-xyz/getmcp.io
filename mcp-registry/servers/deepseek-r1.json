@@ -28,7 +28,7 @@
         "https://github.com/66julienmartin/MCP-server-Deepseek_R1"
       ],
       "env": {
-        "DEEPSEEK_API_KEY": "your-api-key"
+        "DEEPSEEK_API_KEY": "${DEEPSEEK_API_KEY}"
       }
     }
   }

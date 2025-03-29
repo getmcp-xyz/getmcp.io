@@ -28,8 +28,10 @@
         "@gongrzhe/image-gen-server"
       ],
       "env": {
-        "REPLICATE_API_TOKEN": "your-replicate-api-token",
-        "MODEL": "alternative-model-name"
+        "REPLICATE_API_TOKEN": "${REPLICATE_API_TOKEN}",
+        "MODEL": "${MODEL}",
+        "your-replicate-api-token": "${your_replicate_api_token}",
+        "alternative-model-name": "${alternative_model_name}"
       }
     }
   }

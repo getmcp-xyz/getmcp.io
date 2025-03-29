@@ -28,7 +28,7 @@
         "@modelcontextprotocol/server-google-maps"
       ],
       "env": {
-        "GOOGLE_MAPS_API_KEY": "<YOUR_API_KEY>"
+        "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}"
       }
     },
     "docker": {
@@ -43,7 +43,7 @@
         "mcp/google-maps"
       ],
       "env": {
-        "GOOGLE_MAPS_API_KEY": "<YOUR_API_KEY>"
+        "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}"
       }
     }
   }

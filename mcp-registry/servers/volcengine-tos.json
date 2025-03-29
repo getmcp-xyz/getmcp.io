@@ -23,7 +23,7 @@
       "type": "uvx",
       "command": "uvx",
       "args": [
-        "tos-mcp-server"
+        "${args}"
       ]
     }
   },

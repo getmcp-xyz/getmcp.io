@@ -28,9 +28,9 @@
         "git+https://github.com/fastnai/mcp-fastn",
         "fastn-server.py",
         "--api_key",
-        "YOUR_API_KEY",
+        "${YOUR_API_KEY}",
         "--space_id",
-        "YOUR_WORKSPACE_ID"
+        "${YOUR_WORKSPACE_ID}"
       ]
     }
   }

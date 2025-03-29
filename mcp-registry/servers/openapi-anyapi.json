@@ -25,13 +25,18 @@
         "-i",
         "--rm",
         "-e",
-        "OPENAPI_JSON_DOCS_URL=https://api.finance.com/openapi.json",
+        "OPENAPI_JSON_DOCS_URL=${OPENAPI_JSON_DOCS_URL}",
         "-e",
-        "API_REQUEST_BASE_URL=https://api.finance.staging.com",
+        "API_REQUEST_BASE_URL=${API_REQUEST_BASE_URL}",
         "-e",
-        "MCP_API_PREFIX=finance",
+        "MCP_API_PREFIX=${MCP_API_PREFIX}",
         "buryhuang/mcp-server-any-openapi:latest"
-      ]
+      ],
+      "env": {
+        "OPENAPI_JSON_DOCS_URL": "${OPENAPI_JSON_DOCS_URL}",
+        "API_REQUEST_BASE_URL": "${API_REQUEST_BASE_URL}",
+        "MCP_API_PREFIX": "${MCP_API_PREFIX}"
+      }
     },
     "uvx": {
       "type": "uvx",
@@ -40,7 +45,12 @@
         "--from",
         "git+https://github.com/baryhuang/mcp-server-any-openapi",
         "src/mcp_server_any_openapi/server.py"
-      ]
+      ],
+      "env": {
+        "OPENAPI_JSON_DOCS_URL": "${OPENAPI_JSON_DOCS_URL}",
+        "API_REQUEST_BASE_URL": "${API_REQUEST_BASE_URL}",
+        "MCP_API_PREFIX": "${MCP_API_PREFIX}"
+      }
     }
   },
   "tags": [

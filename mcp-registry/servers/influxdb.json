@@ -25,7 +25,9 @@
       "type": "npm",
       "command": "npx",
       "args": [
-        "influxdb-mcp-server"
+        "${INFLUXDB_TOKEN}",
+        "${INFLUXDB_URL}",
+        "${INFLUXDB_ORG}"
       ],
       "env": {
         "INFLUXDB_TOKEN": "your_token",

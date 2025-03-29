@@ -23,7 +23,7 @@
       "type": "npm",
       "command": "npx",
       "args": [
-        "@anaisbetts/mcp-installer"
+        "${PACKAGE_NAME}"
       ]
     }
   },

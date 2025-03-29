@@ -28,7 +28,7 @@
         "excel-mcp-server"
       ],
       "env": {
-        "EXCEL_FILES_PATH": "/path/to/excel/files"
+        "EXCEL_FILES_PATH": "${EXCEL_FILES_PATH}"
       }
     }
   }

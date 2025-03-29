@@ -30,14 +30,14 @@
         "@GoPlausible/algorand-mcp"
       ],
       "env": {
-        "NFD_API_KEY": "",
-        "NFD_API_URL": "https://testnet-api.algonode.cloud",
-        "ALGORAND_ALGOD": "https://testnet-api.algonode.cloud",
-        "ALGORAND_TOKEN": "",
-        "ALGORAND_INDEXER": "https://testnet-idx.algonode.cloud",
-        "ALGORAND_INDEXER_API": "https://testnet-idx.algonode.cloud/v2",
-        "ALGORAND_INDEXER_PORT": "",
-        "ALGORAND_NETWORK": "testnet"
+        "NFD_API_KEY": "${NFD_API_KEY}",
+        "NFD_API_URL": "${NFD_API_URL}",
+        "ALGORAND_ALGOD": "${ALGORAND_ALGOD}",
+        "ALGORAND_TOKEN": "${ALGORAND_TOKEN}",
+        "ALGORAND_INDEXER": "${ALGORAND_INDEXER}",
+        "ALGORAND_INDEXER_API": "${ALGORAND_INDEXER_API}",
+        "ALGORAND_INDEXER_PORT": "${ALGORAND_INDEXER_PORT}",
+        "ALGORAND_NETWORK": "${ALGORAND_NETWORK}"
       }
     }
   }

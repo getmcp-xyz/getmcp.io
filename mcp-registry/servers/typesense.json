@@ -28,13 +28,13 @@
         "-y",
         "typesense-mcp-server",
         "--host",
-        "your-typesense-host",
+        "${TYPESENSE_HOST}",
         "--port",
         "8108",
         "--protocol",
         "http",
         "--api-key",
-        "your-api-key"
+        "${API_KEY}"
       ]
     }
   },

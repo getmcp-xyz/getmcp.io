@@ -27,7 +27,7 @@
         "https://github.com/dschuler36/reaper-mcp-server",
         "reaper-mcp-server",
         "--reaper-projects-dir",
-        "/path/to/your/reaper/projects"
+        "${REAPER_PROJECTS_DIR}"
       ]
     }
   },

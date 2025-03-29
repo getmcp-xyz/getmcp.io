@@ -31,8 +31,8 @@
         "src/cfbd_mcp_server/server.py"
       ],
       "env": {
-        "CFB_API_KEY": "xxx",
-        "PATH": "/full/path/to/python"
+        "CFB_API_KEY": "${CFB_API_KEY}",
+        "PATH": "${PATH}"
       }
     }
   },

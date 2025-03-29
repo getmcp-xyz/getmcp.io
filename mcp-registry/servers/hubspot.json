@@ -31,9 +31,12 @@
         "-i",
         "--rm",
         "-e",
-        "HUBSPOT_ACCESS_TOKEN=your_access_token_here",
+        "HUBSPOT_ACCESS_TOKEN=${HUBSPOT_ACCESS_TOKEN}",
         "buryhuang/mcp-hubspot:latest"
-      ]
+      ],
+      "env": {
+        "HUBSPOT_ACCESS_TOKEN": "${HUBSPOT_ACCESS_TOKEN}"
+      }
     }
   },
   "examples": [

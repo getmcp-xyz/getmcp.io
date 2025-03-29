@@ -37,7 +37,7 @@
       "type": "npm",
       "command": "npx",
       "args": [
-        "mcp-server-siri-shortcuts"
+        "${MCP_SERVER_SIRI_SHORTCUTS}"
       ]
     }
   }

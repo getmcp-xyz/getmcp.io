@@ -29,7 +29,7 @@
         "https://github.com/quazaai/UnityMCPIntegration"
       ],
       "env": {
-        "MCP_WEBSOCKET_PORT": "5010"
+        "MCP_WEBSOCKET_PORT": "${MCP_WEBSOCKET_PORT}"
       }
     }
   },

@@ -36,8 +36,8 @@
         "https://github.com/bazinga012/mcp_code_executor"
       ],
       "env": {
-        "CODE_STORAGE_DIR": "/path/to/code/storage",
-        "CONDA_ENV_NAME": "your-conda-env"
+        "CODE_STORAGE_DIR": "${CODE_STORAGE_DIR}",
+        "CONDA_ENV_NAME": "${CONDA_ENV_NAME}"
       }
     }
   }
