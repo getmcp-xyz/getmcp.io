@@ -1,6 +1,6 @@
 {
   "name": "goodnews",
-  "display_name": "MCP Goodnews",
+  "display_name": "Goodnews",
   "description": "A simple MCP server that delivers curated positive and uplifting news stories.",
   "repository": {
     "type": "git",

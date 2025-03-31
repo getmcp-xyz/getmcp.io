@@ -1,6 +1,6 @@
 {
   "name": "aws-kb-retrieval",
-  "display_name": "AWS Knowledge Base Retrieval MCP Server",
+  "display_name": "AWS Knowledge Base Retrieval",
   "description": "Retrieval from AWS Knowledge Base using Bedrock Agent Runtime",
   "repository": {
     "type": "git",

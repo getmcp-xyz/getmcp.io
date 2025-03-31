@@ -1,6 +1,6 @@
 {
   "name": "git",
-  "display_name": "mcp-server-git",
+  "display_name": "git",
   "description": "Tools to read, search, and manipulate Git repositories",
   "repository": {
     "type": "git",

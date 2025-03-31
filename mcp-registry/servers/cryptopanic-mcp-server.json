@@ -1,6 +1,6 @@
 {
   "name": "cryptopanic-mcp-server",
-  "display_name": "CryptoPanic MCP Server",
+  "display_name": "CryptoPanic News Server",
   "description": "Providing latest cryptocurrency news to AI agents, powered by CryptoPanic.",
   "repository": {
     "type": "git",

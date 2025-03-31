@@ -1,6 +1,6 @@
 {
   "name": "kibela",
-  "display_name": "Kibela MCP Server",
+  "display_name": "Kibela",
   "description": "Interact with Kibela API.",
   "repository": {
     "type": "git",

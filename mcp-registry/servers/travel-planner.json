@@ -1,6 +1,6 @@
 {
   "name": "travel-planner",
-  "display_name": "Travel Planner MCP Server",
+  "display_name": "Travel Planner",
   "description": "Travel planning and itinerary management server integrating with Google Maps API for location search, place details, and route calculations.",
   "repository": {
     "type": "git",

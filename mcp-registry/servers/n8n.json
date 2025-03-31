@@ -1,6 +1,6 @@
 {
   "name": "n8n",
-  "display_name": "n8n MCP Server",
+  "display_name": "n8n",
   "description": "This MCP server provides tools and resources for AI assistants to manage n8n workflows and executions, including listing, creating, updating, and deleting workflows, as well as monitoring their execution status.",
   "repository": {
     "type": "git",

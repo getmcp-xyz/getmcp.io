@@ -1,6 +1,6 @@
 {
   "name": "quickchart",
-  "display_name": "Quickchart-MCP-Server",
+  "display_name": "Quickchart",
   "description": "A Model Context Protocol server for generating charts using QuickChart.io",
   "repository": {
     "type": "git",

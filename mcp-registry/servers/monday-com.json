@@ -1,6 +1,6 @@
 {
   "name": "monday-com",
-  "display_name": "Monday.com MCP Server",
+  "display_name": "Monday.com",
   "description": "MCP Server to interact with Monday.com boards and items.",
   "repository": {
     "type": "git",

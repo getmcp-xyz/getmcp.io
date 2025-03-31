@@ -1,6 +1,6 @@
 {
   "name": "rijksmuseum",
-  "display_name": "Rijksmuseum MCP Server",
+  "display_name": "Rijksmuseum",
   "description": "Interface with the Rijksmuseum API to search artworks, retrieve artwork details, access image tiles, and explore user collections.",
   "repository": {
     "type": "git",

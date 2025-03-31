@@ -1,6 +1,6 @@
 {
   "name": "nasa",
-  "display_name": "NASA MCP Server",
+  "display_name": "NASA",
   "description": "Access to a unified gateway of NASA's data sources including but not limited to APOD, NEO, EPIC, GIBS.",
   "repository": {
     "type": "git",

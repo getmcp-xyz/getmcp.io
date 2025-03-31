@@ -1,6 +1,6 @@
 {
   "name": "terminal-control",
-  "display_name": "Terminal Controller for MCP",
+  "display_name": "Terminal Controller",
   "description": "A MCP server that enables secure terminal command execution, directory navigation, and file system operations through a standardized interface.",
   "repository": {
     "type": "git",

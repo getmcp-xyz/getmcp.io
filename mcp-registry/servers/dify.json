@@ -1,6 +1,6 @@
 {
   "name": "dify",
-  "display_name": "Dify MCP Server",
+  "display_name": "Dify",
   "description": "A simple implementation of an MCP server for dify workflows.",
   "repository": {
     "type": "git",

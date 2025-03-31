@@ -1,6 +1,6 @@
 {
   "name": "snowflake",
-  "display_name": "Snowflake MCP Server",
+  "display_name": "Snowflake",
   "description": "This MCP server enables LLMs to interact with Snowflake databases, allowing for secure and controlled data operations.",
   "repository": {
     "type": "git",

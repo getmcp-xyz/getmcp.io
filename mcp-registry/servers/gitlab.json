@@ -1,6 +1,6 @@
 {
   "name": "gitlab",
-  "display_name": "GitLab MCP Server",
+  "display_name": "GitLab",
   "description": "GitLab API, enabling project management",
   "repository": {
     "type": "git",

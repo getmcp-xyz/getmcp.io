@@ -1,6 +1,6 @@
 {
   "name": "github-actions",
-  "display_name": "GitHub Actions MCP Server",
+  "display_name": "GitHub Actions",
   "description": "A Model Context Protocol (MCP) server for interacting with Github Actions.",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "hdw-linkedin",
-  "display_name": "HDW MCP Server",
+  "display_name": "HDW",
   "description": "Access to profile data and management of user account with [HorizonDataWave.ai](https://horizondatawave.ai/).",
   "repository": {
     "type": "git",

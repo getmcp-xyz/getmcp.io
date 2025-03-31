@@ -1,6 +1,6 @@
 {
   "name": "reaper",
-  "display_name": "Reaper MCP Server",
+  "display_name": "Reaper",
   "description": "Interact with your [Reaper](https://www.reaper.fm/) (Digital Audio Workstation) projects.",
   "repository": {
     "type": "git",

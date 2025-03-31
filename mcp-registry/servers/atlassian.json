@@ -1,6 +1,6 @@
 {
   "name": "atlassian",
-  "display_name": "MCP Atlassian",
+  "display_name": "Atlassian",
   "description": "Interact with Atlassian Cloud products (Confluence and Jira) including searching/reading Confluence spaces/pages, accessing Jira issues, and project metadata.",
   "repository": {
     "type": "git",

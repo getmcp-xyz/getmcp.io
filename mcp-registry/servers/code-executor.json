@@ -1,6 +1,6 @@
 {
   "name": "code-executor",
-  "display_name": "MCP Code Executor",
+  "display_name": "Code Executor",
   "description": "An MCP server that allows LLMs to execute Python code within a specified Conda environment.",
   "repository": {
     "type": "git",

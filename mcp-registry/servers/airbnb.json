@@ -1,6 +1,6 @@
 {
   "name": "airbnb",
-  "display_name": "Airbnb MCP Server",
+  "display_name": "Airbnb",
   "description": "Provides tools to search Airbnb and get listing details.",
   "repository": {
     "type": "git",

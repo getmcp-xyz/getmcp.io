@@ -1,6 +1,6 @@
 {
   "name": "youtube",
-  "display_name": "YouTube MCP Server",
+  "display_name": "YouTube",
   "description": "Comprehensive YouTube API integration for video management, Shorts creation, and analytics.",
   "repository": {
     "type": "git",

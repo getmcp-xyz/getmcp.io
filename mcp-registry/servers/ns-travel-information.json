@@ -1,6 +1,6 @@
 {
   "name": "ns-travel-information",
-  "display_name": "NS Travel Information MCP Server",
+  "display_name": "NS Travel Information",
   "description": "Access Dutch Railways (NS) real-time train travel information and disruptions through the official NS API.",
   "repository": {
     "type": "git",

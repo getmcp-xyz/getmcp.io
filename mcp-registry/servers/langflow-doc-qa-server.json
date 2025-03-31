@@ -1,6 +1,6 @@
 {
   "name": "langflow-doc-qa-server",
-  "display_name": "Langflow Document Q&A Server",
+  "display_name": "Langflow Document Q&A",
   "description": "A Model Context Protocol server for document Q&A powered by Langflow. It demonstrates core MCP concepts by providing a simple interface to query documents through a Langflow backend.",
   "repository": {
     "type": "git",

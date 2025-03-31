@@ -1,6 +1,6 @@
 {
   "name": "any-chat-completions",
-  "display_name": "Any Chat Completions MCP",
+  "display_name": "Any Chat Completions",
   "description": "Interact with any OpenAI SDK Compatible Chat Completions API like OpenAI, Perplexity, Groq, xAI and many more.",
   "repository": {
     "type": "git",

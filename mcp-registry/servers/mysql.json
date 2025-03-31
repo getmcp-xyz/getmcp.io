@@ -1,6 +1,6 @@
 {
   "name": "mysql",
-  "display_name": "MySQL MCP Server",
+  "display_name": "MySQL Database Integration",
   "description": "MySQL database integration in Python with configurable access controls and schema inspection",
   "repository": {
     "type": "git",

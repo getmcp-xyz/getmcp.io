@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch",
-  "display_name": "Elasticsearch MCP Server",
+  "display_name": "Elasticsearch",
   "description": "MCP server implementation that provides Elasticsearch interaction.",
   "repository": {
     "type": "git",

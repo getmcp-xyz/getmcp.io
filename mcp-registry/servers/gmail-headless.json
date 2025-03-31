@@ -1,6 +1,6 @@
 {
   "name": "gmail-headless",
-  "display_name": "MCP Headless Gmail Server",
+  "display_name": "Headless Gmail Server",
   "description": "Remote hostable MCP server that can get and send Gmail messages without local credential or file system setup.",
   "repository": {
     "type": "git",

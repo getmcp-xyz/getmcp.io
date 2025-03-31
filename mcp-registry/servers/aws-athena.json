@@ -1,6 +1,6 @@
 {
   "name": "aws-athena",
-  "display_name": "AWS Athena MCP",
+  "display_name": "AWS Athena",
   "description": "A MCP server for AWS Athena to run SQL queries on Glue Catalog.",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "cfbd-api",
-  "display_name": "College Football Data MCP Server",
+  "display_name": "College Football Data API",
   "description": "An MCP server for the [College Football Data API](https://collegefootballdata.com/).",
   "repository": {
     "type": "git",

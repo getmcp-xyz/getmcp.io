@@ -1,6 +1,6 @@
 {
   "name": "flightradar24",
-  "display_name": "Flightradar24 MCP Server",
+  "display_name": "Flightradar24",
   "description": "A Claude Desktop MCP server that helps you track flights in real-time using Flightradar24 data.",
   "repository": {
     "type": "git",

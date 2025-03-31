@@ -1,6 +1,6 @@
 {
   "name": "rag-web-browser",
-  "display_name": "MCP Server for RAG Web Browser",
+  "display_name": "RAG Web Browser Server",
   "description": "An MCP server for Apify's open-source RAG Web Browser [Actor](https://apify.com/apify/rag-web-browser) to perform web searches, scrape URLs, and return content in Markdown.",
   "repository": {
     "type": "git",

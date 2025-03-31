@@ -1,6 +1,6 @@
 {
   "name": "sentry",
-  "display_name": "A Sentry MCP server",
+  "display_name": "Sentry",
   "description": "Retrieving and analyzing issues from Sentry.io",
   "repository": {
     "type": "git",

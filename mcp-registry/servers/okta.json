@@ -1,6 +1,6 @@
 {
   "name": "okta",
-  "display_name": "Okta MCP Server",
+  "display_name": "Okta",
   "description": "Interact with Okta API.",
   "repository": {
     "type": "git",

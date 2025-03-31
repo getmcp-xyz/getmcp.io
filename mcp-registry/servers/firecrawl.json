@@ -1,6 +1,6 @@
 {
   "name": "firecrawl",
-  "display_name": "Firecrawl MCP Server",
+  "display_name": "Firecrawl",
   "description": "Advanced web scraping with JavaScript rendering, PDF support, and smart rate limiting",
   "repository": {
     "type": "git",

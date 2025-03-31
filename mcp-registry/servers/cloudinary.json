@@ -1,6 +1,6 @@
 {
   "name": "cloudinary",
-  "display_name": "Cloudinary MCP Server",
+  "display_name": "Cloudinary",
   "description": "Cloudinary Model Context Protocol Server to upload media to Cloudinary and get back the media link and details.",
   "repository": {
     "type": "git",

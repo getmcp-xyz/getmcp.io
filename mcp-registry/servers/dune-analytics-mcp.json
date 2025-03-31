@@ -1,6 +1,6 @@
 {
   "name": "dune-analytics-mcp",
-  "display_name": "Dune Analytics MCP Server",
+  "display_name": "Dune Analytics",
   "description": "A mcp server that bridges Dune Analytics data to AI agents.",
   "repository": {
     "type": "git",

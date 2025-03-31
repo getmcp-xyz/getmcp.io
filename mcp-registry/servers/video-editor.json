@@ -1,6 +1,6 @@
 {
   "name": "video-editor",
-  "display_name": "Video Editor MCP Server",
+  "display_name": "Video Editor",
   "description": "A Model Context Protocol Server to add, edit, and search videos with [Video Jungle](https://www.video-jungle.com/).",
   "repository": {
     "type": "git",

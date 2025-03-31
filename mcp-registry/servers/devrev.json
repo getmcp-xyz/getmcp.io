@@ -1,6 +1,6 @@
 {
   "name": "devrev",
-  "display_name": "DevRev MCP Server",
+  "display_name": "DevRev",
   "description": "An MCP server to integrate with DevRev APIs to search through your DevRev Knowledge Graph where objects can be imported from diff. sources listed [here](https://devrev.ai/docs/import#available-sources).",
   "repository": {
     "type": "git",

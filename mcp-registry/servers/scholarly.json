@@ -1,6 +1,6 @@
 {
   "name": "scholarly",
-  "display_name": "mcp-scholarly",
+  "display_name": "scholarly",
   "description": "A MCP server to search for scholarly and academic articles.",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "ticketmaster",
-  "display_name": "Ticketmaster MCP Server",
+  "display_name": "Ticketmaster",
   "description": "Search for events, venues, and attractions through the Ticketmaster Discovery API",
   "repository": {
     "type": "git",

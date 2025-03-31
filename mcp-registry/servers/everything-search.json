@@ -1,6 +1,6 @@
 {
   "name": "everything-search",
-  "display_name": "Everything Search MCP Server",
+  "display_name": "Everything Search",
   "description": "Fast file searching capabilities across Windows (using [Everything SDK](https://www.voidtools.com/support/everything/sdk/)), macOS (using mdfind command), and Linux (using locate/plocate command).",
   "repository": {
     "type": "git",

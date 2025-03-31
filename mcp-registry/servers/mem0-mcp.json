@@ -1,6 +1,6 @@
 {
   "name": "mem0-mcp",
-  "display_name": "MCP Server with Mem0",
+  "display_name": "Mem0 Server",
   "description": "A Model Context Protocol server for Mem0, which helps with managing coding preferences.",
   "repository": {
     "type": "git",

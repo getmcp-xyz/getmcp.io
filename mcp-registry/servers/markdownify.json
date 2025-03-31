@@ -1,6 +1,6 @@
 {
   "name": "markdownify",
-  "display_name": "Markdownify MCP Server",
+  "display_name": "Markdownify",
   "description": "MCP to convert almost anything to Markdown (PPTX, HTML, PDF, Youtube Transcripts and more)",
   "repository": {
     "type": "git",

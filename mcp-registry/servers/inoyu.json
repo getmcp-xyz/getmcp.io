@@ -1,6 +1,6 @@
 {
   "name": "inoyu",
-  "display_name": "Inoyu Apache Unomi MCP Server",
+  "display_name": "Inoyu Apache Unomi",
   "description": "Interact with an Apache Unomi CDP customer data platform to retrieve and update customer profiles",
   "repository": {
     "type": "git",

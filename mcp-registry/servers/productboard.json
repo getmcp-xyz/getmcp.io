@@ -1,6 +1,6 @@
 {
   "name": "productboard",
-  "display_name": "Productboard MCP Server",
+  "display_name": "Productboard",
   "description": "Integrate the Productboard API into agentic workflows via MCP.",
   "repository": {
     "type": "git",

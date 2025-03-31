@@ -1,6 +1,6 @@
 {
   "name": "eunomia",
-  "display_name": "Eunomia MCP Server",
+  "display_name": "Eunomia",
   "description": "Extension of the Eunomia framework that connects Eunomia instruments with MCP servers",
   "repository": {
     "type": "git",

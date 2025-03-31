@@ -1,6 +1,6 @@
 {
   "name": "mariadb",
-  "display_name": "MCP Server for MariaDB",
+  "display_name": "MariaDB Database Integration",
   "description": "MariaDB database integration with configurable access controls in Python.",
   "repository": {
     "type": "git",

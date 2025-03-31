@@ -1,6 +1,6 @@
 {
   "name": "rememberizer-ai",
-  "display_name": "Rememberizer MCP Server",
+  "display_name": "Rememberizer",
   "description": "An MCP server designed for interacting with the Rememberizer data source, facilitating enhanced knowledge retrieval.",
   "repository": {
     "type": "git",
