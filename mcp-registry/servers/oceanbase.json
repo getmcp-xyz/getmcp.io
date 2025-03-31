@@ -1,6 +1,6 @@
 {
   "name": "oceanbase",
-  "display_name": "OceanBase MCP Server",
+  "display_name": "OceanBase",
   "description": "(by yuanoOo) A Model Context Protocol (MCP) server that enables secure interaction with OceanBase databases.",
   "repository": {
     "type": "git",

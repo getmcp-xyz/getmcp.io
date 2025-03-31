@@ -1,6 +1,6 @@
 {
   "name": "github",
-  "display_name": "GitHub MCP Server",
+  "display_name": "GitHub",
   "description": "MCP Server for the GitHub API, enabling file operations, repository management, search functionality, and more.",
   "repository": {
     "type": "git",

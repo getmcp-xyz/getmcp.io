@@ -1,6 +1,6 @@
 {
   "name": "elevenlabs",
-  "display_name": "ElevenLabs MCP Server",
+  "display_name": "ElevenLabs",
   "description": "A server that integrates with ElevenLabs text-to-speech API capable of generating full voiceovers with multiple voices.",
   "repository": {
     "type": "git",

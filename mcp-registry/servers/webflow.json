@@ -1,6 +1,6 @@
 {
   "name": "webflow",
-  "display_name": "Webflow MCP Server",
+  "display_name": "Webflow",
   "description": "Interfact with the Webflow APIs",
   "repository": {
     "type": "git",

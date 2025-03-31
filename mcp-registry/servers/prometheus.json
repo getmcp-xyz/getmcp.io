@@ -1,6 +1,6 @@
 {
   "name": "prometheus",
-  "display_name": "Prometheus MCP Server",
+  "display_name": "Prometheus",
   "description": "Query and analyze Prometheus - open-source monitoring system.",
   "repository": {
     "type": "git",

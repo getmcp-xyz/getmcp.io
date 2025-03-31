@@ -1,6 +1,6 @@
 {
   "name": "goal-story",
-  "display_name": "Goal Story MCP",
+  "display_name": "Goal Story",
   "description": "a Goal Tracker and Visualization Tool for personal and professional development.",
   "repository": {
     "type": "git",

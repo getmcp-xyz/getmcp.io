@@ -1,6 +1,6 @@
 {
   "name": "replicate",
-  "display_name": "Replicate MCP Server",
+  "display_name": "Replicate",
   "description": "Search, run and manage machine learning models on Replicate through a simple tool-based interface. Browse models, create predictions, track their status, and handle generated images.",
   "repository": {
     "type": "git",

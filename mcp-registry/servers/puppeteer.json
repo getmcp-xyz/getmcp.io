@@ -1,6 +1,6 @@
 {
   "name": "puppeteer",
-  "display_name": "Puppeteer",
+  "display_name": "Puppeteer Browser Automation",
   "description": "Browser automation and web scraping",
   "repository": {
     "type": "git",

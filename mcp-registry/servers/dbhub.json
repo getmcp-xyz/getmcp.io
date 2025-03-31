@@ -1,6 +1,6 @@
 {
   "name": "dbhub",
-  "display_name": "DBHub",
+  "display_name": "DBHub - Universal Database Gateway",
   "description": "Universal database MCP server connecting to MySQL, PostgreSQL, SQLite, DuckDB and etc.",
   "repository": {
     "type": "git",

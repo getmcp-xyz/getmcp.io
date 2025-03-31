@@ -1,6 +1,6 @@
 {
   "name": "memory",
-  "display_name": "Knowledge Graph Memory Server",
+  "display_name": "Knowledge Graph Memory",
   "description": "Knowledge graph-based persistent memory system",
   "repository": {
     "type": "git",

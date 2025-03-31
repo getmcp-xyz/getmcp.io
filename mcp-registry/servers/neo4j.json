@@ -1,6 +1,6 @@
 {
   "name": "neo4j",
-  "display_name": "MCP Neo4j Server",
+  "display_name": "Neo4j Server",
   "description": "A community built server that interacts with Neo4j Graph Database.",
   "repository": {
     "type": "git",

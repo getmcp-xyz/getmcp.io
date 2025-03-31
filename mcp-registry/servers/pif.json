@@ -1,6 +1,6 @@
 {
   "name": "pif",
-  "display_name": "MCP-PIF Server",
+  "display_name": "PIF Framework",
   "description": "A Personal Intelligence Framework (PIF), providing tools for file operations, structured reasoning, and journal-based documentation to support continuity and evolving human-AI collaboration across sessions.",
   "repository": {
     "type": "git",

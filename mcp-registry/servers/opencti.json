@@ -1,6 +1,6 @@
 {
   "name": "opencti",
-  "display_name": "OpenCTI MCP Server",
+  "display_name": "OpenCTI",
   "description": "Interact with OpenCTI platform to retrieve threat intelligence data including reports, indicators, malware and threat actors.",
   "repository": {
     "type": "git",

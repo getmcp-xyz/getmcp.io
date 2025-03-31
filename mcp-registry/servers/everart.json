@@ -1,6 +1,6 @@
 {
   "name": "everart",
-  "display_name": "EverArt MCP Server",
+  "display_name": "EverArt",
   "description": "AI image generation using various models",
   "repository": {
     "type": "git",

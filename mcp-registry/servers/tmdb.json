@@ -1,6 +1,6 @@
 {
   "name": "tmdb",
-  "display_name": "TMDB MCP Server",
+  "display_name": "TMDB",
   "description": "This MCP server integrates with The Movie Database (TMDB) API to provide movie information, search capabilities, and recommendations.",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "ghost",
-  "display_name": "Ghost MCP Server",
+  "display_name": "Ghost",
   "description": "A Model Context Protocol (MCP) server for interacting with Ghost CMS through LLM interfaces like Claude.",
   "repository": {
     "type": "git",

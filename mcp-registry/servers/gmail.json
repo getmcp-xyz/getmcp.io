@@ -1,6 +1,6 @@
 {
   "name": "gmail",
-  "display_name": "Gmail AutoAuth MCP Server",
+  "display_name": "Gmail AutoAuth",
   "description": "A Model Context Protocol (MCP) server for Gmail integration in Claude Desktop with auto authentication support.",
   "repository": {
     "type": "git",

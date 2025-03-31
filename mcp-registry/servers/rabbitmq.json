@@ -1,6 +1,6 @@
 {
   "name": "rabbitmq",
-  "display_name": "RabbitMQ MCP Server",
+  "display_name": "RabbitMQ",
   "description": "The MCP server that interacts with RabbitMQ to publish and consume messages.",
   "repository": {
     "type": "git",

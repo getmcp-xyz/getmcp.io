@@ -1,6 +1,6 @@
 {
   "name": "algorand",
-  "display_name": "Algorand MCP Implementation",
+  "display_name": "Algorand Implementation",
   "description": "A comprehensive MCP server for tooling interactions (40+) and resource accessibility (60+) plus many useful prompts for interacting with the Algorand blockchain.",
   "repository": {
     "type": "git",

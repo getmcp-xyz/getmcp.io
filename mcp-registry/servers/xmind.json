@@ -1,6 +1,6 @@
 {
   "name": "xmind",
-  "display_name": "MCP XMind Server",
+  "display_name": "XMind",
   "description": "Read and search through your XMind directory containing XMind files.",
   "repository": {
     "type": "git",

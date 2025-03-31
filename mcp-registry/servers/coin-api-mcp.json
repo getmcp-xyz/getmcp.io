@@ -1,6 +1,6 @@
 {
   "name": "coin-api-mcp",
-  "display_name": "Coin MCP Server",
+  "display_name": "Coin API",
   "description": "Provides access to [coinmarketcap](https://coinmarketcap.com/) cryptocurrency data.",
   "repository": {
     "type": "git",

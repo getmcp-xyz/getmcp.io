@@ -1,6 +1,6 @@
 {
   "name": "azure-adx",
-  "display_name": "Azure Data Explorer MCP Server",
+  "display_name": "Azure Data Explorer",
   "description": "Query and analyze Azure Data Explorer databases.",
   "repository": {
     "type": "git",

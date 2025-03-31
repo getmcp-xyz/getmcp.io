@@ -1,6 +1,6 @@
 {
   "name": "aws-cost-explorer",
-  "display_name": "AWS Cost Explorer and Amazon Bedrock",
+  "display_name": "AWS Cost Explorer",
   "description": "Optimize your AWS spend (including Amazon Bedrock spend) with this MCP server by examining spend across regions, services, instance types and foundation models ([demo video](https://www.youtube.com/watch?v=WuVOmYLRFmI&feature=youtu.be)).",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "placid-app",
-  "display_name": "Placid.app MCP Server",
+  "display_name": "Placid.app",
   "description": "Generate image and video creatives using Placid.app templates",
   "repository": {
     "type": "git",

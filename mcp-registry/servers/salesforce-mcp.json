@@ -1,6 +1,6 @@
 {
   "name": "salesforce-mcp",
-  "display_name": "MCP Salesforce Connector",
+  "display_name": "Salesforce Connector",
   "description": "Interact with Salesforce Data and Metadata",
   "repository": {
     "type": "git",

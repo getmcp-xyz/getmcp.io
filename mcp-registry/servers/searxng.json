@@ -1,6 +1,6 @@
 {
   "name": "searxng",
-  "display_name": "SearXNG MCP Server",
+  "display_name": "SearXNG",
   "description": "A Model Context Protocol Server for [SearXNG](https://docs.searxng.org/)",
   "repository": {
     "type": "git",

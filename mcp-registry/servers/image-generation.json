@@ -1,6 +1,6 @@
 {
   "name": "image-generation",
-  "display_name": "Image Generation MCP Server",
+  "display_name": "Image Generation",
   "description": "This MCP server provides image generation capabilities using the Replicate Flux model.",
   "repository": {
     "type": "git",

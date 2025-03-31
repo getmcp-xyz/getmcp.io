@@ -1,6 +1,6 @@
 {
   "name": "openai-websearch-mcp",
-  "display_name": "OpenAI WebSearch MCP Server",
+  "display_name": "OpenAI WebSearch",
   "description": "This is a Python-based MCP server that provides OpenAI `web_search` build-in tool.",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "neovim",
-  "display_name": "MCP Neovim Server",
+  "display_name": "Neovim Server",
   "description": "An MCP Server for your Neovim session.",
   "repository": {
     "type": "git",

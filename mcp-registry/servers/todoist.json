@@ -1,6 +1,6 @@
 {
   "name": "todoist",
-  "display_name": "Todoist MCP Server",
+  "display_name": "Todoist",
   "description": "Interact with Todoist to manage your tasks.",
   "repository": {
     "type": "git",

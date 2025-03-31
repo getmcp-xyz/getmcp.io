@@ -1,6 +1,6 @@
 {
   "name": "alphavantage",
-  "display_name": "Alphavantage MCP Server",
+  "display_name": "Alphavantage",
   "description": "MCP server for stock market data API [AlphaVantage](https://www.alphavantage.co/)",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "bing-web-search-api",
-  "display_name": "Bing Search MCP Server",
+  "display_name": "Bing Search API",
   "description": "Server implementation for Microsoft Bing Web Search API.",
   "repository": {
     "type": "git",

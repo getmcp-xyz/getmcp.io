@@ -1,6 +1,6 @@
 {
   "name": "excel",
-  "display_name": "Excel MCP Server",
+  "display_name": "Excel",
   "description": "Excel manipulation including data reading/writing, worksheet management, formatting, charts, and pivot table.",
   "repository": {
     "type": "git",

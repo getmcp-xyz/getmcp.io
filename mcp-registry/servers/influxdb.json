@@ -1,6 +1,6 @@
 {
   "name": "influxdb",
-  "display_name": "InfluxDB MCP Server",
+  "display_name": "InfluxDB",
   "description": "Run queries against InfluxDB OSS API v2.",
   "repository": {
     "type": "git",

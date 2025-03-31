@@ -1,6 +1,6 @@
 {
   "name": "firebase",
-  "display_name": "Firebase MCP Server",
+  "display_name": "Firebase",
   "description": "Server to interact with Firebase services including Firebase Authentication, Firestore, and Firebase Storage.",
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "discourse",
-  "display_name": "Discourse MCP Server",
+  "display_name": "Discourse",
   "description": "A MCP server to search Discourse posts on a Discourse forum.",
   "repository": {
     "type": "git",

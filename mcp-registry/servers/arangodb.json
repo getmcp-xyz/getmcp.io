@@ -1,6 +1,6 @@
 {
   "name": "arangodb",
-  "display_name": "MCP Server for ArangoDB",
+  "display_name": "ArangoDB",
   "description": "MCP Server that provides database interaction capabilities through [ArangoDB](https://arangodb.com/).",
   "repository": {
     "type": "git",
